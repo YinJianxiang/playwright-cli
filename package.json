@@ -1,0 +1,11 @@
+{
+  "name": "playwright-ui",
+  "private": true,
+  "scripts": {
+    "test:e2e": "playwright test tests/e2e/specs --headed --reporter=line",
+    "test:e2e:list": "playwright test tests/e2e/specs --list"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.41.0"
+  }
+}

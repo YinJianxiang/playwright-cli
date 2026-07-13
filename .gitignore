@@ -1,0 +1,6 @@
+node_modules/
+test-results/
+playwright-report/
+.env
+tests/e2e/.generated/
+tests/e2e/raw/*.raw.spec.ts

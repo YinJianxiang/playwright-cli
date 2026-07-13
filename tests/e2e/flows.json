@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "operations": [
+    {
+      "slug": "project-pause",
+      "name": "项目暂停",
+      "aliases": ["配置书剧暂停", "业务线阈值校验", "头条删除工具-项目暂停"],
+      "mode": "e2e",
+      "rawSpec": "tests/e2e/raw/<slug>.raw.spec.ts（本地录制，不提交）",
+      "spec": "tests/e2e/specs/project-pause.spec.ts",
+      "helpers": [
+        "tests/e2e/helpers/market-admin-auth.ts",
+        "tests/e2e/helpers/project-delete-out.ts"
+      ],
+      "capabilities": [
+        "login-market-admin",
+        "open-newdz-home",
+        "open-toutiao-delete-tool",
+        "open-pause-dialog",
+        "verify-pause-threshold-by-business-line"
+      ],
+      "dependsOn": [],
+      "version": 1,
+      "startPage": "http://192.168.0.215/market-admin/login",
+      "preconditions": ["market-admin 账号可用", "可进入点众智投-头条删除工具"],
+      "postconditions": ["各业务线切换后阈值字段展示正确"],
+      "paramEnv": {
+        "MARKET_ADMIN_USER": "登录用户名",
+        "MARKET_ADMIN_PASSWORD": "登录密码",
+        "MARKET_ADMIN_SMS_CODE": "短信验证码，默认 123"
+      },
+      "runCommand": "playwright test tests/e2e/specs/project-pause.spec.ts --headed --reporter=line",
+      "fastRunTemplate": "playwright test tests/e2e/specs/project-pause.spec.ts --headed --reporter=line",
+      "headedRunTemplate": "playwright test tests/e2e/specs/project-pause.spec.ts --headed --reporter=line",
+      "ciRunTemplate": "playwright test tests/e2e/specs/project-pause.spec.ts --reporter=line",
+      "notes": "按「项目暂停 > 业务线 > 具体断言」拆分 27 条用例；serial 模式共用一次登录与弹窗前置。",
+      "history": [
+        {
+          "type": "record",
+          "target": "project-pause",
+          "version": 1,
+          "rawSpec": "tests/e2e/raw/<slug>.raw.spec.ts（本地录制，不提交）",
+          "changedCapabilities": [
+            "login-market-admin",
+            "open-newdz-home",
+            "open-toutiao-delete-tool",
+            "open-pause-dialog",
+            "verify-pause-threshold-by-business-line"
+          ],
+          "impactedOperations": ["project-pause"],
+          "createdAt": "2026-07-13",
+          "note": "从 v2 raw 整理，覆盖 8 条业务线阈值字段校验"
+        }
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "slug": "login-market-admin",
+      "name": "登录 market-admin",
+      "aliases": ["market-admin 登录"],
+      "helper": "tests/e2e/helpers/market-admin-auth.ts",
+      "export": "loginMarketAdmin",
+      "sourceOperations": ["project-pause"],
+      "parameters": ["MARKET_ADMIN_USER", "MARKET_ADMIN_PASSWORD", "MARKET_ADMIN_SMS_CODE"],
+      "version": 1,
+      "startPage": "http://192.168.0.215/market-admin/login",
+      "endPage": "http://192.168.0.215/market-admin/",
+      "preconditions": ["账号密码可用"],
+      "postconditions": ["登录成功，弹窗已关闭"]
+    },
+    {
+      "slug": "open-newdz-home",
+      "name": "进入点众智投",
+      "aliases": ["打开 newdz", "大圣投放系统"],
+      "helper": "tests/e2e/helpers/market-admin-auth.ts",
+      "export": "openNewdzFromMarketAdmin",
+      "sourceOperations": ["project-pause"],
+      "parameters": [],
+      "version": 1,
+      "startPage": "http://192.168.0.215/market-admin/",
+      "endPage": "http://192.168.0.215/newdz/home",
+      "preconditions": ["已登录 market-admin"],
+      "postconditions": ["点众智投系统首页可见"]
+    },
+    {
+      "slug": "open-toutiao-delete-tool",
+      "name": "打开头条删除工具",
+      "aliases": ["头条删除工具页"],
+      "helper": "tests/e2e/helpers/project-delete-out.ts",
+      "export": "openToutiaoDeleteTool",
+      "sourceOperations": ["project-pause"],
+      "parameters": [],
+      "version": 1,
+      "startPage": "http://192.168.0.215/newdz/home",
+      "endPage": "http://192.168.0.215/newdz/home#/newdz/adcreate/projectdeleteout",
+      "preconditions": ["已进入点众智投"],
+      "postconditions": ["配置书剧暂停按钮可见"]
+    },
+    {
+      "slug": "open-pause-dialog",
+      "name": "打开发起暂停任务弹窗",
+      "aliases": ["配置书剧暂停弹窗"],
+      "helper": "tests/e2e/helpers/project-delete-out.ts",
+      "export": "openBookDramaPauseDialog",
+      "sourceOperations": ["project-pause"],
+      "parameters": [],
+      "version": 1,
+      "startPage": "http://192.168.0.215/newdz/home#/newdz/adcreate/projectdeleteout",
+      "endPage": "发起暂停任务弹窗",
+      "preconditions": ["已在头条删除工具页"],
+      "postconditions": ["发起暂停任务弹窗可见"]
+    },
+    {
+      "slug": "verify-pause-threshold-by-business-line",
+      "name": "校验业务线阈值字段",
+      "aliases": ["业务线阈值展示"],
+      "helper": "tests/e2e/helpers/project-delete-out.ts",
+      "export": "verifyPauseThresholdLabels",
+      "sourceOperations": ["project-pause"],
+      "parameters": ["businessLine"],
+      "version": 1,
+      "startPage": "发起暂停任务弹窗",
+      "endPage": "发起暂停任务弹窗",
+      "preconditions": ["已选择指定剧目和账户暂停"],
+      "postconditions": ["当前业务线对应阈值字段标签正确"]
+    }
+  ],
+  "history": [
+    {
+      "type": "record",
+      "target": "project-pause",
+      "version": 1,
+      "rawSpec": "tests/e2e/raw/<slug>.raw.spec.ts（本地录制，不提交）",
+      "changedCapabilities": [
+        "login-market-admin",
+        "open-newdz-home",
+        "open-toutiao-delete-tool",
+        "open-pause-dialog",
+        "verify-pause-threshold-by-business-line"
+      ],
+      "impactedOperations": ["project-pause"],
+      "createdAt": "2026-07-13",
+      "note": "首次整理 project-pause v2 raw"
+    }
+  ],
+  "templates": {
+    "operation": {
+      "slug": "",
+      "name": "",
+      "aliases": [],
+      "mode": "current-page-or-e2e",
+      "rawSpec": "tests/e2e/raw/<slug>.raw.spec.ts",
+      "spec": "tests/e2e/specs/<slug>.spec.ts",
+      "helpers": [],
+      "capabilities": [],
+      "dependsOn": [],
+      "version": 1,
+      "startPage": "",
+      "preconditions": [],
+      "postconditions": [],
+      "paramEnv": {},
+      "runCommand": "playwright test tests/e2e/specs/<slug>.spec.ts --headed --reporter=line",
+      "fastRunTemplate": "<ENV_OVERRIDES> playwright test tests/e2e/specs/<slug>.spec.ts --headed --reporter=line",
+      "headedRunTemplate": "<ENV_OVERRIDES> playwright test tests/e2e/specs/<slug>.spec.ts --headed --reporter=line",
+      "ciRunTemplate": "<ENV_OVERRIDES> playwright test tests/e2e/specs/<slug>.spec.ts --reporter=line",
+      "notes": "",
+      "history": []
+    },
+    "capability": {
+      "slug": "",
+      "name": "",
+      "aliases": [],
+      "helper": "tests/e2e/helpers/<module>.ts",
+      "export": "",
+      "sourceOperations": [],
+      "parameters": [],
+      "version": 1,
+      "startPage": "",
+      "endPage": "",
+      "preconditions": [],
+      "postconditions": []
+    },
+    "historyEntry": {
+      "type": "record|rerecord|compose|update",
+      "target": "",
+      "version": 1,
+      "rawSpec": "",
+      "changedCapabilities": [],
+      "impactedOperations": [],
+      "createdAt": "",
+      "note": ""
+    }
+  }
+}
