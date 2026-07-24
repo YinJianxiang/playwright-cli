@@ -1,64 +1,36 @@
-import type { ResultSetHeader, RowDataPacket } from 'mysql2';
-import { execute, pingDb, query } from '../db';
+/**
+ * ad-control 造数适配：读规则 → capability resolve → seed-spec / copy-then-patch / hit·miss。
+ * 可造范围以 `.cursor/skills/domains/ad-control/db/seed-capability.json` 为准。
+ */
+import type { RowDataPacket } from 'mysql2';
+import { pingDb, query } from '../db';
+import {
+  type SeedCapabilityFile,
+  type SeedMode,
+  type SeedOpts,
+  type SeedPlan,
+  type SeedResult,
+  type SeedSpec,
+  SeedGapError,
+  buildPlanRow,
+  buildSeedSpecFromPlan,
+  computeMetricValues,
+  deleteSeedRows,
+  formatSeedPlanForm,
+  insertPlanRow,
+  loadCapabilityFile,
+  loadSeedSpec,
+  resolveCapability,
+  resolveRowStrategy,
+  verifySeedAggregate,
+  writeSeedLog,
+  writeSeedSpec,
+} from './engine';
 
-/** Recipe A：新媒体-免费短剧 · 广告 · 当天 · 消耗 */
-const RECIPE_A = {
-  table: 'ad_advertiser_online_free_promotion_hour',
-  plineForm: 'cpsvideomf',
-  dataType: 'promotion',
-  column: 'consume',
-  promotionStatus: '投放中',
-  projectStatus: '开启',
-  account: 'e2e_dc_account',
-  videoType: '2',
-} as const;
+export type { SeedOpts, SeedPlan, SeedResult, SeedMode, SeedSpec };
+export { formatSeedPlanForm, SeedGapError, loadSeedSpec, writeSeedSpec };
 
-export type SeedOpts = {
-  /** 默认 hit：使 Job 对该 ruleId 能命中并写管控记录 */
-  mode?: 'hit' | 'miss';
-  /**
-   * 是否已人工确认拟插入表单。
-   * Agent 造数：必须先 plan → 展示表单 → 用户确认后再传 true。
-   * Playwright 无人值守：传 true，或设环境变量 E2E_SEED_AUTO_CONFIRM=1。
-   */
-  confirmed?: boolean;
-  /** 使用已确认的 plan（避免确认后重算导致 promotion_id 变化） */
-  plan?: SeedPlan;
-};
-
-/** 拟插入行（表单字段） */
-export type SeedPlanRow = {
-  cdate: string;
-  hour: string;
-  pline_form: string;
-  promotion_id: string;
-  promotion_name: string;
-  account: string;
-  video_type: string;
-  consume: number;
-  promotion_status: string;
-  project_status: string;
-};
-
-export type SeedPlan = {
-  recipe: 'A';
-  mode: 'hit';
-  ruleId: string;
-  table: string;
-  compareType: string;
-  threshold: number;
-  /** 命中说明，便于确认时阅读 */
-  hitHint: string;
-  rows: SeedPlanRow[];
-};
-
-export type SeedResult = SeedPlan & {
-  insertId: number;
-  promotionId: string;
-  cdate: string;
-  hour: string;
-  consume: number;
-};
+const BIZ = 'ad-control';
 
 type RuleRow = RowDataPacket & {
   id: number;
@@ -78,32 +50,109 @@ type Condition = {
   val2?: number;
 };
 
+function registry(): SeedCapabilityFile {
+  return loadCapabilityFile(BIZ);
+}
+
+function parseConditions(conditionsJson: string): Condition[] {
+  let list: Condition[];
+  try {
+    list = JSON.parse(conditionsJson) as Condition[];
+  } catch {
+    throw new Error(`planSeedViaDb: conditions JSON 解析失败: ${conditionsJson}`);
+  }
+  if (!Array.isArray(list) || !list.length) {
+    throw new Error('planSeedViaDb: conditions 为空');
+  }
+  return list;
+}
+
+function parsePrimaryCondition(conditionsJson: string): {
+  cond: {
+    timeType: string;
+    column: string;
+    compareType: string;
+    val1: number;
+    val2?: number;
+  };
+  conditionCount: number;
+} {
+  const list = parseConditions(conditionsJson);
+  const raw = list[0];
+  if (!raw.column) {
+    throw new Error(`planSeedViaDb: conditions[0] 缺少 column: ${conditionsJson}`);
+  }
+  if (raw.timeType == null || raw.timeType === '') {
+    throw new Error(`planSeedViaDb: conditions[0] 缺少 timeType: ${conditionsJson}`);
+  }
+  if (raw.val1 == null || Number.isNaN(Number(raw.val1))) {
+    throw new Error(`planSeedViaDb: 缺少有效阈值 val1: ${conditionsJson}`);
+  }
+  return {
+    conditionCount: list.length,
+    cond: {
+      timeType: String(raw.timeType),
+      column: String(raw.column),
+      compareType: raw.compareType || 'le',
+      val1: Number(raw.val1),
+      val2: raw.val2 == null ? undefined : Number(raw.val2),
+    },
+  };
+}
+
 /**
- * 只规划、不写库。Agent 应用 `formatSeedPlanForm` 展示后等用户确认。
+ * 只规划、不写库。可传入 seed-spec / mode=miss / rowStrategy。
+ * 若 opts.specOutDir 有值，写出 seed-spec-*.json。
  */
 export async function planSeedViaDb(ruleId: string, opts?: SeedOpts): Promise<SeedPlan> {
-  const mode = opts?.mode ?? 'hit';
-  if (mode !== 'hit') {
-    throw new Error(`planSeedViaDb: mode=${mode} 未实现（分册仅定义 hit Recipe A）`);
+  const spec = opts?.spec;
+  if (spec?.blocked) {
+    throw new SeedGapError(`seed-spec 已标记 blocked: ${spec.blocked}`, spec.recipeKey);
   }
+  if (spec && spec.ruleId !== String(ruleId)) {
+    throw new Error(`planSeedViaDb: spec.ruleId=${spec.ruleId} 与 ruleId=${ruleId} 不一致`);
+  }
+
+  const mode: SeedMode = opts?.mode ?? spec?.mode ?? 'hit';
+  const pairId = opts?.pairId ?? spec?.pairId;
+  const role =
+    opts?.role ??
+    spec?.role ??
+    (mode === 'hit' ? 'trigger' : mode === 'miss' ? 'non_trigger' : undefined);
+  const capFile = registry();
 
   const ping = await pingDb();
   // eslint-disable-next-line no-console
-  console.log(`DB_PING ok=${ping.ok} db=${ping.db} ruleId=${ruleId}`);
+  console.log(`DB_PING ok=${ping.ok} db=${ping.db} ruleId=${ruleId} mode=${mode}`);
 
   const rules = await query<RuleRow[]>(
     `SELECT id, pline_form, data_type, conditions, opt_status, project_status
-     FROM ad_data_control_rule WHERE id = ?`,
+     FROM ${capFile.ruleTable} WHERE id = ?`,
     [ruleId],
   );
   if (!rules.length) {
-    throw new Error(`planSeedViaDb: rule id=${ruleId} not found in ad_data_control_rule`);
+    throw new Error(`planSeedViaDb: rule id=${ruleId} not found in ${capFile.ruleTable}`);
   }
   const rule = rules[0];
-  assertRecipeA(rule);
+  const { cond, conditionCount } = parsePrimaryCondition(rule.conditions);
 
-  const cond = parseConsumeCondition(rule.conditions);
-  const consume = computeHitConsume(cond.compareType, cond.val1, cond.val2);
+  const cap = resolveCapability(
+    capFile,
+    rule.pline_form,
+    rule.data_type,
+    cond.timeType,
+    cond.column,
+  );
+
+  if (spec?.recipeKey && spec.recipeKey !== cap.key) {
+    throw new SeedGapError(
+      `seed-spec.recipeKey=${spec.recipeKey} 与规则解析 key=${cap.key} 不一致`,
+      cap.key,
+    );
+  }
+
+  const strategy = resolveRowStrategy(cap, opts);
+  const metricValues = computeMetricValues(cap, mode, cond.compareType, cond.val1, cond.val2);
 
   const clock = await query<RowDataPacket[]>(
     `SELECT DATE_FORMAT(CURDATE(), '%Y-%m-%d') AS cdate, LPAD(HOUR(NOW()), 2, '0') AS hour`,
@@ -111,116 +160,132 @@ export async function planSeedViaDb(ruleId: string, opts?: SeedOpts): Promise<Se
   const cdate = String(clock[0].cdate);
   const hour = String(clock[0].hour);
 
-  const promotionId = `e2e_dc_${ruleId}_${Date.now()}`;
-  const promotionName = `e2e_dc_${ruleId}`;
+  const entityId = `${capFile.markerPrefix}${ruleId}_${mode}_${Date.now()}`;
+  const entityName = `${capFile.markerPrefix}${ruleId}_${mode}`;
 
-  return {
-    recipe: 'A',
-    mode: 'hit',
+  const built = await buildPlanRow({
+    cap,
+    registry: capFile,
+    strategy,
+    entityId,
+    entityName,
+    cdate,
+    hour,
+    metricValues,
+  });
+
+  const metricHint = Object.entries(metricValues)
+    .map(([k, v]) => `${k}=${v}`)
+    .join(', ');
+  const multiNote =
+    conditionCount > 1
+      ? `；注意：规则共 ${conditionCount} 条条件，首版仅按第 1 条造数`
+      : '';
+  const strategyNote =
+    built.strategyUsed !== strategy
+      ? `；copy 无源行，已回退 synthetic`
+      : built.sourceRowId != null
+        ? `；骨架源 id=${built.sourceRowId}`
+        : '';
+
+  const plan: SeedPlan = {
+    biz: BIZ,
+    scenario: 'rule_trigger',
+    recipeKey: cap.key,
+    recipe: cap.key,
+    mode,
     ruleId: String(ruleId),
-    table: RECIPE_A.table,
+    table: cap.table,
+    plineForm: cap.plineForm,
     compareType: cond.compareType,
     threshold: cond.val1,
-    hitHint: `规则条件 consume ${cond.compareType} ${cond.val1} → 拟写 consume=${consume}`,
-    rows: [
-      {
-        cdate,
-        hour,
-        pline_form: RECIPE_A.plineForm,
-        promotion_id: promotionId,
-        promotion_name: promotionName,
-        account: RECIPE_A.account,
-        video_type: RECIPE_A.videoType,
-        consume,
-        promotion_status: RECIPE_A.promotionStatus,
-        project_status: RECIPE_A.projectStatus,
-      },
-    ],
+    hitHint: `mode=${mode} 规则 ${cond.column} ${cond.compareType} ${cond.val1} → 拟写 ${metricHint}${multiNote}${strategyNote}`,
+    conditionCount,
+    rowStrategy: built.strategyUsed,
+    sourceRowId: built.sourceRowId,
+    pairId,
+    role,
+    rows: [built.row],
   };
+
+  if (opts?.specOutDir) {
+    const specPath = writeSeedSpec(opts.specOutDir, buildSeedSpecFromPlan(plan));
+    // eslint-disable-next-line no-console
+    console.log(`SEED_SPEC_WRITTEN ${specPath}`);
+  }
+
+  return plan;
 }
 
 /**
- * 将 SeedPlan 格式化为 Markdown 表单，供对话确认。
+ * 将已确认的 plan 写入库；写后 verify 聚合是否落在 mode 期望侧。
  */
-export function formatSeedPlanForm(plan: SeedPlan): string {
-  const lines: string[] = [
-    `### 造数预览（Recipe ${plan.recipe} · ${plan.mode}）`,
-    '',
-    `| 项 | 值 |`,
-    `|----|----|`,
-    `| 规则 ID | ${plan.ruleId} |`,
-    `| 目标表 | \`${plan.table}\` |`,
-    `| 命中说明 | ${plan.hitHint} |`,
-    `| 比较 | ${plan.compareType} ${plan.threshold} |`,
-    `| 拟插入行数 | ${plan.rows.length} |`,
-    '',
-    `#### 拟 INSERT 字段`,
-    '',
-  ];
-
-  for (let i = 0; i < plan.rows.length; i++) {
-    const row = plan.rows[i];
-    lines.push(`**行 ${i + 1}**`, '', `| 字段 | 值 |`, `|------|----|`);
-    for (const [k, v] of Object.entries(row)) {
-      lines.push(`| ${k} | ${typeof v === 'string' ? v : String(v)} |`);
-    }
-    lines.push('');
+export async function applySeedViaDb(
+  plan: SeedPlan,
+  opts?: Pick<SeedOpts, 'specOutDir'>,
+): Promise<SeedResult> {
+  if (plan.biz !== BIZ) {
+    throw new Error(`applySeedViaDb: biz=${plan.biz} 与适配器 ${BIZ} 不一致`);
   }
-
-  lines.push('请确认是否写入测试库？回复 **确认造数** / **取消**。');
-  return lines.join('\n');
-}
-
-/**
- * 将已确认的 plan 写入库。
- */
-export async function applySeedViaDb(plan: SeedPlan): Promise<SeedResult> {
-  if (plan.recipe !== 'A' || plan.rows.length !== 1) {
-    throw new Error('applySeedViaDb: 仅支持 Recipe A 单行');
+  if (plan.rows.length !== 1) {
+    throw new Error('applySeedViaDb: 首版仅支持单行');
   }
+  const capFile = registry();
   const row = plan.rows[0];
+  const insertId = await insertPlanRow(plan.table, row, capFile);
 
-  const result = await execute(
-    `INSERT INTO ${plan.table}
-      (cdate, hour, pline_form, promotion_id, promotion_name, account, video_type,
-       consume, promotion_status, project_status)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [
-      row.cdate,
-      row.hour,
-      row.pline_form,
-      row.promotion_id,
-      row.promotion_name,
-      row.account,
-      row.video_type,
-      row.consume,
-      row.promotion_status,
-      row.project_status,
-    ],
-  );
+  const promotionId = String(row[capFile.entityIdColumn] ?? '');
+  const cdate = String(row.cdate ?? '');
+  const hour = row.hour != null ? String(row.hour) : undefined;
+  const metricValues: Record<string, number> = {};
+  for (const [k, v] of Object.entries(row)) {
+    if (typeof v === 'number') metricValues[k] = v;
+  }
+
+  const metricColumn = plan.recipeKey.split('|')[3] || Object.keys(metricValues)[0] || 'consume';
+  const verify = await verifySeedAggregate({
+    plan,
+    registry: capFile,
+    metricColumn,
+  });
 
   const seed: SeedResult = {
     ...plan,
-    insertId: Number((result as ResultSetHeader).insertId),
-    promotionId: row.promotion_id,
-    cdate: row.cdate,
-    hour: row.hour,
-    consume: row.consume,
+    insertId,
+    promotionId,
+    cdate,
+    hour,
+    metricValues,
+    verify,
   };
 
   // eslint-disable-next-line no-console
   console.log(
-    `SEED_OK recipe=A table=${seed.table} promotionId=${seed.promotionId} ` +
-      `cdate=${seed.cdate} hour=${seed.hour} consume=${seed.consume} ` +
-      `compare=${seed.compareType} threshold=${seed.threshold} insertId=${seed.insertId}`,
+    `SEED_OK biz=${BIZ} key=${seed.recipeKey} mode=${seed.mode} table=${seed.table} ` +
+      `promotionId=${seed.promotionId} cdate=${seed.cdate} hour=${seed.hour ?? '-'} ` +
+      `metrics=${JSON.stringify(metricValues)} verify=${verify.ok} insertId=${seed.insertId}`,
   );
+  // eslint-disable-next-line no-console
+  console.log(`SEED_VERIFY ${verify.detail}`);
+
+  if (opts?.specOutDir) {
+    const logPath = writeSeedLog(opts.specOutDir, seed);
+    // eslint-disable-next-line no-console
+    console.log(`SEED_LOG_WRITTEN ${logPath}`);
+  }
+
+  if (!verify.ok) {
+    throw new Error(`applySeedViaDb: ${verify.detail}`);
+  }
+
   return seed;
 }
 
 /**
  * 造数入口。
- * - 交互：先 `planSeedViaDb` + `formatSeedPlanForm`，用户确认后 `seedViaDb(id, { confirmed: true, plan })`
- * - 自动化：`seedViaDb(id, { confirmed: true })` 或 `E2E_SEED_AUTO_CONFIRM=1`
+ * - 交互：plan → format → 确认 → seedViaDb(..., { confirmed: true, plan })
+ * - 自动化：confirmed: true 或 E2E_SEED_AUTO_CONFIRM=1
+ * - 成对 miss：seedViaDb(id, { mode: 'miss', pairId: 'case-1', confirmed: true })
  */
 export async function seedViaDb(ruleId: string, opts?: SeedOpts): Promise<SeedResult> {
   const auto = process.env.E2E_SEED_AUTO_CONFIRM === '1' || process.env.E2E_SEED_AUTO_CONFIRM === 'true';
@@ -237,93 +302,42 @@ export async function seedViaDb(ruleId: string, opts?: SeedOpts): Promise<SeedRe
   if (plan.ruleId !== String(ruleId)) {
     throw new Error(`seedViaDb: plan.ruleId=${plan.ruleId} 与入参 ruleId=${ruleId} 不一致`);
   }
-  return applySeedViaDb(plan);
+  return applySeedViaDb(plan, opts);
 }
 
 /** 按造数结果清理本批事实行（06-cleanup） */
 export async function cleanupSeedViaDb(
-  seed: Pick<SeedResult, 'table' | 'promotionId' | 'cdate'>,
+  seed: Pick<SeedResult, 'table' | 'promotionId' | 'cdate' | 'plineForm'> & {
+    plineForm?: string;
+  },
 ): Promise<number> {
-  if (seed.table !== RECIPE_A.table) {
-    throw new Error(`cleanupSeedViaDb: unsupported table ${seed.table}`);
-  }
-  const result = await execute(
-    `DELETE FROM ${RECIPE_A.table}
-     WHERE pline_form = ? AND promotion_id = ? AND cdate = ?`,
-    [RECIPE_A.plineForm, seed.promotionId, seed.cdate],
-  );
-  const n = Number((result as ResultSetHeader).affectedRows);
+  const capFile = registry();
+  const plineForm = seed.plineForm ?? 'cpsvideomf';
+  const n = await deleteSeedRows({
+    table: seed.table,
+    plineForm,
+    entityIdColumn: capFile.entityIdColumn,
+    entityId: seed.promotionId,
+    cdate: seed.cdate,
+    registry: capFile,
+  });
   // eslint-disable-next-line no-console
   console.log(`SEED_CLEANUP deleted=${n} promotionId=${seed.promotionId} cdate=${seed.cdate}`);
   return n;
 }
 
-function assertRecipeA(rule: RuleRow) {
-  if (rule.pline_form !== RECIPE_A.plineForm) {
-    throw new Error(
-      `seedViaDb Recipe A 仅支持 pline_form=${RECIPE_A.plineForm}，实际=${rule.pline_form}`,
-    );
-  }
-  if (rule.data_type !== RECIPE_A.dataType) {
-    throw new Error(
-      `seedViaDb Recipe A 仅支持 data_type=${RECIPE_A.dataType}，实际=${rule.data_type}`,
-    );
-  }
+/** 列出已实现 key（供 Agent / 缺口报告） */
+export function listImplementedKeys(): string[] {
+  return registry()
+    .capabilities.filter((c) => c.implemented)
+    .map((c) => c.key);
 }
 
-function parseConsumeCondition(conditionsJson: string): {
-  compareType: string;
-  val1: number;
-  val2?: number;
-} {
-  let list: Condition[];
-  try {
-    list = JSON.parse(conditionsJson) as Condition[];
-  } catch {
-    throw new Error(`seedViaDb: conditions JSON 解析失败: ${conditionsJson}`);
-  }
-  if (!Array.isArray(list) || !list.length) {
-    throw new Error('seedViaDb: conditions 为空');
-  }
-  const cond = list[0];
-  if (cond.column !== RECIPE_A.column) {
-    throw new Error(
-      `seedViaDb Recipe A 仅支持 column=${RECIPE_A.column}，实际=${cond.column}`,
-    );
-  }
-  if (cond.timeType !== '0') {
-    throw new Error(`seedViaDb Recipe A 仅支持 timeType=0(当天)，实际=${cond.timeType}`);
-  }
-  if (cond.val1 == null || Number.isNaN(Number(cond.val1))) {
-    throw new Error(`seedViaDb: 缺少有效阈值 val1: ${conditionsJson}`);
-  }
-  return {
-    compareType: cond.compareType || 'le',
-    val1: Number(cond.val1),
-    val2: cond.val2 == null ? undefined : Number(cond.val2),
-  };
-}
-
-/** 使 sum(consume) 落在比较式真侧（Recipe A 单行即可） */
-function computeHitConsume(compareType: string, val1: number, val2?: number): number {
-  switch (compareType) {
-    case 'le':
-      if (val1 <= 0) return val1;
-      return Math.min(1, val1);
-    case 'lt':
-      if (val1 <= 0) {
-        throw new Error(`seedViaDb: compareType=lt 且 val1=${val1} 无法造正消耗命中`);
-      }
-      return Math.min(1, val1 / 2);
-    case 'ge':
-      return val1;
-    case 'gt':
-      return val1 + 1;
-    case 'between': {
-      if (val2 == null) throw new Error('seedViaDb: between 缺少 val2');
-      return Number(((val1 + val2) / 2).toFixed(2));
-    }
-    default:
-      throw new Error(`seedViaDb: 未支持的 compareType=${compareType}`);
-  }
+/** 从文件加载 seed-spec 再 plan（编排便捷入口） */
+export async function planFromSeedSpecFile(
+  specPath: string,
+  opts?: Omit<SeedOpts, 'spec'>,
+): Promise<SeedPlan> {
+  const spec = loadSeedSpec(specPath);
+  return planSeedViaDb(spec.ruleId, { ...opts, spec });
 }

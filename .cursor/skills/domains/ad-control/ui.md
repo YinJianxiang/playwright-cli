@@ -92,7 +92,7 @@
 
 ## DB 造数
 
-- 分册：[db/README.md](db/README.md)（`01`–`06`；原始资料 `db/_inbox/`）  
-- 流程：编排 Step 2b 见 `ui-flow-db/SKILL.md`  
-- 实现 `seedViaDb` 按 `db/05-seed-recipes.md` Recipe A  
+- 分册：[db/README.md](db/README.md)（`01`–`06` + `seed-capability.json`；原始资料 `db/_inbox/`）  
+- 流程：编排 Step 2b 见 `ui-flow-db/SKILL.md`（通用 resolve，非专用 Recipe）  
+- 可造范围：`db/seed-capability.json`；说明见 `db/05-seed-recipes.md`  
 - 与测试 SQL 冲突时以 **market-job DataControl** 为准  

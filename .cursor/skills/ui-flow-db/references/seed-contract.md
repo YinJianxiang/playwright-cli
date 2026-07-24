@@ -1,52 +1,82 @@
-# seedViaDb 契约
+# seedViaDb 契约（通用）
 
-本文件定 **接口与语义**；表结构、SQL、码值见 `domains/<biz>/db/` 分册。
+本文件定 **跨业务接口与语义**。表名、指标列等只来自 `domains/<biz>/db/seed-capability.json`，禁止臆造。
 
-**连接层已实现**：`tests/e2e/helpers/db.ts` + `npm run db:ping`。  
-**业务造数**：`tests/e2e/helpers/seed/{biz}.ts`（由当前 domain 指定 biz）。  
-**权威**：业务 Job 实现 > domain `db/` 分册 > `_inbox` 原稿。
+**连接层**：`tests/e2e/helpers/db.ts` + `npm run db:ping`  
+**通用引擎**：`tests/e2e/helpers/seed/engine.ts`  
+**业务适配**：`tests/e2e/helpers/seed/{biz}.ts`  
+**批次契约**：[`seed-spec.md`](seed-spec.md)（本批要造什么）  
+**权威**：业务 Job > domain `db/` 分册 > `_inbox` 原稿
+
+## 场景
+
+| scenario | 含义 |
+|----------|------|
+| `rule_trigger` | 管控规则命中/不命中（本仓库默认；非看板展示灌数） |
+
+## 通用流水线
+
+```text
+seed-spec（可选）+ ruleId
+  → Capability check（seed-capability.json）
+  → rowStrategy: copy-then-patch | synthetic
+  → computeHit | computeMiss
+  → SeedPlan → formatSeedPlanForm → 确认
+  → apply → verify 聚合 → seed-log → cleanup
+```
 
 ## 签名
 
 ```ts
 async function planSeedViaDb(ruleId: string, opts?: SeedOpts): Promise<SeedPlan>;
-function formatSeedPlanForm(plan: SeedPlan): string; // Markdown 表单
-async function applySeedViaDb(plan: SeedPlan): Promise<SeedResult>;
-/** 须 confirmed=true 或 E2E_SEED_AUTO_CONFIRM=1，否则抛错 */
-async function seedViaDb(ruleId: string, opts?: SeedOpts & { confirmed?: boolean; plan?: SeedPlan }): Promise<SeedResult>;
+function formatSeedPlanForm(plan: SeedPlan): string;
+async function applySeedViaDb(plan: SeedPlan, opts?: { specOutDir?: string }): Promise<SeedResult>;
+async function seedViaDb(ruleId: string, opts?: SeedOpts): Promise<SeedResult>;
+async function cleanupSeedViaDb(seed: ...): Promise<number>;
+async function planFromSeedSpecFile(specPath: string, opts?: SeedOpts): Promise<SeedPlan>;
 ```
 
-## 确认门禁（强制）
-
-| 场景 | 流程 |
-|------|------|
-| Agent / 对话造数 | ① `planSeedViaDb` ② `formatSeedPlanForm` 展示 ③ 用户确认 ④ `seedViaDb(id, { confirmed: true, plan })` |
-| Playwright 无人值守 | `seedViaDb(id, { confirmed: true })` 或 `E2E_SEED_AUTO_CONFIRM=1` |
-
-**未确认禁止 INSERT。** 确认后务必传入同一次 `plan`。
-
-## 入参
+## SeedOpts（要点）
 
 | 项 | 说明 |
 |----|------|
-| `ruleId` | 业务主键（见 domain UI） |
-| `opts.mode` | `'hit' \| 'miss'`（默认 `hit`） |
-| `opts.confirmed` | 用户已确认拟插入表单 |
-| `opts.plan` | 已展示并确认过的 `SeedPlan` |
+| `mode` | `hit` \| `miss`（默认 hit） |
+| `spec` | 已有 SeedSpec；可覆盖 mode / pair / strategy |
+| `pairId` / `role` | 成对触发组：`trigger` / `non_trigger` |
+| `rowStrategy` | 覆盖 capability 默认 |
+| `specOutDir` | 写出 `seed-spec-*.json` / `seed-log-*.json` |
+| `confirmed` / `plan` | 确认门禁 |
 
-## 语义
+## mode
 
-| mode | 含义 |
+| mode | 含义 | role 默认 |
+|------|------|-----------|
+| `hit` | 指标落在比较真侧，Job 应出记录 | `trigger` |
+| `miss` | 指标落在假侧，有数但不触发 | `non_trigger` |
+
+成对用法：同一 `pairId`，先 hit 跑 Job 断言有记录，再 miss（新实体）断言无记录。
+
+## rowStrategy
+
+| 策略 | 行为 |
 |------|------|
-| `hit`（默认） | 造数应使后续 Job/流程对该 `ruleId` 能产生预期记录 |
-| `miss` | 造数存在但不命中（负向；分册未定义前不做） |
+| `copy-then-patch` | 同源表取 1 条骨架列 → 覆盖实体 ID / 时间 / 指标 / statusDefaults；无源行回退 synthetic |
+| `synthetic` | 仅用 capability `fixedDefaults` |
 
-## 调用时机
+## 确认门禁
 
-以当前 `domains/<biz>/ui.md` / `apis.md` 为准（常见：开开关 → 确认造数 → 调 Job → 验记录）。
+Agent：plan → format 展示 → 用户确认 → `seedViaDb(..., { confirmed: true, plan })`  
+CI：`confirmed: true` 或 `E2E_SEED_AUTO_CONFIRM=1`
 
-## 未齐文档时
+## 首版边界
 
-- 保持空实现 / TODO  
-- 在批次 `README.md` 列出缺册  
-- **禁止**臆造 INSERT  
+| 情况 | 语义 |
+|------|------|
+| 单条件 | 矩阵有行且 implemented → 造 |
+| 多条件 | 仅 `conditions[0]` |
+| 矩阵无行 / spec.blocked | Gap，禁止 INSERT |
+| apply 后 verify 失败 | 抛错（聚合未落在 mode 期望侧） |
+
+## 未覆盖时
+
+先加 capability 行；批次 seed-spec 可先写 `blocked`；禁止臆造 INSERT。

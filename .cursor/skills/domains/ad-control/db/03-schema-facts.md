@@ -57,29 +57,40 @@
 | `roi_goal` / `cpa_bid` | 「最新」：`GROUP_CONCAT(... ORDER BY hour|cdate DESC)` 取第一条 |
 | `up_date` | 上架相关（渠道 day） |
 
-## 核心指标公式（Job / Mapper，节选）
+## 核心指标公式（Job / Mapper）
 
-消耗：**`sum(consume)`**（各业务通用）。
+消耗：**`sum(consume)`**（各业务通用）。比率类外层常有 `IFNULL(ROUND(...,4),0)`：除零常得 0。条件比较时指标为 null → 不命中。
 
-| 业务 | 指标（逻辑名） | 公式要点 |
-|------|----------------|----------|
-| `xmtplay` | ROI_H2 / ROI_H12 | `sum(cz_h2\|cz_h12)/sum(consume)` |
-| | 充值成本 | `sum(consume)/sum(n_recharge_uv_day)` |
-| | 退订率 | `sum(n_unsubscribe_uv_day)/sum(n_auto_pay_uv_day)` |
-| | 转化成本 | `sum(consume)/sum(convert_num)` |
-| | 计费比 | 最新 `roi_goal` / ROI_H12 |
-| `cpsvideomf` | 预估 ROI | `sum(n_predict_cpm)/sum(consume)` |
-| | ROI_Hn | `sum(n_total_income_h*)/sum(consume)` |
-| | 计费比 | 转化成本 / 最新 `cpa_bid` |
-| `cpsdyfree` | 广告变现 ROI | `sum(micro_game_0d_ltv)/sum(consume)` |
-| | ROI_H24 | `sum(n_total_income_h24)/sum(consume)` |
-| `cpsdy` | 激活后 24h 付费 ROI | `sum(active_pay_intra_one_day_amount)/sum(consume)` |
-| `cpsshort` | ROI_H1/H2/H3/H12 | `sum(cz_h*)/sum(consume)` |
-| `cpsfree` | 预估 ROI | `sum(n_predict_cpm)/sum(consume)` |
-| | 补贴后 ROI | `(n_predict_cpm + n_predict_cpm*0.3/0.7 + n_recharge_discount)/consume`，**无 /1000** |
-| `syhplay` | CPA / 新回 UV / 次留等 | `n_uv_hour`、`stay_uv_*`、`play_time_day` 等 |
+UI ↔ `column` value 全表见 [04-field-mapping.md](04-field-mapping.md)（对齐 `ColumnEnum`，**不含全域***）。
 
-大量比率外层有 `IFNULL(ROUND(...,4),0)`：除零常得 0。条件比较时指标为 null → 不命中。
+| 业务 | 指标（逻辑名） | Job column（示意） | 公式要点 |
+|------|----------------|-------------------|----------|
+| 多业务 | 消耗 | `consume` / `hour_consume` | `sum(consume)` |
+| `xmtplay` | ROI_H2 / ROI_H12 | `roi_h2` / `roi_h12`（分时 `hour_roi_h12`） | `sum(cz_h2\|cz_h12)/sum(consume)` |
+| | 付费/充值成本 | `pay_cost` | `sum(consume)/sum(n_recharge_uv_day)` |
+| | 订阅成本 | `n_auto_pay_cost` | 见 Mapper / `_inbox` 付费短剧 SQL |
+| | 转化数 / 转化成本 / 计费比 | `convert_num` / `convert_cost` / `bid_rate` | `sum(convert_num)`；`consume/convert_num`；最新 `roi_goal` / ROI_H12 |
+| `cpsvideomf` | 预估 ROI | `predict_roi` / `hour_predict_roi` | `sum(n_predict_cpm)/sum(consume)` |
+| | （测试 SQL）ROI_Hn | *ColumnEnum 未挂本 pline* | `sum(n_total_income_h*)/sum(consume)` — 造数前核对实写 column |
+| | 计费比 | *若 UI 有，核对 column* | 转化成本 / 最新 `cpa_bid` |
+| `cpsdyfree` | 广告变现 ROI | `micro_game_0d_roi` | `sum(micro_game_0d_ltv)/sum(consume)` |
+| | ROI_H24 | `roi_h24` | `sum(n_total_income_h24)/sum(consume)` |
+| | 预估 roi | `ad_roi` / `hour_ad_roi` | 端原生预估；≠ `predict_roi` |
+| | 转化 / 计费比 | `convert_*` / `bid_rate` | 计费比常含最新 `roi_goal` |
+| `cpsdy` | 激活后 24h 付费 ROI | `active_pay_intra_one_day_roi` | `sum(active_pay_intra_one_day_amount)/sum(consume)` |
+| | 转化 / 计费比 | 同上族 | |
+| `cpsshort` | ROI_H1/H2/H3/H12 | `roi_h*` / `hour_roi_h*` | `sum(cz_h*)/sum(consume)` |
+| | 付费成本 | `pay_cost` | `sum(consume)/sum(n_recharge_uv_day)` |
+| | 退订率 | `unsubscribe_rate` | `sum(n_unsubscribe_uv_day)/sum(n_auto_pay_uv_day)` |
+| `cpsfree` | 预估 ROI | `predict_roi` | `sum(n_predict_cpm)/sum(consume)`，**无 /1000** |
+| | 补贴后 ROI | `subsidies_roi` / `hour_subsidies_roi` | `(n_predict_cpm + n_predict_cpm*0.3/0.7 + n_recharge_discount)/consume` |
+| `syhplay` | 新回 UV | `n_uv` | `sum(n_uv_hour)` 等 |
+| | CPA | `cpa` | `sum(consume)/sum(n_uv_hour)` |
+| | 实时次留 / 次留～7留 | `stay_1` / `retention_d*_uv_ratio` | `stay_uv_*` 等 |
+| | 人均观看时长 | `avg_play_time_day` | `play_time_day` 等 |
+| | H3留存 | `stay_h3` | |
+| | 整体 ROI | `all_roi` / `hour_all_roi` | HM 整体 ROI（造数注意分子列） |
+| | arpu | `arpu` / `hour_arpu` | |
 
 ## 文档瑕疵（测试 SQL ≠ Job）
 

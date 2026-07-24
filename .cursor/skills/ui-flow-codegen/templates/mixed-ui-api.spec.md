@@ -1,9 +1,10 @@
-# mixed-ui-api.spec 模板
+# mixed-ui-api.spec 模板（suite=flow）
 
-生成时复制为 `{root}/specs/*.spec.ts`，并按 explore 结果补齐 locator；按 matrix 展开多条 `test()`。
+生成时复制为 `{root}/specs/flow/*.spec.ts`（兼容旧路径 `{root}/specs/*.spec.ts`），按 explore 补齐 locator；按 `matrix-flow.json` 展开多条 `test()`。
 
 凭据：项目根 `.env`。有 `{root}/explore/auth.json` 时优先 `storageState`。  
-**URL / Job / 文案只抄当前 `domains/<biz>/`，禁止在本模板写死业务值。**
+**URL / Job / 文案只抄当前 `domains/<biz>/`，禁止在本模板写死业务值。**  
+**仅 suite=flow 使用本模板**；suite=ui 用 [ui-options.spec.md](ui-options.spec.md)。
 
 ```typescript
 import fs from 'node:fs';

@@ -37,12 +37,13 @@
 
 连接与探针：仓库 `tests/e2e/helpers/db.ts`、`npm run db:ping`（见 [`../../../ui-flow-db/env-db.md`](../../../ui-flow-db/env-db.md)）。
 
-## 首期范围（E2E 默认）
+## 首期可执行造数（capability）
 
-与 [../ui.defaults.md](../ui.defaults.md) 对齐：
+与 [../ui.defaults.md](../ui.defaults.md)、[`seed-capability.json`](seed-capability.json) 对齐：
 
 | 项 | 值 |
 |----|-----|
+| key | `cpsvideomf\|promotion\|0\|consume` |
 | 业务线 UI | 新媒体-免费短剧 |
 | `pline_form` | `cpsvideomf` |
 | 维度 | 广告 → `dataType=promotion` |
@@ -50,11 +51,14 @@
 | 指标 | 消耗 → `sum(consume)` |
 | 事实表 | `ad_advertiser_online_free_promotion_hour` |
 
+其它条件：方法通用（resolve），须先在 capability 增行后再造。
+
 ## 非范围（首期可不做）
 
 - 书剧白名单 / 当日上架（`bookUpType`）全覆盖  
-- 全业务线全指标矩阵  
+- 全业务线全指标矩阵（按 flow 用例逐行扩展 capability）  
 - 以测试 SQL 文档为准的错误口径（见 [03](03-schema-facts.md)「文档瑕疵」）  
+- 全域* 指标（Job 未合入）  
 
 ## 参考路径
 

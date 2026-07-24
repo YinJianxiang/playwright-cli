@@ -31,5 +31,8 @@
 | 路径 | 用途 |
 |------|------|
 | `tests/e2e/helpers/db.ts` | mysql2 连接池 |
+| `tests/e2e/helpers/seed/engine.ts` | 通用造数引擎 |
+| `tests/e2e/helpers/seed/ad-control.ts` | ad-control 适配 |
+| `domains/ad-control/db/seed-capability.json` | 可执行矩阵 |
 | `scripts/db-ping.mjs` | `npm run db:ping` |
 | `.cursor/skills/ui-flow-db/env-db.md` | 环境变量 |

@@ -2,7 +2,9 @@
 
 Agent：未指定业务时 **先询问用户**，禁止默认某一业务。  
 指定后进入 `domains/<biz>/README.md`。  
-**生成用例前**：对本任务跑 `ui-flow-explore`（见 `ui-flow-codegen`「任务级探索」）；禁止用错配旧 explore 直接生成。
+
+**有需求 MD**：先跑 `ui-flow-req-cases` 一次产出 `cases-ui` + `cases-flow`（生成一块）。  
+**生成自动化 / 跑测前**：指定 `suite=ui|flow`，再对本任务跑 `ui-flow-explore`（见 `ui-flow-codegen`）；禁止用错配旧 explore 直接生成。执行分开，一次一个 suite。
 
 | biz id | 说明 | 入口 |
 |--------|------|------|

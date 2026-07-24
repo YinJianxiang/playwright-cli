@@ -1,71 +1,94 @@
 ---
 name: ui-flow-generate
 description: >-
-  在本任务 explore 门禁通过后，按冒烟/全量/scoped 生成 helpers 与 specs。
-  禁止无探索或错配旧 explore 直接生成。用于 ui-flow-codegen 第 2 步、生成自动化代码。
+  在本任务 explore 门禁通过后，按 suite=ui|flow 生成 helpers 与 specs。
+  ui 只断言 options；flow 走整链。禁止无探索或错配旧 explore 直接生成。
 ---
 
 # UI Flow 生成（Step 2）
 
-**仅在本任务 explore 门禁通过后执行。** 文案、必填、options、点击方式必须来自**本批次** `explore/report.md`；用例故事来自 `explore/cases.md`。禁止猜测。  
-用户要求「只生成」但本任务无合格 explore，或 report 上下文未覆盖本任务范围 → **停止写码**，先调 `ui-flow-explore`。
+**仅在本任务 explore 门禁通过后执行。**  
+文案、必填、options、点击方式来自本批 `explore/report.md`；用例故事来自 **`cases-ui.md`（suite=ui）或 `cases-flow.md` / `cases.md`（suite=flow）**。禁止猜测。
 
-业务步骤名称、API、断言页以当前 **domain**（`domains/<biz>/`）与 [templates/](../ui-flow-codegen/templates/) 为准。**未指定 domain → 询问后停止。**  
-控件点击按 [control-patterns.md](../ui-flow-codegen/references/control-patterns.md) 与 report「控件模式」列。  
-用例说明书格式见 [case-spec.md](../ui-flow-codegen/references/case-spec.md)。
+**未指定 suite → 询问后停止。** 一次只生成一个 suite。  
+**未指定 domain → 询问后停止。**
+
+控件点击按 [control-patterns.md](../ui-flow-codegen/references/control-patterns.md) 与 report。  
+说明书见 [case-spec.md](../ui-flow-codegen/references/case-spec.md)。  
+门禁详见 [handoff.md](../ui-flow-codegen/references/handoff.md)。
+
+## suite 分流
+
+| suite | 说明书 | 模板 | 产出 | 禁止 |
+|-------|--------|------|------|------|
+| `ui` | `cases-ui.md` | [ui-options.spec.md](../ui-flow-codegen/templates/ui-options.spec.md) | `specs/ui/*.spec.ts`、`matrix-ui.json` | 提交保存、开开关、造数、Job、记录页 |
+| `flow` | `cases-flow.md` 或 `cases.md` | [mixed-ui-api.spec.md](../ui-flow-codegen/templates/mixed-ui-api.spec.md) | `specs/flow/*.spec.ts`、`matrix-flow.json` | 存在 `blocked`；或可跑条件未成对 HIT/MISS |
 
 ## 前置门禁（缺一则停止，不写 spec）
 
-检查 `{root}/explore/`（详见 [handoff.md](../ui-flow-codegen/references/handoff.md)）：
+### 共用
 
-- [ ] **任务对齐**：`report.md` 的 mode / 维度 / 业务线等上下文 ⊇ 本任务要生成的用例范围（禁止用其它维度/业务线旧报告顶替）
-- [ ] `auth.json`、`list-snapshot.md`、`form-snapshot.md`、`report.md`、**`cases.md`** 属于**同一** `{root}`（禁止跨批次拼凑）
-- [ ] **`cases.md`**：本任务每条将生成用例有 `## <CASE_ID>`；含测什么、规则/数据条件、怎么操作、预期终态；定稿后与 `matrix.json` 行 id **1:1**
-- [ ] `report.md` 扩列字段表：上下文、必填、options、**操作方式（已验证）**、locator（推荐含控件模式）
-- [ ] 目标上下文下「必填=是」的下拉 options 已采到；filterable/remote 须有 fill→option 剧本（禁止空 options+「选第一项」）
-- [ ] 上下文切换控件 / 典型 combobox / 提交按钮 的操作方式不是「未验证」
-- [ ] 无「必填下拉空着却用 defaults 猜枚举」
+- [ ] **任务对齐**：`report.md` 的 suite/上下文 ⊇ 本 suite 用例范围  
+- [ ] `auth.json`、`list-snapshot.md`、`form-snapshot.md`、`report.md` 同批  
+- [ ] locator / 点击只抄 report；static / v2 / filterable 不得混用  
+
+### suite=ui
+
+- [ ] 存在 `cases-ui.md`；每节含测什么、选择因、期望展示、怎么操作、预期终态  
+- [ ] report 已采目标下拉 options，并有与期望对照记录  
+- [ ] `matrix-ui.json` 行 id = cases-ui 的 CASE_ID  
+- [ ] `expectedOptions` 来自 cases-ui，**禁止**用 report 全量覆盖需求期望  
+
+### suite=flow
+
+- [ ] 存在 `cases-flow.md` 或 `cases.md`；无 `blocked: need-conditions`（或已清除）  
+- [ ] 每节含测什么、规则/数据条件、怎么操作、预期终态、pairId / seed mode  
+- [ ] **成对**：每个逻辑 `pairId` 同时存在 `-HIT`（mode=hit）与 `-MISS`（mode=miss）两节 / 两行 matrix；缺一则停止  
+- [ ] HIT 终态=记录有命中；MISS 终态=有数但不触发（不同实体 ID）  
+- [ ] 必填下拉 options 已采；filterable/remote 有 fill 剧本  
+- [ ] 上下文切换 / 典型 combobox / 提交按钮 操作方式非「未验证」  
+- [ ] `matrix-flow.json`（或兼容 `matrix.json`）与 CASE_ID 1:1（含全部 `-HIT`/`-MISS`）
 
 门禁失败 → **不写 spec**，回 `ui-flow-explore`。  
-**禁止**捷径：复制旧批次 specs、只改枚举、或未探索就写 `tests/e2e/manual` 冒充本任务生成产物。  
-**禁止**无 `cases.md` 或说明书与 matrix 不对齐就生成。
+**禁止**复制旧批次 specs、未探索写 `tests/e2e/manual` 冒充本任务产物。  
+**禁止**把 UI 与 flow 写进同一个 `test()`。
 
 ## Checklist
 
 ```text
-- [ ] 通过门禁（含 cases.md）
-- [ ] 按 mode + domain 覆盖轴拼 matrix.json（枚举只取 report 中存在的 options；行 id = cases.md 的 CASE_ID）
-- [ ] 填表字段 = report 中「上下文=当前行」且「必填=是」的全部行
-      （选填默认不填；defaults 不得覆盖「必填=是」）
-- [ ] 非轴字段取值：defaults ∩ report options；options 空则停、回 explore
-- [ ] **取值优先级**：用户指定 / 矩阵行 > defaults（不限）> options[0]；禁止用「优先不限」覆盖 form 已有具体值
-- [ ] 负责人/主体等：form 字段用 `owner` / `subject`（选项值，不是「搜索关键字」）
-- [ ] locator / 点击只抄 report「操作方式」/控件模式（static vs ep-select-v2 vs filterable 不得混用）
-- [ ] 生成 helpers/ + specs/：`test('<CASE_ID>: <短标题>')`；`test.step` 名对齐 cases「怎么操作」
-- [ ] README.md（链到 cases.md / matrix / ruleId）
+- [ ] 确认 suite=ui | flow；通过对应门禁
+- [ ] 拼 matrix-ui.json 或 matrix-flow.json（行 id = CASE_ID；枚举操作方式来自 report）
+- [ ] suite=ui：按 ui-options 模板生成 specs/ui；step=准备/交互/打开下拉/断言 options
+- [ ] suite=flow：按 mixed-ui-api 模板生成 specs/flow；每个 pair 两个 `test()`（HIT/MISS）；step 对齐 domain 整链  
+- [ ] suite=flow：造数调用带 `mode` + 同一 `pairId`；MISS 用新实体；取值优先级 用户/矩阵 > defaults > options[0]
+- [ ] README.md 更新本 suite 产物链接
 ```
 
 ## 产出
 
 ```text
-{root}/matrix.json
+# suite=ui
+{root}/matrix-ui.json
+{root}/helpers/*.ts          # 可复用 auth；可选 options.ts
+{root}/specs/ui/*.spec.ts
+{root}/README.md
+
+# suite=flow
+{root}/matrix-flow.json
 {root}/helpers/*.ts
-{root}/specs/*.spec.ts
+{root}/specs/flow/*.spec.ts
 {root}/README.md
 ```
 
 ## 硬约束
 
 - 禁止无本任务 explore / 错配旧 explore 写 spec  
-- 禁止无用例说明书（测什么/条件/怎么操作/预期）写 spec  
-- 禁止 helper 写死业务枚举；轴字段来自矩阵行  
-- 必填与点击路径以 report 为准；用例故事以 cases.md 为准  
-- filterable/remote 必须 fill 后再选（仅点开为空时）；`ep-select-v2` 按 form 目标选 option-item，未指定才不限
-- 列表定位依赖唯一键（规则名/业务主键等，见 domain）
+- 禁止无对应说明书写 spec  
+- `suite=ui`：终态仅 options 断言；关闭弹层用取消，不用确认提交  
+- `suite=flow`：domain 声明的 TODO（如造数）可空实现；完整造数由 `ui-flow-db` 驱动；**必须**按 pair 生成 hit+miss 两个 test  
 - 有 `auth.json` 时优先 `storageState`  
-- domain 声明的 TODO 步骤可空实现（如造数）；完整造数由 [`ui-flow-db`](../ui-flow-db/SKILL.md) + 其 `domain/<biz>/` 分册驱动，**文档未齐不阻塞生成**，保持 `seedViaDb` TODO 并可由 Step 2b 列缺口  
-- 提交后应按 report：等待弹层关闭，失败时暴露校验信息  
+- filterable/remote 必须 fill 后再选；`ep-select-v2` 按 form 目标选  
 
 ## 门禁失败
 
-任务未对齐 / 缺 explore 五件套（含 cases.md）/ 缺必填或操作方式 / 必填 options 未采到 / filterable 无关键字剧本 / cases 与 matrix 不对齐 → **不写 spec**，回 explore。
+任务未对齐 / 缺 explore / 缺对应 cases / ui 无期望 options / flow 仍 blocked / **flow 未成对 HIT+MISS** / cases 与 matrix 不对齐 → **不写 spec**，回 explore。

@@ -12,15 +12,16 @@
 
 ## 事实行删除
 
+用 `cleanupSeedViaDb`（按 SeedResult 的 `table` / `plineForm` / `promotionId` / `cdate`）。示意：
+
 ```sql
--- 示意：按造数时记录的 ID 删除
-DELETE FROM ad_advertiser_online_free_promotion_hour
-WHERE pline_form = 'cpsvideomf'
+DELETE FROM /* plan.table，须 ∈ seed-capability 白名单 */
+WHERE pline_form = :pline
   AND promotion_id = :e2e_promotion_id
   AND cdate = :seed_cdate;
 ```
 
-其它表族同理，**禁止**无 WHERE 的 DELETE。
+标记前缀见 capability `markerPrefix`（默认 `e2e_dc_`）。**禁止**无 WHERE 的 DELETE。
 
 ## 与规则删除
 
