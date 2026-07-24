@@ -2,10 +2,18 @@
   "name": "playwright-ui",
   "private": true,
   "scripts": {
-    "test:e2e": "playwright test tests/e2e/specs --headed --reporter=line",
-    "test:e2e:list": "playwright test tests/e2e/specs --list"
+    "test:e2e": "playwright test --headed",
+    "test:e2e:list": "playwright test --list",
+    "test:generated": "playwright test --config=playwright.generated.config.ts --headed",
+    "db:ping": "node scripts/db-ping.mjs",
+    "report:html": "playwright show-report playwright-report",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "report:allure:gen": "allure generate allure-results --clean -o allure-report"
   },
   "devDependencies": {
-    "@playwright/test": "^1.41.0"
+    "@playwright/test": "^1.41.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.2",
+    "mysql2": "^3.23.1"
   }
 }

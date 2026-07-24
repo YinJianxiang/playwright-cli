@@ -1,6 +1,23 @@
+# Secrets / local env (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+# Dependencies & test artifacts
 node_modules/
 test-results/
 playwright-report/
-.env
-tests/e2e/.generated/
-tests/e2e/raw/*.raw.spec.ts
+allure-results/
+allure-report/
+.playwright-cli/
+
+# Local seed / debug noise
+scripts/.last-seed-plan.json
+*.log
+.cursor/debug-*.log
+debug-*.log
+
+# Generated per-batch cases / configs (keep manual + shared helpers)
+tests/e2e/generated/
+playwright.batch-*.config.ts
+playwright.generated.config.ts

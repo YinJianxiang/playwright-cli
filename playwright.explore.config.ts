@@ -1,12 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { defineConfig } from '@playwright/test';
-import { evidenceReporter, evidenceUse } from './playwright.evidence';
 
 function loadEnvFile() {
   try {
-    const envPath = resolve(__dirname, '.env');
-    const content = readFileSync(envPath, 'utf8');
+    const content = readFileSync(resolve(__dirname, '.env'), 'utf8');
     for (const line of content.split(/\r?\n/)) {
       const match = line.match(/^\s*([^#][^=]*?)=(.*)$/);
       if (match && process.env[match[1].trim()] === undefined) {
@@ -14,17 +12,23 @@ function loadEnvFile() {
       }
     }
   } catch {
-    // .env is optional; credentials can also be exported in the shell.
+    /* optional */
   }
 }
 
 loadEnvFile();
 
 export default defineConfig({
-  testDir: 'tests/e2e/specs',
-  timeout: 180_000,
-  expect: { timeout: 15_000 },
-  use: evidenceUse,
-  reporter: evidenceReporter,
-  outputDir: 'test-results',
+  testDir: 'tests/e2e/generated/20260722-111234/explore',
+  testMatch: 'run-explore.spec.ts',
+  timeout: 300_000,
+  expect: { timeout: 20_000 },
+  use: {
+    channel: 'chrome',
+    headless: false,
+    viewport: { width: 1440, height: 900 },
+    actionTimeout: 20_000,
+    navigationTimeout: 30_000,
+  },
+  reporter: [['line']],
 });
