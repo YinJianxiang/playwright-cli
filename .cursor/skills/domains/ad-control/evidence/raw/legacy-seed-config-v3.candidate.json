@@ -1,0 +1,3378 @@
+{
+  "version": "sha256:095d9f6dccef7b5e65a2ef878b5c707a7b6778252598950e49e4b6e3484c3f21",
+  "generatedAt": "2026-07-31T03:22:51.871Z",
+  "generatedFrom": [
+    {
+      "source": "D:/Project/market-job/market-job/src/main/java/com/dz/glory/job/model/DataControlRule.java",
+      "digest": "sha256:0c2d29daf06ba67346ced355a84fa556f630ef2dd292dde3417b7e7b168d0576"
+    },
+    {
+      "source": "D:/Project/market-job/market-job/src/main/java/com/dz/glory/job/service/DataControlService.java",
+      "digest": "sha256:a0af03ce0a91a8d7474ae933510cb279c50797fc23132d552d129106c79dd212"
+    },
+    {
+      "source": "D:/Project/playwright-ui/.cursor/skills/domains/ad-control/db/table-map.json",
+      "digest": "sha256:8c3e205c0a0f1e38b4fb5349ac88e64b108ecaf9e3c6b54456c7137ed46b75a7"
+    },
+    {
+      "source": "D:/Project/playwright-ui/.cursor/skills/domains/ad-control/db/metric-map.json",
+      "digest": "sha256:91f7a9a0d2771662c4de9ae6dd27349add1ccd94e7cad70332b4b7b7d28d7da8"
+    },
+    {
+      "source": "D:/Project/playwright-ui/.cursor/skills/domains/ad-control/db/seed-capability.json",
+      "digest": "sha256:0e7978861b36ca32eeec4343c73ef2d8f4d4e16f3c767d41c82c1f699733bbb7"
+    }
+  ],
+  "tables": [
+    {
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_channel_day",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_channel_day",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_channel_hour",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_channel_hour",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_promotion_day",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_promotion_hour",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_free_channel_day",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_channel_day",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_free_channel_hour",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_channel_hour",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_free_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_free_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_free_promotion_day",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_free_channel_day",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_channel_day",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_free_channel_hour",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_channel_hour",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_free_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_free_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_free_promotion_day",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_channel_day",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "channel",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_channel_day",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_channel_hour",
+      "entityIdColumn": "channel_code"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "channel",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_channel_hour",
+      "entityIdColumn": "channel_code",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_roi3_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_roi3_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "releaseVer": 3,
+      "notes": "Job releaseVer=3 → pay_roi3_*"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_promotion_day",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_promotion_hour",
+      "entityIdColumn": "promotion_id",
+      "entityNameColumn": "promotion_name"
+    },
+    {
+      "plineForm": "cpsfree",
+      "dataType": "project",
+      "timeGrain": "hour",
+      "table": "ad_advertiser_online_pay_book_project_hour",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "notes": "DataControlService DATA_TABLE_CPSFREE_PROJECT; schema checked 2026-07-30"
+    },
+    {
+      "plineForm": "cpsfree",
+      "dataType": "project",
+      "timeGrain": "day",
+      "table": "ad_advertiser_online_pay_book_project_day",
+      "entityIdColumn": "project_id",
+      "entityNameColumn": "project_name",
+      "notes": "近N天等 day 表；rule 16242 timeType=100"
+    }
+  ],
+  "metrics": [
+    {
+      "column": "consume",
+      "desc": "当日消耗",
+      "plines": [
+        "xmtplay",
+        "cpsvideomf",
+        "cpsshort",
+        "cpsdy",
+        "cpsdyfree",
+        "cpsfree"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "consume"
+      ],
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "roi_h1",
+      "desc": "当日的ROI_H1",
+      "plines": [
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h1",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h1",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "roi_h2",
+      "desc": "当日的ROI_H2",
+      "plines": [
+        "cpsshort",
+        "xmtplay"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h2",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h2",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "roi_h3",
+      "desc": "当日的ROI_H3",
+      "plines": [
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h3",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h3",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "roi_h12",
+      "desc": "当日的ROI_H12",
+      "plines": [
+        "xmtplay",
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h12",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h12",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "roi_h24",
+      "desc": "当日ROI_h24",
+      "plines": [
+        "cpsdyfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_total_income_h24",
+        "consume"
+      ],
+      "numeratorColumn": "n_total_income_h24",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "micro_game_0d_roi",
+      "desc": "当日广告变现ROI",
+      "plines": [
+        "cpsdyfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "micro_game_0d_ltv",
+        "consume"
+      ],
+      "numeratorColumn": "micro_game_0d_ltv",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "ad_roi",
+      "desc": "预估roi",
+      "plines": [
+        "cpsdyfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "ad_roi",
+        "consume"
+      ],
+      "numeratorColumn": "ad_roi",
+      "denominatorColumn": "consume",
+      "notes": "端原生预估；写列以实库为准",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29",
+        "notes": "端原生预估；写列以实库为准"
+      }
+    },
+    {
+      "column": "hour_ad_roi",
+      "desc": "分时预估roi",
+      "plines": [
+        "cpsdyfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "ad_roi",
+        "consume"
+      ],
+      "numeratorColumn": "ad_roi",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "convert_num",
+      "desc": "转化数",
+      "plines": [
+        "cpsdyfree",
+        "cpsdy",
+        "xmtplay",
+        "cpsvideomf"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "convert_num"
+      ],
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "convert_cost",
+      "desc": "转化成本",
+      "plines": [
+        "cpsdyfree",
+        "cpsdy",
+        "xmtplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "convert_cost"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "hour_convert_cost",
+      "desc": "分时转化成本",
+      "plines": [
+        "cpsdyfree",
+        "cpsdy",
+        "xmtplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "hour_convert_cost"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "bid_rate",
+      "desc": "计费比",
+      "plines": [
+        "cpsdyfree",
+        "cpsdy",
+        "xmtplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "bid_rate"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "hour_bid_rate",
+      "desc": "分时计费比",
+      "plines": [
+        "cpsdyfree",
+        "cpsdy",
+        "xmtplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "hour_bid_rate"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "active_pay_intra_one_day_roi",
+      "desc": "激活后24h付费ROI",
+      "plines": [
+        "cpsdy"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "active_pay_intra_one_day_amount",
+        "consume"
+      ],
+      "numeratorColumn": "active_pay_intra_one_day_amount",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "predict_roi",
+      "desc": "当日的预估ROI",
+      "plines": [
+        "cpsvideomf",
+        "cpsfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_predict_cpm",
+        "consume"
+      ],
+      "numeratorColumn": "n_predict_cpm",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "pay_cost",
+      "desc": "当日付费成本",
+      "plines": [
+        "cpsshort",
+        "xmtplay"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "consume",
+        "n_recharge_uv_day"
+      ],
+      "numeratorColumn": "consume",
+      "denominatorColumn": "n_recharge_uv_day",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "n_auto_pay_cost",
+      "desc": "订阅成本",
+      "plines": [
+        "xmtplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "n_auto_pay_cost"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "unsubscribe_rate",
+      "desc": "当日退订率",
+      "plines": [
+        "cpsshort",
+        "xmtplay"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_unsubscribe_uv_day",
+        "n_auto_pay_uv_day"
+      ],
+      "numeratorColumn": "n_unsubscribe_uv_day",
+      "denominatorColumn": "n_auto_pay_uv_day",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_consume",
+      "desc": "分时消耗",
+      "plines": [
+        "xmtplay",
+        "cpsvideomf",
+        "cpsshort",
+        "cpsdy",
+        "cpsdyfree",
+        "cpsfree"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "consume"
+      ],
+      "notes": "分时：事实列仍写 consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29",
+        "notes": "分时：事实列仍写 consume"
+      }
+    },
+    {
+      "column": "hour_roi_h1",
+      "desc": "分时ROI_H1",
+      "plines": [
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h1",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h1",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_roi_h1",
+      "desc": "分时ROI_H1（免费短剧：n_total_income_h1/consume）",
+      "plines": [
+        "cpsvideomf",
+        "cpsfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_total_income_h1",
+        "consume"
+      ],
+      "numeratorColumn": "n_total_income_h1",
+      "denominatorColumn": "consume",
+      "notes": "Mapper scanData4FreeVideo；与短篇 cz_h1 不同",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29",
+        "notes": "Mapper scanData4FreeVideo；与短篇 cz_h1 不同"
+      }
+    },
+    {
+      "column": "hour_roi_h2",
+      "desc": "分时ROI_H2",
+      "plines": [
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h2",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h2",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_roi_h3",
+      "desc": "分时ROI_H3",
+      "plines": [
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h3",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h3",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_roi_h12",
+      "desc": "分时ROI_H12",
+      "plines": [
+        "xmtplay",
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "cz_h12",
+        "consume"
+      ],
+      "numeratorColumn": "cz_h12",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_predict_roi",
+      "desc": "分时预估ROI",
+      "plines": [
+        "cpsvideomf",
+        "cpsfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_predict_cpm",
+        "consume"
+      ],
+      "numeratorColumn": "n_predict_cpm",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_pay_cost",
+      "desc": "分时付费成本",
+      "plines": [
+        "cpsshort",
+        "xmtplay"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "consume",
+        "n_recharge_uv_day"
+      ],
+      "numeratorColumn": "consume",
+      "denominatorColumn": "n_recharge_uv_day",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_n_auto_pay_cost",
+      "desc": "分时订阅成本",
+      "plines": [
+        "xmtplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "hour_n_auto_pay_cost"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "hour_unsubscribe_rate",
+      "desc": "分时退订率",
+      "plines": [
+        "cpsshort"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_unsubscribe_uv_day",
+        "n_auto_pay_uv_day"
+      ],
+      "numeratorColumn": "n_unsubscribe_uv_day",
+      "denominatorColumn": "n_auto_pay_uv_day",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "hour_ACTIVE_PAY_INTRA_ONE_DAY_ROI",
+      "desc": "分时激活后24h付费ROI",
+      "plines": [
+        "cpsdy"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "active_pay_intra_one_day_amount",
+        "consume"
+      ],
+      "numeratorColumn": "active_pay_intra_one_day_amount",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "n_uv",
+      "desc": "新回UV",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "n_uv"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "cpa",
+      "desc": "CPA",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "cpa"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "stay_1",
+      "desc": "实时次留",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "stay_1"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "retention_d1_uv_ratio",
+      "desc": "次留",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "retention_d1_uv_ratio"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "retention_d3_uv_ratio",
+      "desc": "3留",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "retention_d3_uv_ratio"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "retention_d4_uv_ratio",
+      "desc": "4留",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "retention_d4_uv_ratio"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "retention_d5_uv_ratio",
+      "desc": "5留",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "retention_d5_uv_ratio"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "retention_d6_uv_ratio",
+      "desc": "6留",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "retention_d6_uv_ratio"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "retention_d7_uv_ratio",
+      "desc": "7留",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "retention_d7_uv_ratio"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "avg_play_time_day",
+      "desc": "人均观看时长",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "avg_play_time_day"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "hour_avg_play_time_day",
+      "desc": "分时人均观看时长",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "hour_avg_play_time_day"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "stay_h3",
+      "desc": "H3留存",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "stay_h3"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "hour_stay_h3",
+      "desc": "分时H3留存",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "hour_stay_h3"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "all_roi",
+      "desc": "整体ROI",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "consume"
+      ],
+      "numeratorColumn": "consume",
+      "denominatorColumn": "consume",
+      "notes": "HM 整体 ROI；仅登记，造数前核对",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "HM 整体 ROI；仅登记，造数前核对"
+      }
+    },
+    {
+      "column": "hour_all_roi",
+      "desc": "分时整体ROI",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "consume"
+      ],
+      "numeratorColumn": "consume",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "arpu",
+      "desc": "arpu值",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "arpu"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "hour_arpu",
+      "desc": "分时arpu值",
+      "plines": [
+        "syhplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "hour_arpu"
+      ],
+      "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+      }
+    },
+    {
+      "column": "subsidies_roi",
+      "desc": "补贴后ROI",
+      "plines": [
+        "cpsfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_predict_cpm",
+        "n_recharge_discount",
+        "consume"
+      ],
+      "numeratorColumn": "n_predict_cpm",
+      "denominatorColumn": "consume",
+      "notes": "补贴后 ROI 含折扣项；hit/miss 首版近似",
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "补贴后 ROI 含折扣项；hit/miss 首版近似"
+      }
+    },
+    {
+      "column": "hour_subsidies_roi",
+      "desc": "分时补贴后ROI",
+      "plines": [
+        "cpsfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "n_predict_cpm",
+        "n_recharge_discount",
+        "consume"
+      ],
+      "numeratorColumn": "n_predict_cpm",
+      "denominatorColumn": "consume",
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "model_pred_roi",
+      "desc": "模型预测ROI",
+      "plines": [
+        "cpsdyfree",
+        "cpsdy",
+        "cpsvideomf",
+        "xmtplay"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "notes": "模型预测ROI；天表列；小时维度双条件时 Job 可能跳过纯 model_pred_roi",
+      "status": "verified",
+      "seedPolicy": {
+        "forceGrain": "day",
+        "evaluationPhase": "post-filter",
+        "standaloneRule": "blocked"
+      },
+      "evidence": {
+        "source": "market-job post-filter + existing dual-table seed logs",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29"
+      }
+    },
+    {
+      "column": "all_roi_trend",
+      "desc": "全域ROI",
+      "plines": [
+        "cpsdy",
+        "cpsdyfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "numeratorColumn": "all_gmv_trend",
+      "denominatorColumn": "all_stat_total_cost_trend",
+      "notes": "全域ROI=sum(all_gmv_trend)/sum(all_stat_total_cost_trend)；roi3",
+      "requireReleaseVer": 3,
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29",
+        "notes": "全域ROI=sum(all_gmv_trend)/sum(all_stat_total_cost_trend)；roi3"
+      }
+    },
+    {
+      "column": "hour_all_roi_trend",
+      "desc": "分时全域ROI",
+      "plines": [
+        "cpsdy",
+        "cpsdyfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "numeratorColumn": "all_gmv_trend",
+      "denominatorColumn": "all_stat_total_cost_trend",
+      "notes": "分时全域ROI；事实列同 all_roi_trend（all_gmv_trend/all_stat_total_cost_trend）；Job hour 表 _data_h*_all_roi_trend",
+      "requireReleaseVer": 3,
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlMapper hour all_roi_trend + UI hour_ prefix",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-31",
+        "notes": "UI 存 hour_all_roi_trend；Mapper 按小时聚合 all_gmv_trend/all_stat_total_cost_trend"
+      }
+    },
+    {
+      "column": "all_stat_total_cost_trend",
+      "desc": "全域成本",
+      "plines": [
+        "cpsdy",
+        "cpsdyfree"
+      ],
+      "metricKind": "sum",
+      "writeColumns": [
+        "all_stat_total_cost_trend"
+      ],
+      "notes": "全域成本；扫 ad_advertiser_online_pay_roi3_*（releaseVer=3）",
+      "requireReleaseVer": 3,
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29",
+        "notes": "全域成本；扫 ad_advertiser_online_pay_roi3_*（releaseVer=3）"
+      }
+    },
+    {
+      "column": "hour_all_roi_24h_trend",
+      "desc": "分时全域24小时ROI",
+      "plines": [
+        "cpsdy"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "all_billing_gmv_24h_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "numeratorColumn": "all_billing_gmv_24h_trend",
+      "denominatorColumn": "all_stat_total_cost_trend",
+      "notes": "临时白名单指标；沿用24h ROI聚合字段，首次写库前必须核对Job Mapper与实库schema",
+      "requireReleaseVer": 3,
+      "status": "provisional",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "seed-capability rule 16209 temporary registration",
+        "formulaChecked": false,
+        "schemaChecked": false,
+        "checkedAt": "2026-07-29",
+        "notes": "必须通过approvalFingerprint人工批准；完成Mapper和schema核对后方可改为verified"
+      }
+    },
+    {
+      "column": "all_roi_24h_trend",
+      "desc": "全域24小时ROI",
+      "plines": [
+        "cpsdy",
+        "cpsdyfree"
+      ],
+      "metricKind": "ratio",
+      "writeColumns": [
+        "all_billing_gmv_24h_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "numeratorColumn": "all_billing_gmv_24h_trend",
+      "denominatorColumn": "all_stat_total_cost_trend",
+      "notes": "全域24hROI=sum(all_billing_gmv_24h_trend)/sum(all_stat_total_cost_trend)；roi3",
+      "requireReleaseVer": 3,
+      "status": "verified",
+      "seedPolicy": {
+        "evaluationPhase": "aggregate",
+        "standaloneRule": "allowed"
+      },
+      "evidence": {
+        "source": "market-job DataControlRule.ColumnEnum + Mapper",
+        "formulaChecked": true,
+        "schemaChecked": true,
+        "checkedAt": "2026-07-29",
+        "notes": "全域24hROI=sum(all_billing_gmv_24h_trend)/sum(all_stat_total_cost_trend)；roi3"
+      }
+    }
+  ],
+  "filters": [],
+  "capabilities": [
+    {
+      "key": "cpsvideomf|promotion|0|consume",
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "defaults 冒烟：免费短剧·广告·当天·消耗"
+    },
+    {
+      "key": "xmtplay|project|0|consume",
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "smoke：新媒体-短剧·项目·当天·消耗"
+    },
+    {
+      "key": "xmtplay|promotion|0|consume",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "FLOW-DW / XF-AD：新媒体-短剧·广告·当天·消耗"
+    },
+    {
+      "key": "cpsdyfree|project|0|consume",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "key": "cpsdyfree|project|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "key": "cpsdyfree|project|0|all_roi_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "key": "cpsdyfree|project|0|all_roi_24h_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "key": "cpsdyfree|project|0|model_pred_roi",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "key": "cpsdyfree|project|2|hour_consume",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "2",
+      "column": "hour_consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "channel_code",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端免·项目·近2小时·分时消耗；扩白名单供 rule 16259（事实列写 consume）"
+    },
+    {
+      "key": "cpsdyfree|project|1|hour_all_roi_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "1",
+      "column": "hour_all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "channel_code",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端免·项目·近1小时·分时全域ROI；扩白名单供 rule 16259（写 all_gmv_trend/all_stat_total_cost_trend）"
+    },
+    {
+      "key": "cpsdyfree|promotion|0|consume",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端免·广告·当天"
+    },
+    {
+      "key": "cpsdyfree|promotion|0|convert_num",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "convert_num",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端免·广告·当天·转化数；小时维 having（常与 model_pred_roi 天表后置成对）"
+    },
+    {
+      "key": "cpsdyfree|promotion|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端免·广告·当天"
+    },
+    {
+      "key": "cpsdyfree|promotion|0|all_roi_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端免·广告·当天"
+    },
+    {
+      "key": "cpsdyfree|promotion|0|all_roi_24h_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端免·广告·当天"
+    },
+    {
+      "key": "cpsdyfree|promotion|0|model_pred_roi",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端免·广告·当天"
+    },
+    {
+      "key": "cpsdy|project|0|consume",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|project|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|project|0|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|project|0|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|project|2|hour_all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "2",
+      "column": "hour_all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "channel_code",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·项目·近2小时·分时全域24hROI；临时扩白名单供 rule 16209"
+    },
+    {
+      "key": "cpsdy|project|99|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "99",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "channel_code",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·项目·近2天·全域ROI；临时扩白名单供 rule 16210"
+    },
+    {
+      "key": "cpsdy|project|0|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|promotion|0|consume",
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|promotion|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|promotion|0|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|promotion|0|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|promotion|0|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|channel|0|consume",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|channel|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|channel|0|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|channel|0|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|channel|0|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "key": "cpsdy|channel|99|consume",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "key": "cpsdy|channel|99|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "key": "cpsdy|channel|99|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "key": "cpsdy|channel|99|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "key": "cpsdy|channel|99|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "key": "cpsdy|channel|1|consume",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "key": "cpsdy|channel|1|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "key": "cpsdy|channel|1|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "key": "cpsdy|channel|1|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "key": "cpsdy|channel|1|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "key": "xmtplay|promotion|0|all_stat_total_cost_trend",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-短剧·promotion·all_stat_total_cost_trend"
+    },
+    {
+      "key": "xmtplay|promotion|0|all_roi_trend",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-短剧·promotion·all_roi_trend"
+    },
+    {
+      "key": "xmtplay|promotion|0|all_roi_24h_trend",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-短剧·promotion·all_roi_24h_trend"
+    },
+    {
+      "key": "xmtplay|promotion|0|roi_h12",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "roi_h12",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-短剧·promotion·roi_h12；小时维 having（常与 model_pred_roi 天表后置成对）"
+    },
+    {
+      "key": "xmtplay|promotion|0|model_pred_roi",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-短剧·promotion·model_pred_roi"
+    },
+    {
+      "key": "xmtplay|promotion|2|hour_roi_h12",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "2",
+      "column": "hour_roi_h12",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "skeletonColumns": [
+        "account",
+        "channel_code",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-短剧·广告·近2小时·分时ROI_H12；扩白名单供 rule 16260（写 cz_h12/consume）"
+    },
+    {
+      "key": "xmtplay|project|0|all_stat_total_cost_trend",
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-短剧·project·all_stat_total_cost_trend"
+    },
+    {
+      "key": "xmtplay|project|0|all_roi_trend",
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-短剧·project·all_roi_trend"
+    },
+    {
+      "key": "xmtplay|project|0|all_roi_24h_trend",
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-短剧·project·all_roi_24h_trend"
+    },
+    {
+      "key": "xmtplay|project|0|model_pred_roi",
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-短剧·project·model_pred_roi"
+    },
+    {
+      "key": "cpsvideomf|channel|0|predict_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "predict_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "agent_user_name"
+      ],
+      "notes": "新媒体-免费短剧·渠道·当天预估ROI；临时扩白名单供 rule 16216"
+    },
+    {
+      "key": "cpsvideomf|channel|2|hour_predict_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "2",
+      "column": "hour_predict_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "app_name",
+        "book_id",
+        "agent_user_name"
+      ],
+      "notes": "新媒体-免费短剧·渠道·近2小时·分时预估ROI；临时扩白名单供 rule 16219"
+    },
+    {
+      "key": "cpsvideomf|channel|99|convert_num",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "99",
+      "column": "convert_num",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "app_name",
+        "book_id",
+        "agent_user_name"
+      ],
+      "notes": "新媒体-免费短剧·渠道·近2天·转化数；临时扩白名单供 rule 16220"
+    },
+    {
+      "key": "xmtplay|channel|0|unsubscribe_rate",
+      "plineForm": "xmtplay",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "unsubscribe_rate",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "app_name",
+        "book_id",
+        "agent_user_name"
+      ],
+      "notes": "新媒体-付费短剧·渠道·当天退订率；临时扩白名单供 rule 16221"
+    },
+    {
+      "key": "cpsvideomf|project|2|hour_roi_h1",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "2",
+      "column": "hour_roi_h1",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "channel_code",
+        "app_name",
+        "book_id",
+        "agent_user_name",
+        "project_name"
+      ],
+      "notes": "新媒体-免费短剧·项目·近2小时·分时ROI_H1；临时扩白名单供 rule 16223"
+    },
+    {
+      "key": "cpsvideomf|project|100|convert_num",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "100",
+      "column": "convert_num",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "channel_code",
+        "app_name",
+        "book_id",
+        "agent_user_name",
+        "project_name"
+      ],
+      "notes": "新媒体-免费短剧·项目·近3天·转化数；临时扩白名单供 rule 16224"
+    },
+    {
+      "key": "cpsvideomf|promotion|0|all_stat_total_cost_trend",
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-免费短剧·promotion·all_stat_total_cost_trend"
+    },
+    {
+      "key": "cpsvideomf|promotion|0|all_roi_trend",
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-免费短剧·promotion·all_roi_trend"
+    },
+    {
+      "key": "cpsvideomf|promotion|0|all_roi_24h_trend",
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-免费短剧·promotion·all_roi_24h_trend"
+    },
+    {
+      "key": "cpsvideomf|promotion|0|model_pred_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "allowSynthetic": true,
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "promotion_status": "投放中",
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account",
+        "video_type": "2"
+      },
+      "notes": "新媒体-免费短剧·promotion·model_pred_roi；day 表常无「开启」骨架（多为「启用」），允许 synthetic"
+    },
+    {
+      "key": "cpsvideomf|channel|0|predict_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "0",
+      "column": "predict_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "agent_user_name"
+      ],
+      "notes": "新媒体-免费短剧·渠道·当天预估ROI；临时扩白名单供 rule 16216"
+    },
+    {
+      "key": "cpsvideomf|project|0|consume",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-免费短剧·project·consume"
+    },
+    {
+      "key": "cpsvideomf|project|0|all_stat_total_cost_trend",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_stat_total_cost_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-免费短剧·project·all_stat_total_cost_trend"
+    },
+    {
+      "key": "cpsvideomf|project|0|all_roi_trend",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-免费短剧·project·all_roi_trend"
+    },
+    {
+      "key": "cpsvideomf|project|0|all_roi_24h_trend",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "all_roi_24h_trend",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-免费短剧·project·all_roi_24h_trend"
+    },
+    {
+      "key": "cpsvideomf|project|0|model_pred_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "model_pred_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "media",
+        "app_name",
+        "book_id",
+        "book_name"
+      ],
+      "notes": "新媒体-免费短剧·project·model_pred_roi"
+    },
+    {
+      "key": "cpsfree|project|0|consume",
+      "plineForm": "cpsfree",
+      "dataType": "project",
+      "timeType": "0",
+      "column": "consume",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "book_id",
+        "book_name",
+        "project_name"
+      ],
+      "notes": "新媒体-免费小说·project·当天 consume；JobMap/schema/source checked 2026-07-30"
+    },
+    {
+      "key": "cpsfree|project|100|subsidies_roi",
+      "plineForm": "cpsfree",
+      "dataType": "project",
+      "timeType": "100",
+      "column": "subsidies_roi",
+      "sourceFilter": {
+        "minConsume": 0
+      },
+      "statusDefaults": {
+        "project_status": "开启"
+      },
+      "fixedDefaults": {
+        "account": "e2e_dc_account"
+      },
+      "skeletonColumns": [
+        "account",
+        "book_id",
+        "book_name",
+        "project_name",
+        "channel_code",
+        "delivery_way",
+        "media",
+        "app_name"
+      ],
+      "notes": "新媒体-免费小说·项目·近3天·补贴后ROI；临时扩白名单供 rule 16242"
+    }
+  ]
+}

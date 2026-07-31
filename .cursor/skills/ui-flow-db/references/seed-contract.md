@@ -1,82 +1,67 @@
-# seedViaDb 契约（通用）
+# Seed V3 契约
 
-本文件定 **跨业务接口与语义**。表名、指标列等只来自 `domains/<biz>/db/seed-capability.json`，禁止臆造。
-
-**连接层**：`tests/e2e/helpers/db.ts` + `npm run db:ping`  
-**通用引擎**：`tests/e2e/helpers/seed/engine.ts`  
-**业务适配**：`tests/e2e/helpers/seed/{biz}.ts`  
-**批次契约**：[`seed-spec.md`](seed-spec.md)（本批要造什么）  
-**权威**：业务 Job > domain `db/` 分册 > `_inbox` 原稿
-
-## 场景
-
-| scenario | 含义 |
-|----------|------|
-| `rule_trigger` | 管控规则命中/不命中（本仓库默认；非看板展示灌数） |
-
-## 通用流水线
-
-```text
-seed-spec（可选）+ ruleId
-  → Capability check（seed-capability.json）
-  → rowStrategy: copy-then-patch | synthetic
-  → computeHit | computeMiss
-  → SeedPlan → formatSeedPlanForm → 确认
-  → apply → verify 聚合 → seed-log → cleanup
-```
-
-## 签名
+## API
 
 ```ts
-async function planSeedViaDb(ruleId: string, opts?: SeedOpts): Promise<SeedPlan>;
-function formatSeedPlanForm(plan: SeedPlan): string;
-async function applySeedViaDb(plan: SeedPlan, opts?: { specOutDir?: string }): Promise<SeedResult>;
-async function seedViaDb(ruleId: string, opts?: SeedOpts): Promise<SeedResult>;
-async function cleanupSeedViaDb(seed: ...): Promise<number>;
-async function planFromSeedSpecFile(specPath: string, opts?: SeedOpts): Promise<SeedPlan>;
+compileSeedRun(ruleId, { mode, pairId, hitNodeId, missNodeId })
+preflightSeedRun(compiled)
+approveSeedRun(plan, { approvedBy, reason, validDays })
+startSeedRun(plan, { confirmed, approvalFingerprint, outputDir, timeoutMs })
+requestSeedRunCancel(runId, reason)
+getSeedRun(runId)
+resumeSeedRun(runId)
+cleanupSeedRun(runId)
 ```
 
-## SeedOpts（要点）
+## 表达式
 
-| 项 | 说明 |
-|----|------|
-| `mode` | `hit` \| `miss`（默认 hit） |
-| `spec` | 已有 SeedSpec；可覆盖 mode / pair / strategy |
-| `pairId` / `role` | 成对触发组：`trigger` / `non_trigger` |
-| `rowStrategy` | 覆盖 capability 默认 |
-| `specOutDir` | 写出 `seed-spec-*.json` / `seed-log-*.json` |
-| `confirmed` / `plan` | 确认门禁 |
+- 读取旧数组时转换成隐式 AND。
+- 新协议为 `RuleExpressionV2`，节点类型是 `and`、`or`、`not`、`condition`。
+- HIT 输出 `witnessLeaves`；MISS 输出 `flippedLeaves`。
+- 计划必须记录所有 `nodeExpectations`，Apply 后重新求值根节点和目标节点。
+- 同行同列约束冲突或无满足解时返回 `EXPRESSION_UNSATISFIABLE`。
 
-## mode
+## 风险
 
-| mode | 含义 | role 默认 |
-|------|------|-----------|
-| `hit` | 指标落在比较真侧，Job 应出记录 | `trigger` |
-| `miss` | 指标落在假侧，有数但不触发 | `non_trigger` |
+| risk | 行为 |
+|---|---|
+| none | 普通 confirmed 后可执行 |
+| medium/high | 元库中必须存在未过期、未撤销且环境/配置版本匹配的批准 |
+| error | blocked，任何开关不能写库 |
 
-成对用法：同一 `pairId`，先 hit 跑 Job 断言有记录，再 miss（新实体）断言无记录。
+批准默认 90 天。配置版本变化会产生新 fingerprint。
 
-## rowStrategy
+## 状态与取消
 
-| 策略 | 行为 |
-|------|------|
-| `copy-then-patch` | 同源表取 1 条骨架列 → 覆盖实体 ID / 时间 / 指标 / statusDefaults；无源行回退 synthetic |
-| `synthetic` | 仅用 capability `fixedDefaults` |
+正常状态：
 
-## 确认门禁
+```text
+created → compiling → preflighting → ready/awaiting_approval
+→ applying → committed → job_running → asserting → cleaning → succeeded
+```
 
-Agent：plan → format 展示 → 用户确认 → `seedViaDb(..., { confirmed: true, plan })`  
-CI：`confirmed: true` 或 `E2E_SEED_AUTO_CONFIRM=1`
+终态还包括 `blocked`、`cancelled`、`failed`、`cleanup_failed`、`expired`。
 
-## 首版边界
+- 状态迁移使用 CAS。
+- worker 必须持有有效 lease。
+- 提交前取消触发 rollback。
+- 提交后、Job 或断言阶段取消必须 cleanup。
+- 崩溃恢复不得重复触发 Job，只允许幂等 cleanup。
 
-| 情况 | 语义 |
-|------|------|
-| 单条件 | 矩阵有行且 implemented → 造 |
-| 多条件 | 仅 `conditions[0]` |
-| 矩阵无行 / spec.blocked | Gap，禁止 INSERT |
-| apply 后 verify 失败 | 抛错（聚合未落在 mode 期望侧） |
+## 审计
 
-## 未覆盖时
+每条 Preflight、INSERT、verify、cleanup 记录 SQL 模板、脱敏参数、耗时、结果摘要、
+事务事件和错误码。完整文件位于 outputDir；元库只保留路径与摘要。
+- `market-job` 保持只读，只识别旧数组的隐式 AND 语义。
+- 条件叶子或任意嵌套的纯 AND AST 可无损展平并执行真实 Job。
+- 任意 OR/NOT 节点产生 `JOB_AST_CAPABILITY_UNAVAILABLE` error。
+- 不兼容计划允许求解和只读 Preflight，但禁止 Apply、写库和触发 Job。
+- approval 不得绕过该能力错误。
 
-先加 capability 行；批次 seed-spec 可先写 `blocked`；禁止臆造 INSERT。
+## 渠道号与页面断言
+
+- 若计划涉及的目标表含 `channel_code`，Preflight 对所有相关表查询纯数字渠道号的全局最大值。
+- HIT 固定选择 `MAX+1`，MISS 固定选择 `MAX+2`；一个 run 的所有 InsertGroup 使用同一个渠道号。
+- 选出的渠道号必须写入 `InsertGroup.channelCode` 和 cleanup manifest，供 UI 断言与精确清理复用。
+- 记录页校验键为 `ruleId + channelCode`：HIT 要求同一表格行出现两个值；MISS 要求整个观察窗口内同一组合不出现。
+- MISS 不以“Job 接口无记录”替代 UI 校验，也不使用其他渠道或旧规则记录作为反证。

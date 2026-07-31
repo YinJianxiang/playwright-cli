@@ -1,0 +1,1419 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "dimension-route:cpsdy:channel:day:rvdefault",
+      "name": "cpsdy / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:channel:day:rv3",
+      "name": "cpsdy / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:channel:hour:rvdefault",
+      "name": "cpsdy / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:channel:hour:rv3",
+      "name": "cpsdy / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:project:day:rvdefault",
+      "name": "cpsdy / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:project:day:rv3",
+      "name": "cpsdy / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:project:hour:rvdefault",
+      "name": "cpsdy / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:project:hour:rv3",
+      "name": "cpsdy / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:promotion:day:rvdefault",
+      "name": "cpsdy / promotion / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "promotion",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_promotion_day",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdy:promotion:hour:rvdefault",
+      "name": "cpsdy / promotion / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdy"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdy",
+          "dataType": "promotion",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_promotion_hour",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:channel:day:rvdefault",
+      "name": "cpsdyfree / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_free_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:channel:day:rv3",
+      "name": "cpsdyfree / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:channel:hour:rvdefault",
+      "name": "cpsdyfree / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_free_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:channel:hour:rv3",
+      "name": "cpsdyfree / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:project:day:rvdefault",
+      "name": "cpsdyfree / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_free_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:project:day:rv3",
+      "name": "cpsdyfree / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:project:hour:rvdefault",
+      "name": "cpsdyfree / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_free_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:project:hour:rv3",
+      "name": "cpsdyfree / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:promotion:day:rvdefault",
+      "name": "cpsdyfree / promotion / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "promotion",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_free_promotion_day",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsdyfree:promotion:hour:rvdefault",
+      "name": "cpsdyfree / promotion / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsdyfree"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsdyfree",
+          "dataType": "promotion",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_free_promotion_hour",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:channel:day:rvdefault",
+      "name": "cpsvideomf / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_free_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:channel:day:rv3",
+      "name": "cpsvideomf / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:channel:hour:rvdefault",
+      "name": "cpsvideomf / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_free_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:channel:hour:rv3",
+      "name": "cpsvideomf / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:project:day:rvdefault",
+      "name": "cpsvideomf / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_free_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:project:day:rv3",
+      "name": "cpsvideomf / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:project:hour:rvdefault",
+      "name": "cpsvideomf / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_free_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:project:hour:rv3",
+      "name": "cpsvideomf / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:promotion:day:rvdefault",
+      "name": "cpsvideomf / promotion / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "promotion",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_free_promotion_day",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsvideomf:promotion:hour:rvdefault",
+      "name": "cpsvideomf / promotion / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsvideomf"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsvideomf",
+          "dataType": "promotion",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_free_promotion_hour",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:channel:day:rvdefault",
+      "name": "xmtplay / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:channel:day:rv3",
+      "name": "xmtplay / channel / day",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "channel",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:channel:hour:rvdefault",
+      "name": "xmtplay / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:channel:hour:rv3",
+      "name": "xmtplay / channel / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "channel"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "channel",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:project:day:rvdefault",
+      "name": "xmtplay / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:project:day:rv3",
+      "name": "xmtplay / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:project:hour:rvdefault",
+      "name": "xmtplay / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:project:hour:rv3",
+      "name": "xmtplay / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "Job releaseVer=3 → pay_roi3_*"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "releaseVer": 3,
+          "notes": "Job releaseVer=3 → pay_roi3_*"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:promotion:day:rvdefault",
+      "name": "xmtplay / promotion / day",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "promotion",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_promotion_day",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:xmtplay:promotion:hour:rvdefault",
+      "name": "xmtplay / promotion / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "xmtplay"
+      ],
+      "levels": [
+        "promotion"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "xmtplay",
+          "dataType": "promotion",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_promotion_hour",
+          "entityIdColumn": "promotion_id",
+          "entityNameColumn": "promotion_name"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsfree:project:hour:rvdefault",
+      "name": "cpsfree / project / hour",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsfree"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "DataControlService DATA_TABLE_CPSFREE_PROJECT; schema checked 2026-07-30"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsfree",
+          "dataType": "project",
+          "timeGrain": "hour",
+          "table": "ad_advertiser_online_pay_book_project_hour",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "notes": "DataControlService DATA_TABLE_CPSFREE_PROJECT; schema checked 2026-07-30"
+        }
+      }
+    },
+    {
+      "id": "dimension-route:cpsfree:project:day:rvdefault",
+      "name": "cpsfree / project / day",
+      "status": "verified",
+      "applicablePlines": [
+        "cpsfree"
+      ],
+      "levels": [
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model",
+        "code-job-routing",
+        "database-schema"
+      ],
+      "constraints": [
+        "近N天等 day 表；rule 16242 timeType=100"
+      ],
+      "seed": {
+        "tableRoute": {
+          "plineForm": "cpsfree",
+          "dataType": "project",
+          "timeGrain": "day",
+          "table": "ad_advertiser_online_pay_book_project_day",
+          "entityIdColumn": "project_id",
+          "entityNameColumn": "project_name",
+          "notes": "近N天等 day 表；rule 16242 timeType=100"
+        }
+      }
+    }
+  ],
+  "ruleFields": [
+    {
+      "id": "dimension-field:pline_form",
+      "name": "业务线",
+      "ruleField": "pline_form",
+      "status": "verified",
+      "unlimited": [],
+      "patchColumn": "pline_form",
+      "evidenceRefs": [
+        "code-rule-model",
+        "ui-domain"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z"
+    },
+    {
+      "id": "dimension-field:data_type",
+      "name": "管控维度",
+      "ruleField": "data_type",
+      "status": "verified",
+      "unlimited": [],
+      "evidenceRefs": [
+        "code-rule-model",
+        "ui-domain"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z"
+    },
+    {
+      "id": "dimension-field:release_ver",
+      "name": "管控版本",
+      "ruleField": "release_ver",
+      "status": "verified",
+      "unlimited": [
+        -1,
+        null
+      ],
+      "evidenceRefs": [
+        "code-job-routing"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z"
+    },
+    {
+      "id": "dimension-field:external_action",
+      "name": "转化目标",
+      "ruleField": "external_action",
+      "status": "verified",
+      "unlimited": [
+        "",
+        "不限",
+        null
+      ],
+      "patchColumn": "external_action",
+      "evidenceRefs": [
+        "code-rule-model",
+        "database-schema",
+        "ui-domain"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z"
+    },
+    {
+      "id": "dimension-field:delivery_way",
+      "name": "投放方式",
+      "ruleField": "delivery_way",
+      "status": "verified",
+      "unlimited": [
+        "",
+        "不限",
+        0,
+        -1,
+        null
+      ],
+      "patchColumn": "delivery_way",
+      "evidenceRefs": [
+        "code-rule-model",
+        "database-schema"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z"
+    },
+    {
+      "id": "dimension-field:opt_status",
+      "name": "广告状态",
+      "ruleField": "opt_status",
+      "status": "verified",
+      "unlimited": [
+        -1,
+        null
+      ],
+      "patchColumn": "promotion_status",
+      "evidenceRefs": [
+        "code-rule-model"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z"
+    },
+    {
+      "id": "dimension-field:project_status",
+      "name": "项目状态",
+      "ruleField": "project_status",
+      "status": "verified",
+      "unlimited": [
+        -1,
+        null
+      ],
+      "patchColumn": "project_status",
+      "evidenceRefs": [
+        "code-rule-model"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z"
+    },
+    {
+      "id": "dimension-field:channel_users",
+      "name": "负责人",
+      "ruleField": "channel_users",
+      "status": "unknown",
+      "unlimited": [
+        "",
+        "不限",
+        null
+      ],
+      "evidenceRefs": [
+        "code-rule-model"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "constraints": [
+        "尚未证明负责人到所有事实表字段的完整映射"
+      ]
+    },
+    {
+      "id": "dimension-field:effect_scope",
+      "name": "主体范围",
+      "ruleField": "effect_scope",
+      "status": "unknown",
+      "unlimited": [
+        -1,
+        null
+      ],
+      "evidenceRefs": [
+        "code-rule-model"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "constraints": [
+        "尚未证明主体范围的事实表映射"
+      ]
+    },
+    {
+      "id": "dimension-field:account_type",
+      "name": "账户类型",
+      "ruleField": "account_type",
+      "status": "unknown",
+      "unlimited": [
+        -1,
+        null
+      ],
+      "evidenceRefs": [
+        "code-rule-model"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "constraints": [
+        "尚未证明账户类型的事实表映射"
+      ]
+    }
+  ],
+  "seedDefaults": {
+    "biz": "ad-control",
+    "ruleTable": "ad_data_control_rule",
+    "entityIdColumn": "promotion_id",
+    "markerPrefix": "e2e_dc_",
+    "defaultRowStrategy": "copy-then-patch",
+    "allowSynthetic": false,
+    "defaultReleaseVer": 2,
+    "supportedReleaseVers": [1, 2, 3]
+  },
+  "uiDefaults": {
+    "miniProgramType": "不限",
+    "media": "头条媒体",
+    "subject": "不限",
+    "owner": "不限",
+    "createTime": "不限",
+    "selfAgency": "不限",
+    "dramaShelfTime": "不限",
+    "bookFilter": "关闭",
+    "isComic": "不限",
+    "bidStrategy": "不限",
+    "isNewBook": "不限",
+    "adStatus": "开启"
+  }
+}

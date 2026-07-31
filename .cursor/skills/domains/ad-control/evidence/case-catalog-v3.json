@@ -1,0 +1,2350 @@
+{
+  "generatedAt": "2026-07-31T06:03:11.140Z",
+  "knowledgeVersion": "sha256:0d843dd7ffa53e4823a590cbf7de761afa20f73d3b9d96237c804b7ad61caeae",
+  "definition": "每个 case 是一个 verified 原子造数能力；支持 HIT 和 MISS。多条件 AND/OR/NOT 可由这些原子能力组合，但组合数不有限枚举，字段冲突由 Preflight 阻断。",
+  "summary": {
+    "atomicCases": 51,
+    "standaloneCases": 40,
+    "combinationOnlyCases": 11,
+    "hitCases": 51,
+    "missCases": 51,
+    "executableVariants": 102,
+    "verifiedActions": [
+      "预警"
+    ],
+    "blockedKnowledgeItems": 49
+  },
+  "cases": [
+    {
+      "caseId": "seed-case-001",
+      "capabilityKey": "cpsvideomf|promotion|0|consume",
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_promotion_hour",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "defaults 冒烟：免费短剧·广告·当天·消耗"
+    },
+    {
+      "caseId": "seed-case-002",
+      "capabilityKey": "xmtplay|project|0|consume",
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_project_hour",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "smoke：新媒体-短剧·项目·当天·消耗"
+    },
+    {
+      "caseId": "seed-case-003",
+      "capabilityKey": "xmtplay|promotion|0|consume",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_promotion_hour",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "FLOW-DW / XF-AD：新媒体-短剧·广告·当天·消耗"
+    },
+    {
+      "caseId": "seed-case-004",
+      "capabilityKey": "cpsdyfree|project|0|consume",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_project_hour",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "caseId": "seed-case-005",
+      "capabilityKey": "cpsdyfree|project|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "all_stat_total_cost_trend",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "caseId": "seed-case-006",
+      "capabilityKey": "cpsdyfree|project|0|all_roi_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "all_roi_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "caseId": "seed-case-007",
+      "capabilityKey": "cpsdyfree|project|0|all_roi_24h_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "all_roi_24h_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_billing_gmv_24h_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "caseId": "seed-case-008",
+      "capabilityKey": "cpsdyfree|project|0|model_pred_roi",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_free_project_day",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端免·项目·当天"
+    },
+    {
+      "caseId": "seed-case-009",
+      "capabilityKey": "cpsdyfree|project|2|hour_consume",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "2",
+      "condition": "hour_consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_project_hour",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_project_hour",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端免·项目·近2小时·分时消耗；扩白名单供 rule 16259（事实列写 consume）"
+    },
+    {
+      "caseId": "seed-case-010",
+      "capabilityKey": "cpsdyfree|project|1|hour_all_roi_trend",
+      "plineForm": "cpsdyfree",
+      "dataType": "project",
+      "timeType": "1",
+      "condition": "hour_all_roi_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_project_hour",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端免·项目·近1小时·分时全域ROI；扩白名单供 rule 16259（写 all_gmv_trend/all_stat_total_cost_trend）"
+    },
+    {
+      "caseId": "seed-case-011",
+      "capabilityKey": "cpsdyfree|promotion|0|consume",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_promotion_hour",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "端免·广告·当天"
+    },
+    {
+      "caseId": "seed-case-012",
+      "capabilityKey": "cpsdyfree|promotion|0|convert_num",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "convert_num",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "convert_num"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_promotion_hour",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "端免·广告·当天·转化数；小时维 having（常与 model_pred_roi 天表后置成对）"
+    },
+    {
+      "caseId": "seed-case-013",
+      "capabilityKey": "cpsdyfree|promotion|0|model_pred_roi",
+      "plineForm": "cpsdyfree",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_free_promotion_day",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "端免·广告·当天"
+    },
+    {
+      "caseId": "seed-case-014",
+      "capabilityKey": "cpsdy|project|0|consume",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_project_hour",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-015",
+      "capabilityKey": "cpsdy|project|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "all_stat_total_cost_trend",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-016",
+      "capabilityKey": "cpsdy|project|0|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "all_roi_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-017",
+      "capabilityKey": "cpsdy|project|0|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "all_roi_24h_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_billing_gmv_24h_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-018",
+      "capabilityKey": "cpsdy|project|99|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "99",
+      "condition": "all_roi_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端付·项目·近2天·全域ROI；临时扩白名单供 rule 16210"
+    },
+    {
+      "caseId": "seed-case-019",
+      "capabilityKey": "cpsdy|project|0|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_project_day",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-020",
+      "capabilityKey": "cpsdy|promotion|0|consume",
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_promotion_hour",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-021",
+      "capabilityKey": "cpsdy|promotion|0|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_promotion_day",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-022",
+      "capabilityKey": "cpsdy|channel|0|consume",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_channel_hour",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-023",
+      "capabilityKey": "cpsdy|channel|0|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "all_stat_total_cost_trend",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-024",
+      "capabilityKey": "cpsdy|channel|0|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "all_roi_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-025",
+      "capabilityKey": "cpsdy|channel|0|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "all_roi_24h_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_billing_gmv_24h_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-026",
+      "capabilityKey": "cpsdy|channel|0|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_channel_day",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·当天"
+    },
+    {
+      "caseId": "seed-case-027",
+      "capabilityKey": "cpsdy|channel|99|consume",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_channel_day",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "caseId": "seed-case-028",
+      "capabilityKey": "cpsdy|channel|99|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "condition": "all_stat_total_cost_trend",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "caseId": "seed-case-029",
+      "capabilityKey": "cpsdy|channel|99|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "condition": "all_roi_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "caseId": "seed-case-030",
+      "capabilityKey": "cpsdy|channel|99|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "condition": "all_roi_24h_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_billing_gmv_24h_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "caseId": "seed-case-031",
+      "capabilityKey": "cpsdy|channel|99|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "99",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_channel_day",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=99"
+    },
+    {
+      "caseId": "seed-case-032",
+      "capabilityKey": "cpsdy|channel|1|consume",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_channel_hour",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "caseId": "seed-case-033",
+      "capabilityKey": "cpsdy|channel|1|all_stat_total_cost_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "condition": "all_stat_total_cost_trend",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "caseId": "seed-case-034",
+      "capabilityKey": "cpsdy|channel|1|all_roi_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "condition": "all_roi_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_gmv_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "caseId": "seed-case-035",
+      "capabilityKey": "cpsdy|channel|1|all_roi_24h_trend",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "condition": "all_roi_24h_trend",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "all_billing_gmv_24h_trend",
+        "all_stat_total_cost_trend"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "caseId": "seed-case-036",
+      "capabilityKey": "cpsdy|channel|1|model_pred_roi",
+      "plineForm": "cpsdy",
+      "dataType": "channel",
+      "timeType": "1",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_channel_day",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "端付·渠道·timeType=1"
+    },
+    {
+      "caseId": "seed-case-037",
+      "capabilityKey": "xmtplay|promotion|0|roi_h12",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "roi_h12",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "cz_h12",
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_promotion_hour",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "新媒体-短剧·promotion·roi_h12；小时维 having（常与 model_pred_roi 天表后置成对）"
+    },
+    {
+      "caseId": "seed-case-038",
+      "capabilityKey": "xmtplay|promotion|0|model_pred_roi",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_promotion_day",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "新媒体-短剧·promotion·model_pred_roi"
+    },
+    {
+      "caseId": "seed-case-039",
+      "capabilityKey": "xmtplay|promotion|2|hour_roi_h12",
+      "plineForm": "xmtplay",
+      "dataType": "promotion",
+      "timeType": "2",
+      "condition": "hour_roi_h12",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "cz_h12",
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_promotion_hour",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "新媒体-短剧·广告·近2小时·分时ROI_H12；扩白名单供 rule 16260（写 cz_h12/consume）"
+    },
+    {
+      "caseId": "seed-case-040",
+      "capabilityKey": "xmtplay|project|0|model_pred_roi",
+      "plineForm": "xmtplay",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_project_day",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "新媒体-短剧·project·model_pred_roi"
+    },
+    {
+      "caseId": "seed-case-041",
+      "capabilityKey": "cpsvideomf|channel|0|predict_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "predict_roi",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "n_predict_cpm",
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_channel_hour",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "新媒体-免费短剧·渠道·当天预估ROI；临时扩白名单供 rule 16216"
+    },
+    {
+      "caseId": "seed-case-042",
+      "capabilityKey": "cpsvideomf|channel|2|hour_predict_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "2",
+      "condition": "hour_predict_roi",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "n_predict_cpm",
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_channel_hour",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_channel_hour",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "新媒体-免费短剧·渠道·近2小时·分时预估ROI；临时扩白名单供 rule 16219"
+    },
+    {
+      "caseId": "seed-case-043",
+      "capabilityKey": "cpsvideomf|channel|99|convert_num",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "99",
+      "condition": "convert_num",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "convert_num"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_free_channel_day",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "新媒体-免费短剧·渠道·近2天·转化数；临时扩白名单供 rule 16220"
+    },
+    {
+      "caseId": "seed-case-044",
+      "capabilityKey": "xmtplay|channel|0|unsubscribe_rate",
+      "plineForm": "xmtplay",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "unsubscribe_rate",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "n_unsubscribe_uv_day",
+        "n_auto_pay_uv_day"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_channel_hour",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "新媒体-付费短剧·渠道·当天退订率；临时扩白名单供 rule 16221"
+    },
+    {
+      "caseId": "seed-case-045",
+      "capabilityKey": "cpsvideomf|project|2|hour_roi_h1",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "2",
+      "condition": "hour_roi_h1",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "n_total_income_h1",
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_project_hour",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_roi3_project_hour",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "新媒体-免费短剧·项目·近2小时·分时ROI_H1；临时扩白名单供 rule 16223"
+    },
+    {
+      "caseId": "seed-case-046",
+      "capabilityKey": "cpsvideomf|project|100|convert_num",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "100",
+      "condition": "convert_num",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "convert_num"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_free_project_day",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "新媒体-免费短剧·项目·近3天·转化数；临时扩白名单供 rule 16224"
+    },
+    {
+      "caseId": "seed-case-047",
+      "capabilityKey": "cpsvideomf|promotion|0|model_pred_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "promotion",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_free_promotion_day",
+          "entityIdColumn": "promotion_id"
+        }
+      ],
+      "notes": "新媒体-免费短剧·promotion·model_pred_roi；day 表常无「开启」骨架（多为「启用」），允许 synthetic"
+    },
+    {
+      "caseId": "seed-case-048",
+      "capabilityKey": "cpsvideomf|channel|0|predict_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "channel",
+      "timeType": "0",
+      "condition": "predict_roi",
+      "metricKind": "ratio",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "n_predict_cpm",
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_channel_hour",
+          "entityIdColumn": "channel_code"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_channel_day",
+          "entityIdColumn": "channel_code"
+        }
+      ],
+      "notes": "新媒体-免费短剧·渠道·当天预估ROI；临时扩白名单供 rule 16216"
+    },
+    {
+      "caseId": "seed-case-049",
+      "capabilityKey": "cpsvideomf|project|0|consume",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_free_project_hour",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "新媒体-免费短剧·project·consume"
+    },
+    {
+      "caseId": "seed-case-050",
+      "capabilityKey": "cpsvideomf|project|0|model_pred_roi",
+      "plineForm": "cpsvideomf",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "model_pred_roi",
+      "metricKind": "sum",
+      "evaluationPhase": "post-filter",
+      "standaloneAllowed": false,
+      "writeColumns": [
+        "model_pred_roi"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "day",
+          "table": "ad_advertiser_online_free_project_day",
+          "entityIdColumn": "project_id"
+        },
+        {
+          "releaseVer": 3,
+          "grain": "day",
+          "table": "ad_advertiser_online_pay_roi3_project_day",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "新媒体-免费短剧·project·model_pred_roi"
+    },
+    {
+      "caseId": "seed-case-051",
+      "capabilityKey": "cpsfree|project|0|consume",
+      "plineForm": "cpsfree",
+      "dataType": "project",
+      "timeType": "0",
+      "condition": "consume",
+      "metricKind": "sum",
+      "evaluationPhase": "aggregate",
+      "standaloneAllowed": true,
+      "writeColumns": [
+        "consume"
+      ],
+      "supportedOperators": [
+        "le",
+        "lt",
+        "ge",
+        "gt",
+        "between"
+      ],
+      "supportedModes": [
+        "hit",
+        "miss"
+      ],
+      "verifiedActions": [
+        "预警"
+      ],
+      "targets": [
+        {
+          "releaseVer": "default",
+          "grain": "hour",
+          "table": "ad_advertiser_online_pay_book_project_hour",
+          "entityIdColumn": "project_id"
+        }
+      ],
+      "notes": "新媒体-免费小说·project·当天 consume；JobMap/schema/source checked 2026-07-30"
+    }
+  ],
+  "blocked": {
+    "dimensions": [
+      {
+        "id": "dimension-field:channel_users",
+        "name": "负责人",
+        "constraints": [
+          "尚未证明负责人到所有事实表字段的完整映射"
+        ]
+      },
+      {
+        "id": "dimension-field:effect_scope",
+        "name": "主体范围",
+        "constraints": [
+          "尚未证明主体范围的事实表映射"
+        ]
+      },
+      {
+        "id": "dimension-field:account_type",
+        "name": "账户类型",
+        "constraints": [
+          "尚未证明账户类型的事实表映射"
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "condition:convert_cost:cpsdyfree+cpsdy+xmtplay",
+        "name": "convert_cost",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:hour_convert_cost:cpsdyfree+cpsdy+xmtplay",
+        "name": "hour_convert_cost",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:bid_rate:cpsdyfree+cpsdy+xmtplay",
+        "name": "bid_rate",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:hour_bid_rate:cpsdyfree+cpsdy+xmtplay",
+        "name": "hour_bid_rate",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:n_auto_pay_cost:xmtplay",
+        "name": "n_auto_pay_cost",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:hour_n_auto_pay_cost:xmtplay",
+        "name": "hour_n_auto_pay_cost",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:n_uv:syhplay",
+        "name": "n_uv",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:cpa:syhplay",
+        "name": "cpa",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:stay_1:syhplay",
+        "name": "stay_1",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:retention_d1_uv_ratio:syhplay",
+        "name": "retention_d1_uv_ratio",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:retention_d3_uv_ratio:syhplay",
+        "name": "retention_d3_uv_ratio",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:retention_d4_uv_ratio:syhplay",
+        "name": "retention_d4_uv_ratio",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:retention_d5_uv_ratio:syhplay",
+        "name": "retention_d5_uv_ratio",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:retention_d6_uv_ratio:syhplay",
+        "name": "retention_d6_uv_ratio",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:retention_d7_uv_ratio:syhplay",
+        "name": "retention_d7_uv_ratio",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:avg_play_time_day:syhplay",
+        "name": "avg_play_time_day",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:hour_avg_play_time_day:syhplay",
+        "name": "hour_avg_play_time_day",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:stay_h3:syhplay",
+        "name": "stay_h3",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:hour_stay_h3:syhplay",
+        "name": "hour_stay_h3",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:all_roi:syhplay",
+        "name": "all_roi",
+        "constraints": [
+          "HM 整体 ROI；仅登记，造数前核对"
+        ]
+      },
+      {
+        "id": "condition:arpu:syhplay",
+        "name": "arpu",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:hour_arpu:syhplay",
+        "name": "hour_arpu",
+        "constraints": [
+          "ColumnEnum 已登记；写列默认同名，造数前核对 Mapper"
+        ]
+      },
+      {
+        "id": "condition:subsidies_roi:cpsfree",
+        "name": "subsidies_roi",
+        "constraints": [
+          "补贴后 ROI 含折扣项；hit/miss 首版近似"
+        ]
+      },
+      {
+        "id": "condition:hour_all_roi_24h_trend:cpsdy",
+        "name": "hour_all_roi_24h_trend",
+        "constraints": [
+          "临时白名单指标；沿用24h ROI聚合字段，首次写库前必须核对Job Mapper与实库schema"
+        ]
+      }
+    ],
+    "capabilities": [
+      {
+        "key": "cpsdy|project|2|hour_all_roi_24h_trend",
+        "notes": "端付·项目·近2小时·分时全域24hROI；临时扩白名单供 rule 16209"
+      },
+      {
+        "key": "cpsfree|project|100|subsidies_roi",
+        "notes": "新媒体-免费小说·项目·近3天·补贴后ROI；临时扩白名单供 rule 16242"
+      },
+      {
+        "key": "cpsdyfree|promotion|0|all_stat_total_cost_trend",
+        "notes": "capability 和 metric 已 verified，但当前知识没有匹配的 verified 表路由"
+      },
+      {
+        "key": "cpsdyfree|promotion|0|all_roi_trend",
+        "notes": "capability 和 metric 已 verified，但当前知识没有匹配的 verified 表路由"
+      },
+      {
+        "key": "cpsdyfree|promotion|0|all_roi_24h_trend",
+        "notes": "capability 和 metric 已 verified，但当前知识没有匹配的 verified 表路由"
+      },
+      {
+        "key": "cpsdy|promotion|0|all_stat_total_cost_trend",
+        "notes": "capability 和 metric 已 verified，但当前知识没有匹配的 verified 表路由"
+      },
+      {
+        "key": "cpsdy|promotion|0|all_roi_trend",
+        "notes": "capability 和 metric 已 verified，但当前知识没有匹配的 verified 表路由"
+      },
+      {
+        "key": "cpsdy|promotion|0|all_roi_24h_trend",
+        "notes": "capability 和 metric 已 verified，但当前知识没有匹配的 verified 表路由"
+      },
+      {
+        "key": "xmtplay|promotion|0|all_stat_total_cost_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "xmtplay|promotion|0|all_roi_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "xmtplay|promotion|0|all_roi_24h_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "xmtplay|project|0|all_stat_total_cost_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "xmtplay|project|0|all_roi_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "xmtplay|project|0|all_roi_24h_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "cpsvideomf|promotion|0|all_stat_total_cost_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "cpsvideomf|promotion|0|all_roi_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "cpsvideomf|promotion|0|all_roi_24h_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "cpsvideomf|project|0|all_stat_total_cost_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "cpsvideomf|project|0|all_roi_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      },
+      {
+        "key": "cpsvideomf|project|0|all_roi_24h_trend",
+        "notes": "capability 标记为 verified，但找不到同业务线的 verified metric；按不可处理项列出"
+      }
+    ],
+    "actions": [
+      {
+        "id": "action:pause",
+        "name": "暂停",
+        "constraints": [
+          "当前 UI 证据不足，禁止生成或执行该动作"
+        ]
+      },
+      {
+        "id": "action:raise-budget",
+        "name": "调整预算",
+        "constraints": [
+          "预算上下限和页面结果尚未形成闭环证据"
+        ]
+      }
+    ]
+  }
+}

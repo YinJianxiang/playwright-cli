@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-07-31T05:57:41.037Z",
+  "entries": [
+    {
+      "evidenceId": "code-rule-model",
+      "sourceType": "code",
+      "source": "D:/Project/market-job/market-job/src/main/java/com/dz/glory/job/model/DataControlRule.java",
+      "digest": "sha256:0c2d29daf06ba67346ced355a84fa556f630ef2dd292dde3417b7e7b168d0576",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "规则字段、枚举和指标"
+    },
+    {
+      "evidenceId": "code-job-routing",
+      "sourceType": "code",
+      "source": "D:/Project/market-job/market-job/src/main/java/com/dz/glory/job/service/DataControlService.java",
+      "digest": "sha256:a0af03ce0a91a8d7474ae933510cb279c50797fc23132d552d129106c79dd212",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "表路由、执行与时间粒度"
+    },
+    {
+      "evidenceId": "code-mapper-formula",
+      "sourceType": "code",
+      "source": "D:/Project/market-job/market-job/src/main/java/com/dz/glory/job/mapper/xml/DataControlMapper.xml",
+      "digest": "sha256:20b607a533a839460d1ffa9a2dcf7cbe896b5257b2e8d1afce1649ea0f3b8b0a",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "指标聚合公式"
+    },
+    {
+      "evidenceId": "code-job-action",
+      "sourceType": "code",
+      "source": "D:/Project/market-job/market-job/src/main/java/com/dz/glory/job/service/DataControlService.java",
+      "digest": "sha256:a0af03ce0a91a8d7474ae933510cb279c50797fc23132d552d129106c79dd212",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "动作执行证据"
+    },
+    {
+      "evidenceId": "job-schedule",
+      "sourceType": "code",
+      "source": "D:/Project/market-job/market-job/src/main/java/com/dz/glory/job/schedule/DataControlSchedule.java",
+      "digest": "sha256:1723384d2fece10139170a794d04e2f5d446f1430f7acba7af805d1fad348a44",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "Job 调度入口"
+    },
+    {
+      "evidenceId": "ui-domain",
+      "sourceType": "ui",
+      "source": "D:/Project/playwright-ui/.cursor/skills/domains/ad-control/references/dimensions.md",
+      "digest": "sha256:e4c4f53c17af29f6fa08b811b0b339c73d978916f78dcb873d824a1ed501570c",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "已消化的 UI 探索结论"
+    },
+    {
+      "evidenceId": "legacy-sql",
+      "sourceType": "sql-log",
+      "source": "D:/Project/playwright-ui/.cursor/skills/domains/ad-control/evidence/raw/SOURCES.md",
+      "digest": "sha256:bbad26dd03e1cd699b021a334dc41f835fffb7c07ae5b39aa21995f2b5743aad",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "历史 SQL 来源索引"
+    },
+    {
+      "evidenceId": "legacy-seed-success",
+      "sourceType": "sql-log",
+      "source": "D:/Project/playwright-ui/tests/e2e/generated/20260728-181405/explore",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "历史 Seed plan/audit/manifest"
+    },
+    {
+      "evidenceId": "database-schema",
+      "sourceType": "database",
+      "source": "market",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "测试库规则与事实表 schema 快照"
+    },
+    {
+      "evidenceId": "code-full-scan",
+      "sourceType": "code",
+      "source": "D:/Project/market-job/market-job/src/main",
+      "digest": "sha256:53c7e24947b104a0162f3552a4101a825b16caed158822daec600d8656a10572",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "显式 refresh 全量扫描 656 个 Java/XML/配置文件；只生成候选证据，不自动升级 verified"
+    }
+  ]
+}

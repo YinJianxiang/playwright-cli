@@ -1,77 +1,91 @@
 ---
 name: ui-flow-db
 description: >-
-  为 UI+API 混合流准备数据库造数：seed-spec + capability resolve +
-  copy-then-patch / hit·miss → plan→confirm→apply→verify。
-  用于 ui-flow-codegen 第 2b 步、Job 前造数、连库/seed、DB 文档迭代。
+  为 UI+API flow 使用 Seed V3 声明式准备数据库测试数据：解析旧 conditions 或
+  AND/OR/NOT AST，求解 HIT/MISS，执行只读 preflight、风险批准、可取消事务
+  apply/verify、Job 编排和可恢复 cleanup。用于 Job 前造数、SQL 审计、复杂条件、
+  执行中止、崩溃恢复和 DB 排障。
 ---
 
-# UI Flow DB（Step 2b）
+# UI Flow DB（Seed V3）
 
-在 `ui-flow-generate`（**suite=flow**）之后执行。  
-本 Skill 定义 **通用造数生产方法**（场景默认 `rule_trigger`）；业务差异在 `domains/<biz>/db/`。
-
-**禁止**臆造表名/字段/INSERT。文档或 capability 未齐时 **不阻塞** generate，保持 TODO / 缺口。
-
-**`suite=ui` 禁止进入本步**。
-
-`<skill-root>` = 本目录（`ui-flow-db/`）。
-
-## 触发
-
-- ui-flow-codegen Step 2b / 造数 / seed / 连库 / DB 文档  
-- 扩展可造条件：改 `seed-capability.json`  
-- 本批契约：批次 `explore/seed-spec-*.json`
+仅用于 `suite=flow`。业务差异必须由版本化 Seed Config Bundle 声明，禁止在引擎中增加
+指标名特殊分支。
 
 ## 开始前必读
 
-1. [env-db.md](env-db.md)  
-2. [references/docs-index.md](references/docs-index.md) → domains  
-3. **当前业务**须已指定；未指定 → 询问后停止  
-4. `domains/<biz>/db/README`、`01`–`06`、**`seed-capability.json`**  
-5. [references/seed-contract.md](references/seed-contract.md) + [seed-spec.md](references/seed-spec.md)  
+1. [env-db.md](env-db.md)
+2. [references/seed-contract.md](references/seed-contract.md)
+3. 当前 domain 的 `SKILL.md`、`knowledge/` 与派生的 `knowledge/seed-runtime-v3.json`
 
-## 通用流水线（必须按序）
+## 强制流水线
 
 ```text
-1. 本批 seed-spec（手写或 plan 时 specOutDir 生成）
-   - scenario=rule_trigger；mode=hit|miss；可选 pairId
-   - recipeKey 对不上 capability → blocked，停止
-2. Capability check → Resolve
-3. Plan（rowStrategy: copy-then-patch | synthetic + hit|miss 算法）
-4. formatSeedPlanForm 展示（含 strategy / source / mode）→ 用户确认
-5. Apply → verify 聚合 → 可选 seed-log → Job / Cleanup
-```
-
-成对负向：同一 `pairId`，`mode=hit` 与 `mode=miss` 各造一次（不同实体 ID）。  
-与说明书对齐：`cases-flow` 的 `-HIT`/`-MISS` ↔ 两次 plan/apply；缺成对则回 req-cases / generate，不单造 hit。
-
-扩展覆盖面 = **加 capability 行**，不是加专用 Recipe 分支。
-
-## Checklist
-
-```text
-Task Progress:
-- [ ] 确认 domain 已指定
-- [ ] 读 env-db / db 分册 / seed-capability.json
-- [ ] 检查 _inbox；缺册列入缺口
-- [ ] 写出或核对批次 seed-spec（mode / pairId / recipeKey）
-- [ ] Capability check：key implemented（否则 Gap）
-- [ ] planSeedViaDb → format 表单 → 确认 → seedViaDb
-- [ ] 确认 apply 日志 SEED_VERIFY ok
-- [ ] 禁止手写 INSERT；禁止未确认写库
+旧 conditions[] / RuleExpressionV2
+→ compileSeedRun：验证 AST 并求解节点期望
+→ preflightSeedRun：只读 schema/source/formula/SQL 模拟
+→ blocked：停止
+→ awaiting_approval：取得有作用域、有效期的风险批准
+→ startSeedRun：租约 + 事务 INSERT/verify
+→ markSeedRunJobRunning → Job
+→ markSeedRunAsserting → 页面断言
+→ finally cleanupSeedRun
 ```
 
 ## 硬约束
 
-- 凭据只进项目根 `.env`  
-- 禁止写生产库  
-- 管控造数默认 `rule_trigger`（精确阈值），禁止套用看板「±15% 浮动灌数」  
-- INSERT 前必须表单确认  
-- 引擎：`tests/e2e/helpers/seed/engine.ts`；适配：`seed/{biz}.ts`
+- Apply/Cleanup 必须满足 `E2E_DB_ENV=test` 与业务数据库名一致。
+- V3 还必须配置 `E2E_META_DB_NAME`，且元库 migration version 匹配；运行时禁止 DDL。
+- AST 支持 AND/OR/NOT，最大深度 8、最多 64 个叶子；新节点使用稳定 UUID。
+- HIT 可指定 `hitNodeId`；MISS 必须指定 `missNodeId`。旧数组迁移期才允许
+  `legacyMissConditionIndex`。
+- provisional、公式/过滤/来源证据不完整属于高风险，通用自动确认不得绕过。
+- 展示性可选列缺失是 info，不应制造批准噪音。
+- 每阶段检查取消；提交前取消回滚，提交后取消按 manifest 清理。
+- SQL 审计只记录模板和脱敏参数，禁止密码、token、cookie、Authorization 落盘。
+- `finally` 必须调用 `finalizeSeedRun(runId)`：`always` 自动清理；`manual` 将 run 标记为 retained 并输出手动清理命令。CI 禁止 manual。
+- 目标表存在 `channel_code` 时，Preflight 必须自动分配独立渠道号：HIT 使用所有相关目标表中数字渠道号全局 `MAX+1`，MISS 使用 `MAX+2`；同一多表计划必须共用该渠道号。
+- UI 断言必须在记录页按“规则 ID + 渠道号”定位同一行。HIT 等待该行出现；MISS 在观察窗口内确认该行始终不出现。禁止只按规则 ID 判断，以免历史记录干扰。
 
-## 与编排关系
+## 命令
 
-- 上一阶段：`../ui-flow-generate/SKILL.md`  
-- 下一阶段：`../ui-flow-validate/SKILL.md`  
-- 编排入口：`../ui-flow-codegen/SKILL.md`  
+```bash
+npm run seed:preflight -- --ruleId=123 --mode=hit --hitNodeId=<uuid>
+npm run seed:preflight -- --ruleId=123 --mode=miss --missNodeId=<uuid>
+npm run seed:approve -- --plan=<plan> --approvedBy=user --reason="已核对"
+npm run seed:apply -- --plan=<plan> --confirmed=1 --approvalFingerprint=sha256:...
+npm run seed:cancel -- --runId=<uuid> --reason="用户提前结束"
+npm run seed:status -- --runId=<uuid>
+npm run seed:cleanup -- --runId=<uuid>
+npm run seed:recover
+```
+
+配置治理：
+
+```bash
+npm run seed:config:candidate
+npm run seed:config:diff
+npm run seed:config:promote -- --approvedBy=user --reason="Mapper/schema 已核对"
+```
+
+candidate 命令只能写 `_inbox`；未经显式 promote 不得覆盖正式配置。
+
+## Job AST 能力边界
+
+- 本阶段不修改 `market-job`。
+- 旧条件数组，以及可无损展平为旧条件数组的纯 AND AST，可以进入 Apply 和真实 Job。
+- 包含 OR 或 NOT 的 AST 只允许 Compile、Boolean Solver 和只读 Preflight。
+- 这类计划必须产生 `JOB_AST_CAPABILITY_UNAVAILABLE` error 并进入 blocked。
+- approval、confirmed 或自动确认变量都不能绕过该错误。
+- 禁止把 OR/NOT 叶子退化成 AND，也禁止通过修改事实数据伪装 Job 已支持 AST。
+
+## 新 Recipe
+
+1. 从 Job/Mapper 和 schema 生成 candidate。
+2. 审阅 table、filter、formula、执行阶段和证据差异。
+3. 执行纯函数、schema preflight、事务回滚和脱敏测试。
+4. 证据不足时保持 provisional。
+5. 用户显式 promote 后才能供新 run 使用。
+
+上游：无（用例生成 / generate 编排已移除）
+下游：[../ui-flow-validate/SKILL.md](../ui-flow-validate/SKILL.md)

@@ -1,0 +1,489 @@
+{
+  "plines": [
+    {
+      "enumName": "CLIENT",
+      "type": 1,
+      "desc": "客户端-付费小说",
+      "alias": "cltmain"
+    },
+    {
+      "enumName": "FAST_APP",
+      "type": 2,
+      "desc": "快应用",
+      "alias": "kyy"
+    },
+    {
+      "enumName": "SYH_CLT",
+      "type": 3,
+      "desc": "商业化-客户端",
+      "alias": "syh"
+    },
+    {
+      "enumName": "SYH_KYY",
+      "type": 4,
+      "desc": "商业化-快应用",
+      "alias": "syhkyy"
+    },
+    {
+      "enumName": "CLT_GOLD",
+      "type": 5,
+      "desc": "客户端-金币",
+      "alias": "cltgold"
+    },
+    {
+      "enumName": "KYY_PLAY",
+      "type": 6,
+      "desc": "快应用-短剧",
+      "alias": "kyyplay"
+    },
+    {
+      "enumName": "XMT_PLAY",
+      "type": 7,
+      "desc": "新媒体-短剧",
+      "alias": "xmtplay"
+    },
+    {
+      "enumName": "CPS_YG",
+      "type": 8,
+      "desc": "新媒体-阳光书城",
+      "alias": "cpsyg"
+    },
+    {
+      "enumName": "SYH_CLT_PLAY",
+      "type": 9,
+      "desc": "客户端-免费短剧",
+      "alias": "syhplay"
+    },
+    {
+      "enumName": "HWKYY",
+      "type": 10,
+      "desc": "华为快应用",
+      "alias": "hwkyy"
+    },
+    {
+      "enumName": "SYH_KYY_PLAY",
+      "type": 11,
+      "desc": "快应用-免费短剧",
+      "alias": "syhkyyplay"
+    },
+    {
+      "enumName": "CPS_READ",
+      "type": 12,
+      "desc": "新媒体-阳光小程序",
+      "alias": "cpsread"
+    },
+    {
+      "enumName": "CPS_SHORT",
+      "type": 13,
+      "desc": "新媒体-短篇",
+      "alias": "cpsshort"
+    },
+    {
+      "enumName": "CPS_VIDEO_MF",
+      "type": 14,
+      "desc": "新媒体-免费短剧",
+      "alias": "cpsvideomf"
+    },
+    {
+      "enumName": "NXH_PLAY",
+      "type": 15,
+      "desc": "内循环-短剧",
+      "alias": "nxhplay"
+    },
+    {
+      "enumName": "CPS_FREE",
+      "type": 16,
+      "desc": "新媒体-免费小说",
+      "alias": "cpsfree"
+    },
+    {
+      "enumName": "CLT_PLAY",
+      "type": 17,
+      "desc": "客户端-付费短剧",
+      "alias": "cltplay"
+    },
+    {
+      "enumName": "NXH_PLAY_MF",
+      "type": 18,
+      "desc": "内循环-免费短剧",
+      "alias": "nxhplaymf"
+    },
+    {
+      "enumName": "NXH",
+      "type": 19,
+      "desc": "内循环-付费小说",
+      "alias": "nxh"
+    },
+    {
+      "enumName": "NXH_CPS_PLAY",
+      "type": 20,
+      "desc": "内循环-分销短剧",
+      "alias": "nxhcpsplay"
+    },
+    {
+      "enumName": "NXH_FX_PLAY_MF",
+      "type": 21,
+      "desc": "内循环-分销免费短剧",
+      "alias": "nxhfplaymf"
+    },
+    {
+      "enumName": "NXH_FREE",
+      "type": 22,
+      "desc": "内循环-免费小说",
+      "alias": "nxhfree"
+    },
+    {
+      "enumName": "CPS_DY_FREE",
+      "type": 23,
+      "desc": "头条端原生-免费",
+      "alias": "cpsdyfree"
+    },
+    {
+      "enumName": "CPS_DY",
+      "type": 24,
+      "desc": "头条端原生-付费",
+      "alias": "cpsdy"
+    },
+    {
+      "enumName": "FQ_VIDEO_FX",
+      "type": 25,
+      "desc": "番茄短剧分销",
+      "alias": "fxdjfx"
+    },
+    {
+      "enumName": "SYH_CLT_MJB",
+      "type": 26,
+      "desc": "客户端-免费马甲包",
+      "alias": "syhplaymjb"
+    },
+    {
+      "enumName": "OTHER",
+      "type": -2,
+      "desc": "未知",
+      "alias": "other"
+    }
+  ],
+  "jobEntries": [
+    {
+      "jobKey": "DATA_TABLE_PAY_PROMOTION",
+      "title": "新媒体付费短剧-广告",
+      "hourTable": "ad_advertiser_online_pay_promotion_hour",
+      "dayTable": "ad_advertiser_online_pay_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_PAY_CHANNEL",
+      "title": "新媒体付费短剧-渠道",
+      "hourTable": "ad_advertiser_online_pay_channel_hour",
+      "dayTable": "ad_advertiser_online_pay_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_PAY_PROJECT",
+      "title": "新媒体付费短剧-项目",
+      "hourTable": "ad_advertiser_online_pay_project_hour",
+      "dayTable": "ad_advertiser_online_pay_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_FREE_PROMOTION",
+      "title": "新媒体免费短剧-广告",
+      "hourTable": "ad_advertiser_online_free_promotion_hour",
+      "dayTable": "ad_advertiser_online_free_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_FREE_PROJECT",
+      "title": "新媒体免费短剧-项目",
+      "hourTable": "ad_advertiser_online_free_project_hour",
+      "dayTable": "ad_advertiser_online_free_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_FREE_CHANNEL",
+      "title": "新媒体免费短剧-渠道",
+      "hourTable": "ad_advertiser_online_free_channel_hour",
+      "dayTable": "ad_advertiser_online_free_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_PAY_BOOK_PROMOTION",
+      "title": "新媒体短篇-广告",
+      "hourTable": "ad_advertiser_online_pay_book_promotion_hour",
+      "dayTable": "ad_advertiser_online_pay_book_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_PAY_BOOK_PROJECT",
+      "title": "新媒体短篇-项目",
+      "hourTable": "ad_advertiser_online_pay_book_project_hour",
+      "dayTable": "ad_advertiser_online_pay_book_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_PAY_BOOK_CHANNEL",
+      "title": "新媒体短篇-渠道",
+      "hourTable": "ad_advertiser_online_pay_book_channel_hour",
+      "dayTable": "ad_advertiser_online_pay_book_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CPSFREE_PROMOTION",
+      "title": "新媒体免费小说-广告",
+      "hourTable": "ad_advertiser_online_pay_book_promotion_hour",
+      "dayTable": "ad_advertiser_online_pay_book_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CPSFREE_PROJECT",
+      "title": "新媒体免费小说-项目",
+      "hourTable": "ad_advertiser_online_pay_book_project_hour",
+      "dayTable": "ad_advertiser_online_pay_book_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CPSFREE_CHANNEL",
+      "title": "新媒体免费小说-渠道",
+      "hourTable": "ad_advertiser_online_pay_book_channel_hour",
+      "dayTable": "ad_advertiser_online_pay_book_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_HM_PROMOTION",
+      "title": "客户端免费短剧-广告",
+      "hourTable": "ad_advertiser_hm_plan_day",
+      "dayTable": "ad_advertiser_hm_plan_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_HM_PROJECT",
+      "title": "客户端免费短剧-项目",
+      "hourTable": "ad_advertiser_hm_project_day",
+      "dayTable": "ad_advertiser_hm_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_HM_CHANNEL",
+      "title": "客户端免费短剧-渠道",
+      "hourTable": "ad_advertiser_hm_channel_day",
+      "dayTable": "ad_advertiser_hm_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_HM_USER",
+      "title": "客户端免费短剧-负责人",
+      "hourTable": "ad_advertiser_hm_project_day",
+      "dayTable": "ad_advertiser_hm_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_FREE_PROMOTION_CPS_DY_FREE",
+      "title": "头条端原生-免费-广告",
+      "hourTable": "ad_advertiser_online_free_promotion_hour",
+      "dayTable": "ad_advertiser_online_free_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_FREE_PROJECT_CPS_DY_FREE",
+      "title": "头条端原生-免费-项目",
+      "hourTable": "ad_advertiser_online_free_project_hour",
+      "dayTable": "ad_advertiser_online_free_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_FREE_CHANNEL_CPS_DY_FREE",
+      "title": "头条端原生-免费-渠道",
+      "hourTable": "ad_advertiser_online_free_channel_hour",
+      "dayTable": "ad_advertiser_online_free_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CPSDY_PROMOTION",
+      "title": "头条端原生付费-广告",
+      "hourTable": "ad_advertiser_online_pay_promotion_hour",
+      "dayTable": "ad_advertiser_online_pay_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CPSDY_CHANNEL",
+      "title": "头条端原生付费-渠道",
+      "hourTable": "ad_advertiser_online_pay_channel_hour",
+      "dayTable": "ad_advertiser_online_pay_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CPSDY_PROJECT",
+      "title": "头条端原生付费-项目",
+      "hourTable": "ad_advertiser_online_pay_project_hour",
+      "dayTable": "ad_advertiser_online_pay_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_ROI3_CHANNEL",
+      "title": "头条端原生付费/免费-渠道-全域投放",
+      "hourTable": "ad_advertiser_online_pay_roi3_channel_hour",
+      "dayTable": "ad_advertiser_online_pay_roi3_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_ROI3_PROJECT",
+      "title": "头条端原生付费/免费-项目-全域投放",
+      "hourTable": "ad_advertiser_online_pay_roi3_project_hour",
+      "dayTable": "ad_advertiser_online_pay_roi3_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTMAIN_PROMOTION",
+      "title": "客户端付费小说-广告",
+      "hourTable": "ad_advertiser_client_pay_promotion_hour",
+      "dayTable": "ad_advertiser_client_pay_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTMAIN_PROJECT",
+      "title": "客户端付费小说-项目",
+      "hourTable": "ad_advertiser_client_pay_project_hour",
+      "dayTable": "ad_advertiser_client_pay_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTMAIN_CHANNEL",
+      "title": "客户端付费小说-渠道",
+      "hourTable": "ad_advertiser_client_pay_channel_hour",
+      "dayTable": "ad_advertiser_client_pay_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTMAIN_USER",
+      "title": "客户端付费小说-负责人",
+      "hourTable": "ad_advertiser_client_pay_project_day",
+      "dayTable": "ad_advertiser_client_pay_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTPLAY_PROMOTION",
+      "title": "客户端付费短剧-广告",
+      "hourTable": "ad_advertiser_client_pay_promotion_hour",
+      "dayTable": "ad_advertiser_client_pay_promotion_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTPLAY_PROJECT",
+      "title": "客户端付费短剧-项目",
+      "hourTable": "ad_advertiser_client_pay_project_hour",
+      "dayTable": "ad_advertiser_client_pay_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTPLAY_CHANNEL",
+      "title": "客户端付费短剧-渠道",
+      "hourTable": "ad_advertiser_client_pay_channel_hour",
+      "dayTable": "ad_advertiser_client_pay_channel_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    },
+    {
+      "jobKey": "DATA_TABLE_CLTPLAY_USER",
+      "title": "客户端付费短剧-负责人",
+      "hourTable": "ad_advertiser_client_pay_project_day",
+      "dayTable": "ad_advertiser_client_pay_project_day",
+      "dataType": null,
+      "plines": [],
+      "releaseVer": null,
+      "source": "DataControlService.initJobMap"
+    }
+  ],
+  "columns": 52
+}

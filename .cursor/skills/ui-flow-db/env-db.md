@@ -8,7 +8,6 @@
 |----|------|
 | 真实连接 | 项目根 `.env`（与 `E2E_USER` 等同文件） |
 | 占位示例 | 项目根 `.env.example` |
-| 编排侧摘要 | [`../ui-flow-codegen/env.md`](../ui-flow-codegen/env.md)「数据库变量」节 |
 | 本文件 | 变量名与探活约定（权威） |
 
 ## 变量名
@@ -20,6 +19,7 @@
 | `E2E_DB_NAME` | 库名 | 是 |
 | `E2E_DB_USER` | 用户名 | 是 |
 | `E2E_DB_PASSWORD` | 密码 | 是 |
+| `E2E_DB_ENV` | 写库环境门禁；必须严格为 `test` | Apply/Cleanup 是 |
 | `E2E_SEED_AUTO_CONFIRM` | Playwright 无人值守跳过造数确认 | 否（Agent 交互造数禁止依赖此开关绕过确认） |
 
 ## `.env` 示例（占位）
@@ -30,6 +30,12 @@ E2E_DB_PORT=3306
 E2E_DB_NAME=your_database
 E2E_DB_USER=your_user
 E2E_DB_PASSWORD=your_password
+E2E_META_DB_HOST=127.0.0.1
+E2E_META_DB_PORT=3306
+E2E_META_DB_USER=your_meta_user
+E2E_META_DB_PASSWORD=your_meta_password
+E2E_META_DB_NAME=e2e_seed_meta
+E2E_DB_ENV=test
 ```
 
 ## 运行时约定
@@ -39,7 +45,10 @@ E2E_DB_PASSWORD=your_password
 - CLI 探活：`npm run db:ping`（[`scripts/db-ping.mjs`](../../../scripts/db-ping.mjs)）  
 - 与 Playwright 同进程，不经 Python  
 - Skill / 生成代码只引用上表变量名，禁止硬编码主机/密码  
-- 实现业务造数前：缺任一必填变量则停止并提示补 `.env`；表结构见 `domains/<biz>/db/` 分册  
+- 实现业务造数前：缺任一必填变量则停止并提示补 `.env`；表结构见 `domains/<biz>/knowledge/dimensions.json`  
+- Apply/Cleanup 还须验证 `DATABASE() = E2E_DB_NAME`；任一不符立即拒绝写库
+- Seed V3 使用同一实例和账号连接 `E2E_META_DB_NAME`；运行前必须显式执行
+  `migrations/e2e-meta`，运行时代码只校验版本、不自动建表。
 
 ## 连通性探针（人工 / Agent 排障）
 

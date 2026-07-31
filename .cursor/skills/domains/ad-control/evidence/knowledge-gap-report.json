@@ -1,0 +1,186 @@
+{
+  "capturedAt": "2026-07-31T05:57:41.037Z",
+  "ruleFields": [
+    {
+      "id": "dimension-field:channel_users",
+      "name": "负责人",
+      "term": "channel_users",
+      "codeMatches": 7,
+      "decision": "manual-review-required"
+    },
+    {
+      "id": "dimension-field:effect_scope",
+      "name": "主体范围",
+      "term": "effect_scope",
+      "codeMatches": 5,
+      "decision": "manual-review-required"
+    },
+    {
+      "id": "dimension-field:account_type",
+      "name": "账户类型",
+      "term": "account_type",
+      "codeMatches": 11,
+      "decision": "manual-review-required"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "condition:convert_cost:cpsdyfree+cpsdy+xmtplay",
+      "name": "convert_cost",
+      "codeMatches": 100,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:hour_convert_cost:cpsdyfree+cpsdy+xmtplay",
+      "name": "hour_convert_cost",
+      "codeMatches": 103,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:bid_rate:cpsdyfree+cpsdy+xmtplay",
+      "name": "bid_rate",
+      "codeMatches": 100,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:hour_bid_rate:cpsdyfree+cpsdy+xmtplay",
+      "name": "hour_bid_rate",
+      "codeMatches": 101,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:n_auto_pay_cost:xmtplay",
+      "name": "n_auto_pay_cost",
+      "codeMatches": 21,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:hour_n_auto_pay_cost:xmtplay",
+      "name": "hour_n_auto_pay_cost",
+      "codeMatches": 22,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:n_uv:syhplay",
+      "name": "n_uv",
+      "codeMatches": 100,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:cpa:syhplay",
+      "name": "cpa",
+      "codeMatches": 100,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:stay_1:syhplay",
+      "name": "stay_1",
+      "codeMatches": 34,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:retention_d1_uv_ratio:syhplay",
+      "name": "retention_d1_uv_ratio",
+      "codeMatches": 8,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:retention_d3_uv_ratio:syhplay",
+      "name": "retention_d3_uv_ratio",
+      "codeMatches": 8,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:retention_d4_uv_ratio:syhplay",
+      "name": "retention_d4_uv_ratio",
+      "codeMatches": 8,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:retention_d5_uv_ratio:syhplay",
+      "name": "retention_d5_uv_ratio",
+      "codeMatches": 8,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:retention_d6_uv_ratio:syhplay",
+      "name": "retention_d6_uv_ratio",
+      "codeMatches": 8,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:retention_d7_uv_ratio:syhplay",
+      "name": "retention_d7_uv_ratio",
+      "codeMatches": 8,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:avg_play_time_day:syhplay",
+      "name": "avg_play_time_day",
+      "codeMatches": 15,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:hour_avg_play_time_day:syhplay",
+      "name": "hour_avg_play_time_day",
+      "codeMatches": 16,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:stay_h3:syhplay",
+      "name": "stay_h3",
+      "codeMatches": 10,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:hour_stay_h3:syhplay",
+      "name": "hour_stay_h3",
+      "codeMatches": 11,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:all_roi:syhplay",
+      "name": "all_roi",
+      "codeMatches": 87,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:arpu:syhplay",
+      "name": "arpu",
+      "codeMatches": 40,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:hour_arpu:syhplay",
+      "name": "hour_arpu",
+      "codeMatches": 41,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:subsidies_roi:cpsfree",
+      "name": "subsidies_roi",
+      "codeMatches": 34,
+      "decision": "formula-and-schema-review-required"
+    },
+    {
+      "id": "condition:hour_all_roi_24h_trend:cpsdy",
+      "name": "hour_all_roi_24h_trend",
+      "codeMatches": 19,
+      "decision": "formula-and-schema-review-required"
+    }
+  ],
+  "actions": [
+    {
+      "id": "action:pause",
+      "name": "暂停",
+      "codeMatches": 24,
+      "decision": "code-and-ui-closed-loop-review-required"
+    },
+    {
+      "id": "action:raise-budget",
+      "name": "调整预算",
+      "codeMatches": 5,
+      "decision": "code-and-ui-closed-loop-review-required"
+    }
+  ]
+}

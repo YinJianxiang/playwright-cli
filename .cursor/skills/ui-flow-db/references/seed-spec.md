@@ -1,54 +1,40 @@
-# seed-spec（批次造数契约）
+# Seed V3 执行契约
 
-本批「要造什么」；「能不能造」见 `domains/<biz>/db/seed-capability.json`。
-
-## 落点
-
-`tests/e2e/generated/<batch>/explore/seed-spec-<ruleId>-<mode>.json`  
-（`planSeedViaDb(..., { specOutDir })` 自动写出；也可手写后 `planFromSeedSpecFile`）
-
-## 字段
-
-| 字段 | 说明 |
-|------|------|
-| `scenario` | 固定 `rule_trigger`（管控命中；非看板展示） |
-| `biz` | 如 `ad-control` |
-| `ruleId` | 规则主键 |
-| `mode` | `hit` \| `miss` |
-| `recipeKey` | 可选；plan 后回填，须与规则解析一致 |
-| `rowStrategy` | `synthetic` \| `copy-then-patch` |
-| `pairId` / `role` | 成对用例：`trigger` / `non_trigger` |
-| `expected` | column + compare + val（审计） |
-| `blocked` | 有值则禁止 plan/apply |
-
-## 示例（hit）
-
-```json
-{
-  "scenario": "rule_trigger",
-  "biz": "ad-control",
-  "ruleId": "12345",
-  "mode": "hit",
-  "recipeKey": "cpsvideomf|promotion|0|consume",
-  "rowStrategy": "copy-then-patch",
-  "pairId": "case-consume-le",
-  "role": "trigger",
-  "expected": { "column": "consume", "compareType": "le", "val1": 10 }
-}
-```
-
-## 示例（成对 miss）
-
-同一 `pairId`，`mode=miss`，`role=non_trigger`；两次 plan/apply，实体 ID 不同。
-
-与 `cases-flow` 对齐：`<pairId>-HIT` ↔ `mode=hit`；`<pairId>-MISS` ↔ `mode=miss`。流程用例说明书强制成对，见 [case-spec.md](../../ui-flow-codegen/references/case-spec.md)。
-
-## 与流水线
+造数只有一条公开执行链：
 
 ```text
-cases-flow / 规则
-  → 写 seed-spec（或 plan 时带 specOutDir）
-  → capability 门禁
-  → plan（copy-then-patch | synthetic + hit|miss）
-  → 确认 → apply → verify → seed-log.json
+compileSeedRun
+→ preflightSeedRun
+→ approval
+→ startSeedRun
+→ Job / UI assertion
+→ finalizeSeedRun / cleanupSeedRun
 ```
+
+## 计划与执行
+
+- 新计划必须同时满足 `SeedPlanV3.version === 3` 和 `executionPlan.version === 3`。
+- Preflight 输出完整 AST、节点期望、`ConditionPlanV3[]`、`InsertGroupV3[]`、风险、批准指纹和执行 hash。
+- HIT 使用稳定的满足解；MISS 必须提供 `missNodeId`，只翻转求解器声明的叶子。
+- Apply 不重新选表、补字段或计算指标；计划过期、schema 或 execution hash 变化时必须重新 Preflight。
+- 中高风险计划必须获得匹配环境、配置版本且未过期/未撤销的批准。
+
+## 规则骨架
+
+最终行按固定优先级构造：
+
+```text
+source skeleton
+→ table defaults
+→ ruleFilterPatch
+→ identity values
+→ HIT/MISS metric values
+```
+
+规则中明确且非“不限”的 Job 过滤字段必须进入 `ruleFilterPatch`；无法映射时计划 blocked。
+
+## 历史产物
+
+- 历史 plan、log、audit 和 manifest 只允许查看。
+- 含旧嵌套计划结构的文件不能重新 Apply，运行时返回 `PLAN_VERSION_UNSUPPORTED`。
+- 已 cleaned manifest 仅用于审计；新执行必须重新生成 V3 plan 和 runId。

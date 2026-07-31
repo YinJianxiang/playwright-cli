@@ -1,0 +1,13 @@
+{
+  "capturedAt": "2026-07-31T05:57:41.037Z",
+  "sources": [
+    {
+      "evidenceId": "ui-domain",
+      "sourceType": "ui",
+      "source": "D:/Project/playwright-ui/.cursor/skills/domains/ad-control/references/dimensions.md",
+      "digest": "sha256:e4c4f53c17af29f6fa08b811b0b339c73d978916f78dcb873d824a1ed501570c",
+      "capturedAt": "2026-07-31T05:57:41.037Z",
+      "notes": "已消化的 UI 探索结论"
+    }
+  ]
+}

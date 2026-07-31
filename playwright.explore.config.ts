@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { defineConfig } from '@playwright/test';
+import { resolveHeadless } from './playwright.evidence';
 
 function loadEnvFile() {
   try {
@@ -25,7 +26,7 @@ export default defineConfig({
   expect: { timeout: 20_000 },
   use: {
     channel: 'chrome',
-    headless: false,
+    headless: resolveHeadless(),
     viewport: { width: 1440, height: 900 },
     actionTimeout: 20_000,
     navigationTimeout: 30_000,

@@ -1,0 +1,8311 @@
+{
+  "capturedAt": "2026-07-31T05:57:41.037Z",
+  "status": "verified",
+  "database": "market",
+  "ruleColumns": [
+    {
+      "Field": "id",
+      "Type": "int(11)",
+      "Null": "NO",
+      "Key": "PRI",
+      "Default": null,
+      "Extra": "auto_increment"
+    },
+    {
+      "Field": "name",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "data_type",
+      "Type": "varchar(10)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "plan",
+      "Extra": ""
+    },
+    {
+      "Field": "pline_form",
+      "Type": "varchar(10)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "video_type",
+      "Type": "tinyint(1)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "media",
+      "Type": "tinyint(2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "2",
+      "Extra": ""
+    },
+    {
+      "Field": "channel_users",
+      "Type": "varchar(2000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "-1",
+      "Extra": ""
+    },
+    {
+      "Field": "book_up_type",
+      "Type": "tinyint(1)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "conditions",
+      "Type": "varchar(1000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "do_type",
+      "Type": "tinyint(1)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "cycle_type",
+      "Type": "tinyint(1)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "run_hours",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "skip_hour_range",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "status",
+      "Type": "tinyint(1)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "2",
+      "Extra": ""
+    },
+    {
+      "Field": "creator_id",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "creator",
+      "Type": "varchar(50)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "opt_user_name",
+      "Type": "varchar(50)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "ctime",
+      "Type": "datetime",
+      "Null": "YES",
+      "Key": "",
+      "Default": "CURRENT_TIMESTAMP",
+      "Extra": "DEFAULT_GENERATED"
+    },
+    {
+      "Field": "utime",
+      "Type": "datetime",
+      "Null": "YES",
+      "Key": "",
+      "Default": "CURRENT_TIMESTAMP",
+      "Extra": "DEFAULT_GENERATED on update CURRENT_TIMESTAMP"
+    },
+    {
+      "Field": "account_type",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "opt_status",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "create_time",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "delivery_way",
+      "Type": "varchar(20)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "bid_strategy_name",
+      "Type": "varchar(50)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "send_ding",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "bid_strategy_id",
+      "Type": "bigint(20)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "copy_type",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "copy_condition_old",
+      "Type": "varchar(256)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "copy_condition_new",
+      "Type": "varchar(256)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "bid_strategy_ids",
+      "Type": "varchar(255)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "bid_strategy_names",
+      "Type": "varchar(1000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "main_bodys",
+      "Type": "varchar(2000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "ignore_book_ids",
+      "Type": "text",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "effective_book_ids",
+      "Type": "text",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "ignore_channel_codes",
+      "Type": "varchar(3000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "-1",
+      "Extra": ""
+    },
+    {
+      "Field": "project_status",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "filter_script_label",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "-1",
+      "Extra": ""
+    },
+    {
+      "Field": "new_project_num",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "os_type",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "effect_scope",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "service_provider_names",
+      "Type": "varchar(1000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "empty_schedule_time",
+      "Type": "varchar(1000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "ignore_accounts",
+      "Type": "text",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "media_free",
+      "Type": "varchar(20)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "-1",
+      "Extra": ""
+    },
+    {
+      "Field": "put_mode",
+      "Type": "varchar(50)",
+      "Null": "YES",
+      "Key": "",
+      "Default": "-1",
+      "Extra": ""
+    },
+    {
+      "Field": "roi_coefficient_min",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "roi_coefficient_max",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "effective_date",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "external_action",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "raise_budget",
+      "Type": "decimal(10,2)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "raise_end_hour",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "roi_goal",
+      "Type": "decimal(10,4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "is_anime",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "bid_type",
+      "Type": "varchar(20)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "empty_schedule_time_today",
+      "Type": "varchar(1000)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "deep_external_action",
+      "Type": "varchar(20)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "delivery_mode",
+      "Type": "varchar(20)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "budget_update",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "rate_limit_window_hours",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "rate_limit_max_count",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "book_up_days",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "book_up_days_end",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "rate_limit_flag",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "book_data_filter_flag",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "book_data_filter_consume",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "book_data_filter_roi",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "restart_disabled_flag",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "placement_mode",
+      "Type": "varchar(150)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "is_new_book",
+      "Type": "tinyint(1)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "sex",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "article_type",
+      "Type": "tinyint(4)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "app_name",
+      "Type": "varchar(100)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "book_id",
+      "Type": "varchar(256)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "channel_prefix",
+      "Type": "varchar(256)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "budget_change_json",
+      "Type": "json",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "roi_change_json",
+      "Type": "json",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "budget_min",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "budget_max",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "cpa_bid_change_json",
+      "Type": "json",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "drama_type",
+      "Type": "varchar(200)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "anime_type",
+      "Type": "varchar(500)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "book_data_filter_roi_3day",
+      "Type": "double",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    },
+    {
+      "Field": "release_ver",
+      "Type": "int(11)",
+      "Null": "YES",
+      "Key": "",
+      "Default": null,
+      "Extra": ""
+    }
+  ],
+  "representativeRules": [
+    {
+      "id": 16260,
+      "pline_form": "xmtplay",
+      "data_type": "promotion",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": 1,
+      "project_status": 1,
+      "status": 1
+    },
+    {
+      "id": 16259,
+      "pline_form": "cpsdyfree",
+      "data_type": "project",
+      "release_ver": 3,
+      "external_action": "IAP",
+      "delivery_way": "0",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16258,
+      "pline_form": "xmtplay",
+      "data_type": "promotion",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": 1,
+      "project_status": 1,
+      "status": 1
+    },
+    {
+      "id": 16257,
+      "pline_form": "cpsdy",
+      "data_type": "project",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "0",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16256,
+      "pline_form": "cpsdy",
+      "data_type": "project",
+      "release_ver": 3,
+      "external_action": "IAP",
+      "delivery_way": "",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16255,
+      "pline_form": "xmtplay",
+      "data_type": "project",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16254,
+      "pline_form": "cltmain",
+      "data_type": "channel",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "0",
+      "opt_status": null,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16253,
+      "pline_form": "cltmain",
+      "data_type": "channel",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "0",
+      "opt_status": null,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16252,
+      "pline_form": "cpsfree",
+      "data_type": "project",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16251,
+      "pline_form": "cpsfree",
+      "data_type": "project",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16250,
+      "pline_form": "cltmain",
+      "data_type": "channel",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "0",
+      "opt_status": null,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16249,
+      "pline_form": "cltmain",
+      "data_type": "channel",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "",
+      "opt_status": null,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16248,
+      "pline_form": "syhplay",
+      "data_type": "project",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "0",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 2
+    },
+    {
+      "id": 16247,
+      "pline_form": "syhplay",
+      "data_type": "project",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 2
+    },
+    {
+      "id": 16246,
+      "pline_form": "xmtplay",
+      "data_type": "project",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16245,
+      "pline_form": "xmtplay",
+      "data_type": "project",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16244,
+      "pline_form": "cpsdy",
+      "data_type": "project",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "0",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16243,
+      "pline_form": "xmtplay",
+      "data_type": "channel",
+      "release_ver": 1,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": null,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16242,
+      "pline_form": "cpsfree",
+      "data_type": "project",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "1",
+      "opt_status": 1,
+      "project_status": null,
+      "status": 1
+    },
+    {
+      "id": 16241,
+      "pline_form": "cpsfree",
+      "data_type": "channel",
+      "release_ver": 2,
+      "external_action": "不限",
+      "delivery_way": "2",
+      "opt_status": null,
+      "project_status": null,
+      "status": 1
+    }
+  ],
+  "factSchemas": [
+    {
+      "table": "ad_advertiser_online_pay_channel_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "plan_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "nickname",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_one_day_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_deduct_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_cost_standard",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "subscribe_template_name",
+          "Type": "varchar(255)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "mini_appid",
+          "Type": "varchar(64)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_roi3_channel_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "nickname",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_gmv_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_amount_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_fen_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_stat_total_cost_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_platform_id",
+          "Type": "bigint(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "original_aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_channel_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "NO",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "plan_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_one_day_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_deduct_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_cost_standard",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "subscribe_template_name",
+          "Type": "varchar(255)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_roi3_channel_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "NO",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "NO",
+          "Key": "MUL"
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_gmv_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_amount_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_fen_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_stat_total_cost_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_platform_id",
+          "Type": "bigint(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "original_aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_project_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "landing_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_promotion_type",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "inventory_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "pricing",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "first_consume_date",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "schedule_time",
+          "Type": "varchar(500)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "budget_optimize_switch",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_one_day_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_deduct_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "raise_consume",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_cost_standard",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "subscribe_template_name",
+          "Type": "varchar(255)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "mini_appid",
+          "Type": "varchar(64)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_roi3_project_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "landing_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_promotion_type",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "inventory_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "pricing",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "first_consume_date",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "schedule_time",
+          "Type": "varchar(500)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "budget_optimize_switch",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_gmv_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_amount_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_fen_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_stat_total_cost_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_platform_id",
+          "Type": "bigint(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "original_aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "model_pred_roi",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_project_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_one_day_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_deduct_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "raise_consume",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_cost_standard",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "subscribe_template_name",
+          "Type": "varchar(255)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_roi3_project_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_gmv_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_billing_gmv_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_roi_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_24h_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_0day_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_income_3days_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_amount_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_fen_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_pay_amount_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_micro_game_income_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "all_stat_total_cost_trend",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_platform_id",
+          "Type": "bigint(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "product_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_id",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "original_aweme_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_promotion_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "promotion_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "landing_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_promotion_type",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "inventory_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "pricing",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "first_consume_date",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "budget_optimize_switch",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_budget",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_one_day_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_deduct_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "model_pred_roi",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_promotion_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_one_day_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_deduct_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_free_channel_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_ltv",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_roi",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_money",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "plan_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h1",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h2",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h3",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h4",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h5",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h6",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h7",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h8",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h9",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h10",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h11",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h12",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h13",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h14",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h15",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h16",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h17",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h18",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h19",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h20",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h21",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h22",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h23",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h48",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "predict_cpm_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_attribution_micro_game_24h_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_free_channel_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_ltv",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_roi",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_money",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "plan_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h1",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h2",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h3",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h4",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h5",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h6",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h7",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h8",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h9",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h10",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h11",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h12",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h13",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h14",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h15",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h16",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h17",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h18",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h19",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h20",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h21",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h22",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h23",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h48",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "predict_cpm_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_attribution_micro_game_24h_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_free_project_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "landing_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_promotion_type",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "inventory_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "pricing",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "first_consume_date",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_ltv",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_roi",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_money",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h1",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h2",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h3",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h4",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h5",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h6",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h7",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h8",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h9",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h10",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h11",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h12",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h13",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h14",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h15",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h16",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h17",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h18",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h19",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h20",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h21",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h22",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h23",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h48",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "schedule_time",
+          "Type": "varchar(500)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "budget_optimize_switch",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "predict_cpm_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "raise_consume",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_attribution_micro_game_24h_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_free_project_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_roi",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_money",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h1",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h2",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h3",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h4",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h5",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h6",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h7",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h8",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h9",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h10",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h11",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h12",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h13",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h14",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h15",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h16",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h17",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h18",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h19",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h20",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h21",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h22",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h23",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h48",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_ltv",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "predict_cpm_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "raise_consume",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_attribution_micro_game_24h_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_free_promotion_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "promotion_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "landing_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_promotion_type",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "inventory_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "pricing",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "first_consume_date",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_ltv",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_roi",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_money",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h1",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h2",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h3",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h4",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h5",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h6",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h7",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h8",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h9",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h10",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h11",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h12",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h13",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h14",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h15",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h16",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h17",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h18",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h19",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h20",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h21",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h22",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h23",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h48",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "budget_optimize_switch",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_budget",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "predict_cpm_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_new_book",
+          "Type": "tinyint(1)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_attribution_micro_game_24h_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "model_pred_roi",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_roi",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_cz_money",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h1",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h2",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h3",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h4",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h5",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h6",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h7",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h8",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h9",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h10",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h11",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h12",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h13",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h14",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h15",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h16",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h17",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h18",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h19",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h20",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h21",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h22",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h23",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_total_income_h48",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_game_0d_ltv",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "predict_cpm_h24",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "promotion_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_pay_amount",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "attribution_game_in_app_ltv_1day",
+          "Type": "double",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "is_anime",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "anime_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "drama_type",
+          "Type": "smallint(6)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "stat_attribution_micro_game_24h_amount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_book_project_hour",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "hour",
+          "Type": "varchar(2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_type",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_strategy_id",
+          "Type": "bigint(21)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_strategy_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "article_type",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "shelf_placement_time",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "nickname",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "landing_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_promotion_type",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "inventory_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "pricing",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "schedule_time",
+          "Type": "varchar(500)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "budget_optimize_switch",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "plan_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_cost_standard",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "subscribe_template_name",
+          "Type": "varchar(255)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "key_back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    },
+    {
+      "table": "ad_advertiser_online_pay_book_project_day",
+      "columns": [
+        {
+          "Field": "id",
+          "Type": "bigint(20) unsigned",
+          "Null": "NO",
+          "Key": "PRI"
+        },
+        {
+          "Field": "cdate",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_id",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "project_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "pline_form",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "video_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "media",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "service_provider_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "app_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "agent_user_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "account_type",
+          "Type": "tinyint(4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "account_name",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "main_body",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "steward_account",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "balance",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "channel_code",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "nickname",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_way",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "book_id",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": "MUL"
+        },
+        {
+          "Field": "up_date",
+          "Type": "varchar(20)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_strategy_id",
+          "Type": "bigint(21)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_strategy_name",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "landing_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "micro_promotion_type",
+          "Type": "varchar(200)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "delivery_mode",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_create_time",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_status",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "inventory_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_external_action",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "bid_type",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "pricing",
+          "Type": "varchar(100)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "schedule_time",
+          "Type": "varchar(500)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "budget_optimize_switch",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "project_budget",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "consume",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h1",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h2",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h3",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cz_h12",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "roi_goal",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_download_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "show_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "click_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_register",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_addiction",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "game_pay_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "active_pay_intra_day_count",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "convert_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "deep_convert_cnt",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_ct",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_discount",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_recharge_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "cpa_bid",
+          "Type": "decimal(20,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_unsubscribe_uv_day",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_money_day",
+          "Type": "double(11,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "ctime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "utime",
+          "Type": "datetime",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "put_type",
+          "Type": "varchar(10)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "dept_leader",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "customer_id",
+          "Type": "varchar(1000)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "article_type",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "shelf_placement_time",
+          "Type": "varchar(50)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "plan_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_auto_pay_cost_standard",
+          "Type": "decimal(10,2)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "subscribe_template_name",
+          "Type": "varchar(255)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_imp_num",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "n_predict_cpm",
+          "Type": "decimal(20,4)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "key_back_uv",
+          "Type": "int(11)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "mini_appid",
+          "Type": "varchar(64)",
+          "Null": "YES",
+          "Key": ""
+        },
+        {
+          "Field": "release_ver",
+          "Type": "tinyint(2)",
+          "Null": "NO",
+          "Key": ""
+        }
+      ]
+    }
+  ]
+}

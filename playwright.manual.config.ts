@@ -26,7 +26,7 @@ export default defineConfig({
   expect: { timeout: 15_000 },
   use: {
     ...evidenceUse,
-    headless: false,
+    // 跟随 E2E_HEADLESS；勿再写死 headless:false
     channel: 'chrome',
     viewport: { width: 1440, height: 900 },
   },

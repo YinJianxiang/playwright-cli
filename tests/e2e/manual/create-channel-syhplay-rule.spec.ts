@@ -8,7 +8,7 @@ import {
   login,
   loadDotEnvFromRepoRoot,
   gotoRulePage,
-} from '../generated/20260722-140935/helpers/auth';
+} from '../helpers/auth';
 
 const RULE_NAME = `auto_dc_ch_syh_${Date.now()}`;
 

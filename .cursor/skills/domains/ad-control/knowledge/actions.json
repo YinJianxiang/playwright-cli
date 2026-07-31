@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "action:warning",
+      "name": "预警",
+      "status": "verified",
+      "applicablePlines": [
+        "*"
+      ],
+      "levels": [
+        "promotion",
+        "channel",
+        "project",
+        "user"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "ui-domain",
+        "job-schedule"
+      ],
+      "constraints": [],
+      "ui": {
+        "value": "预警",
+        "control": "ep-radio-button",
+        "defaultCycle": "每30分钟"
+      },
+      "execution": {
+        "trigger": "DataControlSchedule.process0(ruleId)",
+        "defaultPollMs": 10000,
+        "defaultTimeoutMs": 120000
+      },
+      "assertion": {
+        "hit": "记录页出现相同 ruleId 与 channelCode",
+        "miss": "观察窗口内不出现相同 ruleId 与 channelCode"
+      },
+      "cleanup": {
+        "closeRule": true,
+        "cleanupFacts": true
+      }
+    },
+    {
+      "id": "action:pause",
+      "name": "暂停",
+      "status": "unknown",
+      "applicablePlines": [
+        "*"
+      ],
+      "levels": [
+        "promotion",
+        "channel",
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-job-action"
+      ],
+      "constraints": [
+        "当前 UI 证据不足，禁止生成或执行该动作"
+      ]
+    },
+    {
+      "id": "action:raise-budget",
+      "name": "调整预算",
+      "status": "unknown",
+      "applicablePlines": [
+        "*"
+      ],
+      "levels": [
+        "promotion",
+        "channel",
+        "project"
+      ],
+      "confirmedAt": "2026-07-31T04:42:55.366Z",
+      "evidenceRefs": [
+        "code-rule-model"
+      ],
+      "constraints": [
+        "预算上下限和页面结果尚未形成闭环证据"
+      ]
+    }
+  ]
+}

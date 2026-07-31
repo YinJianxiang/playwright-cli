@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "version": "sha256:0c9596f39710dee55174c87f681ef1ba5639202178d3fbde0349be7de3eca9bf",
+  "frozenAt": "2026-07-31T08:30:38.645Z",
+  "evidenceDigest": "sha256:5a5e216f952e4cb9b157ed65127324609217b6fb99998729de251748c58e5786",
+  "domains": {
+    "dimensions": "dimensions.json",
+    "conditions": "conditions.json",
+    "actions": "actions.json"
+  },
+  "runtime": "seed-runtime-v3.json",
+  "stats": {
+    "entries": 111,
+    "verified": 82,
+    "unknown": 29
+  },
+  "jobChain": {
+    "path": "compiled/job-chain/manifest.json",
+    "schemaVersion": 1,
+    "version": "sha256:6acf3c636366e1bea656c2ce9db50d7a806c545be7b1fdbdb7eb09b9d3e7372a",
+    "sourceDigest": "sha256:35705a68c01381069573c530baffd9f06de698bcf065f9ffdb7a8749a271d6a5",
+    "promotedAt": "2026-07-31T07:06:17.601Z",
+    "approvedBy": "user",
+    "reason": "批准6255条广告管控公式闭环组合正式入库",
+    "verifiedConditionRows": 6255,
+    "verifiedRoutes": 60,
+    "verifiedFormulas": 400,
+    "rejectedCandidateRows": 26129,
+    "files": {
+      "conditionMatrix": "condition-formula-matrix.json",
+      "routes": "dimension-route-matrix.json",
+      "formulas": "formula-catalog.json"
+    }
+  }
+}
