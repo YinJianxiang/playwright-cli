@@ -1,4 +1,6 @@
 import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import mysql, {
   type Pool,
   type ResultSetHeader,
@@ -77,6 +79,104 @@ type RunRow = RowDataPacket & {
 
 let metaPool: Pool | undefined;
 
+export type SeedMetaStoreMode = 'mysql' | 'file';
+
+type FileApproval = {
+  fingerprint: string;
+  environment: 'test';
+  biz: 'ad-control';
+  scenario: 'rule_trigger';
+  configVersion: string;
+  riskLevel: 'medium' | 'high';
+  approvedBy: string;
+  approvedAt: string;
+  expiresAt: string;
+  reason: string;
+  revokedAt?: string;
+  revokedBy?: string;
+  revokeReason?: string;
+};
+
+const terminalStatuses = new Set<SeedRunStatus>([
+  'blocked', 'succeeded', 'cancelled', 'failed', 'cleanup_failed', 'expired',
+]);
+
+export function resolveSeedMetaStoreMode(): SeedMetaStoreMode {
+  const value = (process.env.E2E_META_STORE || 'mysql').trim().toLowerCase();
+  if (value !== 'mysql' && value !== 'file') {
+    throw new Error(`E2E_META_STORE_INVALID: ${value}; expected mysql|file`);
+  }
+  return value;
+}
+
+function fileRoot(): string {
+  return path.resolve(process.env.E2E_META_DIR || '.local/seed-meta');
+}
+
+function runsDir(): string {
+  return path.join(fileRoot(), 'runs');
+}
+
+function runFile(runId: string): string {
+  if (!/^[A-Za-z0-9_-]+$/.test(runId)) throw new Error(`SEED_RUN_ID_UNSAFE: ${runId}`);
+  return path.join(runsDir(), `${runId}.json`);
+}
+
+function approvalFile(): string {
+  return path.join(fileRoot(), 'approvals.json');
+}
+
+function atomicWriteJson(file: string, value: unknown): void {
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  const temp = `${file}.${process.pid}.${crypto.randomUUID()}.tmp`;
+  fs.writeFileSync(temp, `${JSON.stringify(value, null, 2)}\n`, { encoding: 'utf8', flag: 'wx' });
+  fs.renameSync(temp, file);
+}
+
+function readJson<T>(file: string, fallback?: T): T {
+  if (!fs.existsSync(file)) {
+    if (fallback !== undefined) return fallback;
+    throw new Error(`SEED_META_FILE_NOT_FOUND: ${file}`);
+  }
+  return JSON.parse(fs.readFileSync(file, 'utf8')) as T;
+}
+
+async function withFileLock<T>(name: string, callback: () => Promise<T> | T): Promise<T> {
+  const lockDir = path.join(fileRoot(), 'locks');
+  fs.mkdirSync(lockDir, { recursive: true });
+  const lockFile = path.join(lockDir, `${name}.lock`);
+  const deadline = Date.now() + 10_000;
+  let handle: number | undefined;
+  while (handle === undefined) {
+    try {
+      handle = fs.openSync(lockFile, 'wx');
+      fs.writeFileSync(handle, JSON.stringify({ pid: process.pid, createdAt: new Date().toISOString() }));
+    } catch (error) {
+      const code = (error as NodeJS.ErrnoException).code;
+      if (code !== 'EEXIST') throw error;
+      const age = Date.now() - fs.statSync(lockFile).mtimeMs;
+      if (age > 60_000) {
+        fs.rmSync(lockFile, { force: true });
+        continue;
+      }
+      if (Date.now() >= deadline) throw new Error(`SEED_META_FILE_LOCK_TIMEOUT: ${name}`);
+      await new Promise((resolve) => setTimeout(resolve, 25));
+    }
+  }
+  try {
+    return await callback();
+  } finally {
+    fs.closeSync(handle);
+    fs.rmSync(lockFile, { force: true });
+  }
+}
+
+function readFileRun(runId: string): SeedRunSnapshot {
+  const file = runFile(runId);
+  if (!fs.existsSync(file)) throw new Error(`SEED_RUN_NOT_FOUND: ${runId}`);
+  return readJson<SeedRunSnapshot>(file);
+}
+
 const allowedTransitions: Record<SeedRunStatus, ReadonlySet<SeedRunStatus>> = {
   created: new Set(['compiling', 'cancelled', 'failed']),
   compiling: new Set(['preflighting', 'cancelled', 'failed']),
@@ -149,6 +249,22 @@ export async function assertMetaSchema(): Promise<void> {
   // getDbConfig also loads the repository-root .env for direct Playwright runs.
   getDbConfig();
   if (process.env.E2E_DB_ENV !== 'test') throw new Error('DATABASE_ENV_UNSAFE');
+  if (resolveSeedMetaStoreMode() === 'file') {
+    fs.mkdirSync(runsDir(), { recursive: true });
+    fs.mkdirSync(path.join(fileRoot(), 'locks'), { recursive: true });
+    const schemaFile = path.join(fileRoot(), 'schema-version.json');
+    if (fs.existsSync(schemaFile)) {
+      const schema = readJson<{ version: number }>(schemaFile);
+      if (schema.version !== SEED_META_SCHEMA_VERSION) {
+        throw new Error(
+          `E2E_META_SCHEMA_MISMATCH expected=${SEED_META_SCHEMA_VERSION} actual=${schema.version}`,
+        );
+      }
+    } else {
+      atomicWriteJson(schemaFile, { version: SEED_META_SCHEMA_VERSION, store: 'file' });
+    }
+    return;
+  }
   const [rows] = await pool().query<Array<RowDataPacket & { version: number }>>(
     'SELECT MAX(version) AS version FROM e2e_seed_schema_version',
   );
@@ -172,6 +288,33 @@ export async function createSeedRun(input: {
   configVersion?: string;
 }): Promise<void> {
   await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    await withFileLock('runs', () => {
+      const target = runFile(input.runId);
+      if (fs.existsSync(target)) throw new Error(`SEED_RUN_ALREADY_EXISTS: ${input.runId}`);
+      const activeKey = `${input.ruleId}|${input.mode}|${input.pairId ?? '-'}`;
+      const conflict = fs.readdirSync(runsDir())
+        .filter((name) => name.endsWith('.json'))
+        .map((name) => readJson<SeedRunSnapshot>(path.join(runsDir(), name)))
+        .find((run) =>
+          !terminalStatuses.has(run.status) &&
+          `${run.ruleId}|${run.mode}|${run.pairId ?? '-'}` === activeKey,
+        );
+      if (conflict) throw new Error(`SEED_RUN_ACTIVE_CONFLICT: ${conflict.runId}`);
+      const now = new Date().toISOString();
+      atomicWriteJson(target, {
+        runId: input.runId,
+        ruleId: input.ruleId,
+        pairId: input.pairId,
+        mode: input.mode,
+        status: input.status ?? 'created',
+        configVersion: input.configVersion,
+        createdAt: now,
+        updatedAt: now,
+      } satisfies SeedRunSnapshot);
+    });
+    return;
+  }
   await pool().execute(
     `INSERT INTO e2e_seed_run
       (run_id, environment, biz, scenario, rule_id, pair_id, mode, active_key, status, config_version)
@@ -190,6 +333,7 @@ export async function createSeedRun(input: {
 
 export async function getSeedRunSnapshot(runId: string): Promise<SeedRunSnapshot> {
   await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') return readFileRun(runId);
   const [rows] = await pool().query<RunRow[]>(
     'SELECT * FROM e2e_seed_run WHERE run_id = ?',
     [runId],
@@ -220,6 +364,22 @@ export async function transitionSeedRun(
     throw new Error(`SEED_RUN_TRANSITION_NOT_ALLOWED: ${invalidFrom} -> ${to}`);
   }
   await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    return withFileLock(`run-${runId}`, () => {
+      const current = readFileRun(runId);
+      if (!allowed.includes(current.status)) {
+        throw new Error(`SEED_RUN_INVALID_TRANSITION: ${runId} ${allowed.join('|')} -> ${to}`);
+      }
+      const next: SeedRunSnapshot = {
+        ...current,
+        ...patch,
+        status: to,
+        updatedAt: new Date().toISOString(),
+      };
+      atomicWriteJson(runFile(runId), next);
+      return next;
+    });
+  }
   const assignments = ['status = ?', 'updated_at = CURRENT_TIMESTAMP(3)'];
   const params: unknown[] = [to];
   if (['blocked', 'succeeded', 'cancelled', 'failed', 'cleanup_failed', 'expired'].includes(to)) {
@@ -259,6 +419,23 @@ export async function acquireSeedRunLease(
   owner: string,
   ttlMs = 30_000,
 ): Promise<void> {
+  await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    await withFileLock(`run-${runId}`, () => {
+      const current = readFileRun(runId);
+      const expiresAt = current.leaseExpiresAt ? Date.parse(current.leaseExpiresAt) : 0;
+      if (current.leaseOwner && current.leaseOwner !== owner && expiresAt >= Date.now()) {
+        throw new Error(`SEED_RUN_LEASE_CONFLICT: ${runId}`);
+      }
+      atomicWriteJson(runFile(runId), {
+        ...current,
+        leaseOwner: owner,
+        leaseExpiresAt: new Date(Date.now() + ttlMs).toISOString(),
+        updatedAt: new Date().toISOString(),
+      });
+    });
+    return;
+  }
   const [result] = await pool().execute<ResultSetHeader>(
     `UPDATE e2e_seed_run
         SET lease_owner = ?,
@@ -276,6 +453,25 @@ export async function heartbeatSeedRunLease(
   owner: string,
   ttlMs = 30_000,
 ): Promise<void> {
+  await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    await withFileLock(`run-${runId}`, () => {
+      const current = readFileRun(runId);
+      if (
+        current.leaseOwner !== owner ||
+        !current.leaseExpiresAt ||
+        Date.parse(current.leaseExpiresAt) < Date.now()
+      ) {
+        throw new Error(`SEED_RUN_LEASE_LOST: ${runId}`);
+      }
+      atomicWriteJson(runFile(runId), {
+        ...current,
+        leaseExpiresAt: new Date(Date.now() + ttlMs).toISOString(),
+        updatedAt: new Date().toISOString(),
+      });
+    });
+    return;
+  }
   const [result] = await pool().execute<ResultSetHeader>(
     `UPDATE e2e_seed_run
         SET lease_expires_at = DATE_ADD(NOW(3), INTERVAL ? MICROSECOND),
@@ -287,6 +483,18 @@ export async function heartbeatSeedRunLease(
 }
 
 export async function releaseSeedRunLease(runId: string, owner: string): Promise<void> {
+  await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    await withFileLock(`run-${runId}`, () => {
+      const current = readFileRun(runId);
+      if (current.leaseOwner !== owner) return;
+      const next = { ...current, updatedAt: new Date().toISOString() };
+      delete next.leaseOwner;
+      delete next.leaseExpiresAt;
+      atomicWriteJson(runFile(runId), next);
+    });
+    return;
+  }
   await pool().execute(
     `UPDATE e2e_seed_run
         SET lease_owner = NULL, lease_expires_at = NULL
@@ -296,6 +504,22 @@ export async function releaseSeedRunLease(runId: string, owner: string): Promise
 }
 
 export async function requestRunCancel(runId: string, reason: string): Promise<void> {
+  await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    await withFileLock(`run-${runId}`, () => {
+      const current = readFileRun(runId);
+      if (terminalStatuses.has(current.status)) {
+        throw new Error(`SEED_RUN_NOT_CANCELLABLE: ${runId}`);
+      }
+      atomicWriteJson(runFile(runId), {
+        ...current,
+        cancelRequestedAt: current.cancelRequestedAt ?? new Date().toISOString(),
+        cancelReason: current.cancelReason ?? reason,
+        updatedAt: new Date().toISOString(),
+      });
+    });
+    return;
+  }
   const [result] = await pool().execute<ResultSetHeader>(
     `UPDATE e2e_seed_run
         SET cancel_requested_at = COALESCE(cancel_requested_at, NOW(3)),
@@ -317,6 +541,32 @@ export async function upsertSeedApproval(input: {
   validDays?: number;
 }): Promise<void> {
   await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    await withFileLock('approvals', () => {
+      const approvals = readJson<FileApproval[]>(approvalFile(), []);
+      const now = new Date();
+      const next: FileApproval = {
+        fingerprint: input.fingerprint,
+        environment: 'test',
+        biz: 'ad-control',
+        scenario: 'rule_trigger',
+        configVersion: input.configVersion,
+        riskLevel: input.riskLevel,
+        approvedBy: input.approvedBy,
+        approvedAt: now.toISOString(),
+        expiresAt: new Date(now.getTime() + (input.validDays ?? 90) * 86_400_000).toISOString(),
+        reason: input.reason,
+      };
+      const index = approvals.findIndex((approval) =>
+        approval.fingerprint === input.fingerprint &&
+        approval.configVersion === input.configVersion,
+      );
+      if (index >= 0) approvals[index] = next;
+      else approvals.push(next);
+      atomicWriteJson(approvalFile(), approvals);
+    });
+    return;
+  }
   await pool().execute(
     `INSERT INTO e2e_seed_approval
       (fingerprint, environment, biz, scenario, config_version, risk_level,
@@ -348,6 +598,18 @@ export async function hasValidSeedApproval(input: {
   configVersion: string;
 }): Promise<boolean> {
   await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    const approvals = readJson<FileApproval[]>(approvalFile(), []);
+    return approvals.some((approval) =>
+      approval.fingerprint === input.fingerprint &&
+      approval.configVersion === input.configVersion &&
+      approval.environment === 'test' &&
+      approval.biz === 'ad-control' &&
+      approval.scenario === 'rule_trigger' &&
+      !approval.revokedAt &&
+      Date.parse(approval.expiresAt) > Date.now(),
+    );
+  }
   const [rows] = await pool().query<Array<RowDataPacket & { approved: number }>>(
     `SELECT COUNT(*) AS approved
        FROM e2e_seed_approval
@@ -369,6 +631,23 @@ export async function revokeSeedApproval(input: {
   revokedBy: string;
   reason: string;
 }): Promise<void> {
+  await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    await withFileLock('approvals', () => {
+      const approvals = readJson<FileApproval[]>(approvalFile(), []);
+      const approval = approvals.find((value) =>
+        value.fingerprint === input.fingerprint &&
+        value.configVersion === input.configVersion &&
+        !value.revokedAt,
+      );
+      if (!approval) throw new Error('SEED_APPROVAL_NOT_ACTIVE');
+      approval.revokedAt = new Date().toISOString();
+      approval.revokedBy = input.revokedBy;
+      approval.revokeReason = input.reason;
+      atomicWriteJson(approvalFile(), approvals);
+    });
+    return;
+  }
   const [result] = await pool().execute<ResultSetHeader>(
     `UPDATE e2e_seed_approval
         SET revoked_at = NOW(3), revoked_by = ?, revoke_reason = ?
@@ -394,6 +673,19 @@ export async function assertRunNotCancelled(runId: string): Promise<void> {
 
 export async function findRecoverableRuns(): Promise<SeedRunSnapshot[]> {
   await assertMetaSchema();
+  if (resolveSeedMetaStoreMode() === 'file') {
+    const recoverable = new Set<SeedRunStatus>([
+      'applying', 'committed', 'job_running', 'asserting', 'cleaning', 'cleanup_failed',
+    ]);
+    return fs.readdirSync(runsDir())
+      .filter((name) => name.endsWith('.json'))
+      .map((name) => readJson<SeedRunSnapshot>(path.join(runsDir(), name)))
+      .filter((run) =>
+        recoverable.has(run.status) &&
+        (!run.leaseExpiresAt || Date.parse(run.leaseExpiresAt) < Date.now()),
+      )
+      .sort((left, right) => left.updatedAt.localeCompare(right.updatedAt));
+  }
   const [rows] = await pool().query<RunRow[]>(
     `SELECT * FROM e2e_seed_run
       WHERE status IN ('applying','committed','job_running','asserting','cleaning','cleanup_failed')

@@ -21,6 +21,9 @@
 | `E2E_DB_PASSWORD` | 密码 | 是 |
 | `E2E_DB_ENV` | 写库环境门禁；必须严格为 `test` | Apply/Cleanup 是 |
 | `E2E_SEED_AUTO_CONFIRM` | Playwright 无人值守跳过造数确认 | 否（Agent 交互造数禁止依赖此开关绕过确认） |
+| `E2E_META_STORE` | Seed 状态存储：`file` 或 `mysql` | 否（默认 `mysql`，本机推荐 `file`） |
+| `E2E_META_DIR` | file 模式的本地状态目录 | file 模式（默认 `.local/seed-meta`） |
+| `E2E_META_DB_NAME` | mysql 模式的元数据库名 | mysql 模式 |
 
 ## `.env` 示例（占位）
 
@@ -30,6 +33,9 @@ E2E_DB_PORT=3306
 E2E_DB_NAME=your_database
 E2E_DB_USER=your_user
 E2E_DB_PASSWORD=your_password
+E2E_META_STORE=file
+E2E_META_DIR=.local/seed-meta
+# 以下仅 E2E_META_STORE=mysql 时需要
 E2E_META_DB_HOST=127.0.0.1
 E2E_META_DB_PORT=3306
 E2E_META_DB_USER=your_meta_user
@@ -47,8 +53,11 @@ E2E_DB_ENV=test
 - Skill / 生成代码只引用上表变量名，禁止硬编码主机/密码  
 - 实现业务造数前：缺任一必填变量则停止并提示补 `.env`；表结构见 `domains/<biz>/knowledge/dimensions.json`  
 - Apply/Cleanup 还须验证 `DATABASE() = E2E_DB_NAME`；任一不符立即拒绝写库
-- Seed V3 使用同一实例和账号连接 `E2E_META_DB_NAME`；运行前必须显式执行
+- `E2E_META_STORE=file`：状态、批准、取消、租约和恢复索引写入 `E2E_META_DIR`；
+  使用原子替换和独占锁，适合单机执行，不需要 migration。目录必须加入 `.gitignore`。
+- `E2E_META_STORE=mysql`：Seed V3 使用元库连接；运行前必须显式执行
   `migrations/e2e-meta`，运行时代码只校验版本、不自动建表。
+- 两种模式只存 Seed 元数据；事实数据始终写入 `E2E_DB_NAME`。
 
 ## 连通性探针（人工 / Agent 排障）
 

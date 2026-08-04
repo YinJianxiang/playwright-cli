@@ -1,34 +1,34 @@
 {
   "version": 1,
-  "planExecutionHash": "sha256:33f9cd8af2856d4dbc1a73213d8fd0053527877d234191c668fe2841eb0a7541",
-  "approvalFingerprint": "sha256:aa04999b2aed05bba8cf13c27aeb4bc05e1dd85b8fceb4047dddd4ee0a50c1f0",
+  "planExecutionHash": "sha256:db0c65a49918afa93ea62c796490d6a05d3b9507a6a43208fc2b62a056349d14",
+  "approvalFingerprint": "sha256:d9e95a45fda0dc0859a3560a09afd9fbb804e9d0da3b2794b97d99b8bb807ad0",
   "ruleId": "16265",
   "mode": "hit",
-  "committedAt": "2026-08-03T13:33:15.013Z",
+  "committedAt": "2026-08-04T06:32:06.854Z",
   "targets": [
     {
       "table": "ad_advertiser_online_free_promotion_day",
       "primaryInsertIds": [
-        "4997198806"
+        "4997198808"
       ],
       "entityIdColumn": "promotion_id",
       "entityId": "7600754626544205868",
       "plineForm": "cpsvideomf",
-      "cdate": "2026-08-03",
+      "cdate": "2026-08-04",
       "hours": [],
       "channelCode": "122956217"
     },
     {
       "table": "ad_advertiser_online_free_promotion_hour",
       "primaryInsertIds": [
-        "5056832371"
+        "5056832373"
       ],
       "entityIdColumn": "promotion_id",
       "entityId": "7600754626544205868",
       "plineForm": "cpsvideomf",
-      "cdate": "2026-08-03",
+      "cdate": "2026-08-04",
       "hours": [
-        "21"
+        "14"
       ],
       "channelCode": "122956217"
     }

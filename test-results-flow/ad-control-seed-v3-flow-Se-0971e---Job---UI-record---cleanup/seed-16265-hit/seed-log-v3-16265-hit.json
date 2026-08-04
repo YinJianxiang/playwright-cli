@@ -197,10 +197,10 @@
         "column": "delivery_way"
       }
     ],
-    "configDigest": "sha256:3f03a6a4f182229c14874a1920432a4a4c534118948b09b22ca41f1467246761",
+    "configDigest": "sha256:6fc0c881543c8515e5bb884fc075fa1c7982daf3a41f3362a2552494f10fa656",
     "insertGroups": [
       {
-        "groupId": "sha256:d2a45a90bc9bae3dadd474e25d93a101e7cbce626309beac1e8ce4cb928043a6",
+        "groupId": "sha256:36ba0520ac3db0c7f0448d538293c86bf6eafb6ef1c8f5a7332e6c0d85f45075",
         "table": "ad_advertiser_online_free_promotion_day",
         "timeGrain": "day",
         "entityIdColumn": "promotion_id",
@@ -213,14 +213,14 @@
             "video_type": "2",
             "media": "2",
             "app_name": "超能短剧",
-            "promotion_name": "e2e_dc_16265_hit_1785763988754838",
+            "promotion_name": "e2e_dc_16265_hit_1785825120339119",
             "promotion_status": "投放中",
             "project_id": "7600754001864933427",
             "project_name": "家庭煮夫-104648750-xs1.07-41000121517-20251026-144223-49",
             "project_status": "开启",
             "external_action": "激活",
             "agent_user_name": "苏子强",
-            "cdate": "2026-08-03",
+            "cdate": "2026-08-04",
             "pline_form": "cpsvideomf",
             "promotion_id": "7600754626544205868",
             "model_pred_roi": 10
@@ -258,7 +258,7 @@
         "channelCode": "122956217"
       },
       {
-        "groupId": "sha256:25cb327a0868ec816306d4d87afbdd892171725f5731a05ac07d20c576581642",
+        "groupId": "sha256:055cecbb606af9861de6a096238e0605bf73535c22afabb0509862cc797acb9b",
         "table": "ad_advertiser_online_free_promotion_hour",
         "timeGrain": "hour",
         "entityIdColumn": "promotion_id",
@@ -269,11 +269,11 @@
             "book_id": "41000124167",
             "video_type": "2",
             "app_name": "乐享小短剧",
-            "promotion_name": "e2e_dc_16265_hit_1785763988754838",
+            "promotion_name": "e2e_dc_16265_hit_1785825120339119",
             "promotion_status": "投放中",
             "project_status": "开启",
-            "cdate": "2026-08-03",
-            "hour": "21",
+            "cdate": "2026-08-04",
+            "hour": "14",
             "pline_form": "cpsvideomf",
             "channel_code": "122956217",
             "promotion_id": "7600754626544205868",
@@ -313,42 +313,42 @@
       }
     ],
     "status": "ready",
-    "approvalFingerprint": "sha256:aa04999b2aed05bba8cf13c27aeb4bc05e1dd85b8fceb4047dddd4ee0a50c1f0",
-    "createdAt": "2026-08-03T13:33:14.816Z",
-    "expiresAt": "2026-08-03T14:03:14.816Z",
-    "executionHash": "sha256:33f9cd8af2856d4dbc1a73213d8fd0053527877d234191c668fe2841eb0a7541"
+    "approvalFingerprint": "sha256:d9e95a45fda0dc0859a3560a09afd9fbb804e9d0da3b2794b97d99b8bb807ad0",
+    "createdAt": "2026-08-04T06:32:06.537Z",
+    "expiresAt": "2026-08-04T07:02:06.537Z",
+    "executionHash": "sha256:db0c65a49918afa93ea62c796490d6a05d3b9507a6a43208fc2b62a056349d14"
   },
   "manifest": {
     "version": 1,
-    "planExecutionHash": "sha256:33f9cd8af2856d4dbc1a73213d8fd0053527877d234191c668fe2841eb0a7541",
-    "approvalFingerprint": "sha256:aa04999b2aed05bba8cf13c27aeb4bc05e1dd85b8fceb4047dddd4ee0a50c1f0",
+    "planExecutionHash": "sha256:db0c65a49918afa93ea62c796490d6a05d3b9507a6a43208fc2b62a056349d14",
+    "approvalFingerprint": "sha256:d9e95a45fda0dc0859a3560a09afd9fbb804e9d0da3b2794b97d99b8bb807ad0",
     "ruleId": "16265",
     "mode": "hit",
-    "committedAt": "2026-08-03T13:33:15.013Z",
+    "committedAt": "2026-08-04T06:32:06.854Z",
     "targets": [
       {
         "table": "ad_advertiser_online_free_promotion_day",
         "primaryInsertIds": [
-          "4997198806"
+          "4997198808"
         ],
         "entityIdColumn": "promotion_id",
         "entityId": "7600754626544205868",
         "plineForm": "cpsvideomf",
-        "cdate": "2026-08-03",
+        "cdate": "2026-08-04",
         "hours": [],
         "channelCode": "122956217"
       },
       {
         "table": "ad_advertiser_online_free_promotion_hour",
         "primaryInsertIds": [
-          "5056832371"
+          "5056832373"
         ],
         "entityIdColumn": "promotion_id",
         "entityId": "7600754626544205868",
         "plineForm": "cpsvideomf",
-        "cdate": "2026-08-03",
+        "cdate": "2026-08-04",
         "hours": [
-          "21"
+          "14"
         ],
         "channelCode": "122956217"
       }

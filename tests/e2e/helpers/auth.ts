@@ -34,6 +34,31 @@ export async function login(page: Page) {
 export async function gotoRulePage(page: Page) {
   await page.goto(requireE2eUrl('E2E_RULE_URL'), { waitUntil: 'domcontentloaded' });
   await page.waitForLoadState('networkidle').catch(() => undefined);
+  if (await page.getByRole('button', { name: '新建规则管控', exact: true }).isVisible().catch(() => false)) {
+    return;
+  }
+
+  // 部分 SPA 登录后会丢弃目标 hash 并回到首页；从当前可见菜单恢复规则页。
+  const controlMenu = page.getByRole('menuitem', { name: '广告管控', exact: true });
+  if (await controlMenu.isVisible().catch(() => false)) {
+    await controlMenu.click();
+    await page.waitForLoadState('networkidle').catch(() => undefined);
+  }
+  if (await page.getByRole('button', { name: '新建规则管控', exact: true }).isVisible().catch(() => false)) {
+    return;
+  }
+
+  const ruleNav = page.getByText(/广告管控规则|管控规则|规则管控/, { exact: true });
+  const count = await ruleNav.count();
+  for (let index = 0; index < count; index++) {
+    const candidate = ruleNav.nth(index);
+    if (await candidate.isVisible().catch(() => false)) {
+      await candidate.click();
+      await page.waitForLoadState('networkidle').catch(() => undefined);
+      break;
+    }
+  }
+  await expect(page.getByRole('button', { name: '新建规则管控', exact: true })).toBeVisible({ timeout: 15_000 });
 }
 
 export async function gotoRecordPage(page: Page) {

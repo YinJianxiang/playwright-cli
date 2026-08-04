@@ -27,9 +27,12 @@
       "constraints": [],
       "seed": {
         "metric": {
-          "column": "consume",
-          "desc": "当日消耗",
-          "plines": [
+        "column": "consume",
+        "desc": "当日消耗",
+        "uiAliases": [
+          "全域消耗"
+        ],
+        "plines": [
             "xmtplay",
             "cpsvideomf",
             "cpsshort",

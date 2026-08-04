@@ -1,5 +1,5 @@
 {
-  "knowledgeVersion": "sha256:0c9596f39710dee55174c87f681ef1ba5639202178d3fbde0349be7de3eca9bf",
+  "knowledgeVersion": "sha256:efffeac49690d1b34d35e8c54d7e78ecd2fe3230c1711c95cbf2f3870d8621f9",
   "evidenceDigest": "sha256:5a5e216f952e4cb9b157ed65127324609217b6fb99998729de251748c58e5786",
   "seedDefaults": {
     "biz": "ad-control",
@@ -375,6 +375,9 @@
     {
       "column": "consume",
       "desc": "当日消耗",
+      "uiAliases": [
+        "全域消耗"
+      ],
       "plines": [
         "xmtplay",
         "cpsvideomf",

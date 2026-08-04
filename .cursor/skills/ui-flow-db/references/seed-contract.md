@@ -29,7 +29,9 @@ cleanupSeedRun(runId)
 | medium/high | 元库中必须存在未过期、未撤销且环境/配置版本匹配的批准 |
 | error | blocked，任何开关不能写库 |
 
-批准默认 90 天。配置版本变化会产生新 fingerprint。
+批准默认 90 天。配置版本变化会产生新 fingerprint。批准与运行状态由
+`E2E_META_STORE=file|mysql` 选择的统一元数据存储保存；file 模式仅适合本机，mysql
+模式适合共享和多机器执行。
 
 ## 状态与取消
 
@@ -44,6 +46,7 @@ created → compiling → preflighting → ready/awaiting_approval
 
 - 状态迁移使用 CAS。
 - worker 必须持有有效 lease。
+- file 模式使用原子 JSON 替换和独占 lock 文件实现 CAS/lease；mysql 模式使用数据库条件更新。
 - 提交前取消触发 rollback。
 - 提交后、Job 或断言阶段取消必须 cleanup。
 - 崩溃恢复不得重复触发 Job，只允许幂等 cleanup。

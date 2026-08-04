@@ -43,8 +43,9 @@ export function loadRuleCreationKnowledge(): RuleCreationKnowledge {
       verifiedMetrics.add(metric.desc);
       verifiedMetrics.add(String(metric.desc).replace(/^(当日|当天|近\d+(小时|天)|累计)/, ''));
     }
+    for (const alias of metric?.uiAliases ?? []) verifiedMetrics.add(String(alias));
     if (metric?.seedPolicy?.standaloneRule === 'blocked') {
-      for (const value of [entry.name, metric?.column, metric?.desc].filter(Boolean)) {
+      for (const value of [entry.name, metric?.column, metric?.desc, ...(metric?.uiAliases ?? [])].filter(Boolean)) {
         standaloneBlockedMetrics.add(String(value));
       }
     }

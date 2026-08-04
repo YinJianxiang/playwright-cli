@@ -37,7 +37,8 @@ description: >-
 ## 硬约束
 
 - Apply/Cleanup 必须满足 `E2E_DB_ENV=test` 与业务数据库名一致。
-- V3 还必须配置 `E2E_META_DB_NAME`，且元库 migration version 匹配；运行时禁止 DDL。
+- V3 元数据支持 `E2E_META_STORE=file|mysql`。`file` 使用本地原子文件和锁，不需要建库；
+  `mysql` 必须配置 `E2E_META_DB_NAME` 且 migration version 匹配，运行时禁止 DDL。
 - AST 支持 AND/OR/NOT，最大深度 8、最多 64 个叶子；新节点使用稳定 UUID。
 - HIT 可指定 `hitNodeId`；MISS 必须指定 `missNodeId`。旧数组迁移期才允许
   `legacyMissConditionIndex`。

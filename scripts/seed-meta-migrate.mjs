@@ -14,6 +14,14 @@ function loadEnv() {
 
 loadEnv();
 if (process.env.E2E_DB_ENV !== 'test') throw new Error('E2E_DB_ENV must equal test');
+const metaStore = (process.env.E2E_META_STORE || 'mysql').trim().toLowerCase();
+if (!['mysql', 'file'].includes(metaStore)) {
+  throw new Error(`E2E_META_STORE must be mysql or file, received: ${metaStore}`);
+}
+if (metaStore === 'file') {
+  console.log('E2E_META_STORE=file: no database migration is required; storage is initialized on first use');
+  process.exit(0);
+}
 if (!process.env.E2E_META_DB_NAME) throw new Error('Missing E2E_META_DB_NAME');
 if (process.env.E2E_META_DB_NAME === process.env.E2E_DB_NAME) {
   throw new Error('E2E_META_DB_NAME must be different from E2E_DB_NAME');

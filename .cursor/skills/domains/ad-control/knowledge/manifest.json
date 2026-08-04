@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "sha256:0c9596f39710dee55174c87f681ef1ba5639202178d3fbde0349be7de3eca9bf",
-  "frozenAt": "2026-07-31T08:30:38.645Z",
+  "version": "sha256:efffeac49690d1b34d35e8c54d7e78ecd2fe3230c1711c95cbf2f3870d8621f9",
+  "frozenAt": "2026-08-04T02:45:07.575Z",
   "evidenceDigest": "sha256:5a5e216f952e4cb9b157ed65127324609217b6fb99998729de251748c58e5786",
   "domains": {
     "dimensions": "dimensions.json",
