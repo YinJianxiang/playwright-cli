@@ -1,4 +1,0 @@
-interface:
-  display_name: "广告管控规则创建"
-  short_description: "生成用户确认计划并通过页面安全创建通用广告管控规则"
-  default_prompt: "根据管控维度、业务线和指标生成规则创建计划，明确确认后通过 Playwright 创建并返回下游 handoff。"

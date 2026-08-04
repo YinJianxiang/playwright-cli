@@ -1,34 +1,24 @@
 ---
 name: ad-control-knowledge
-description: 广告管控业务知识与 Seed V3 权威来源。用于创建或解释管控规则、填写管控维度、设计 HIT/MISS 条件、执行 SQL 造数、调用 Job、校验管控记录及处理动作和清理。
+description: 广告管控规则、维度、条件、动作与 Seed 配方的权威知识入口。用于解释或创建管控规则、生成当天 HIT/MISS 用例、准备测试数据、调用 Job 和验证管控记录。
 ---
 
 # 广告管控知识
 
-需要通过页面新建规则时，业务知识解析完成后转交 `../../ui-ad-control-rule-create/SKILL.md`；本知识 Skill 不直接操作规则页面。
+正式知识位于 `knowledge/`，人工说明位于 `references/`，来源证据位于 `evidence/`。
 
-不要在正常任务中搜索 `market-job` 或根据代码临时补业务结论。正式知识位于
-`knowledge/`，人读说明位于 `references/`。
+## 使用顺序
 
-## 按任务读取
-
-- 创建规则、选择业务线或维度、构造规则骨架：读
-  [references/dimensions.md](references/dimensions.md) 和
-  `knowledge/dimensions.json`。
-- 选择指标、解释公式、设计 HIT/MISS、SQL 造数：读
-  [references/conditions.md](references/conditions.md) 和
-  `knowledge/conditions.json`。
-- 填写动作、调用 Job、验证记录页、失败收尾：读
-  [references/actions.md](references/actions.md) 和
-  `knowledge/actions.json`。
-- 完整 UI → Seed → Job → UI 流程：再读
-  [references/seed-v3.md](references/seed-v3.md)。
+1. 先执行 `uv run ad-control knowledge validate`。
+2. 维度与规则骨架读取 `knowledge/dimensions.json` 和 [references/dimensions.md](references/dimensions.md)。
+3. 指标、公式与 HIT/MISS 读取 `knowledge/conditions.json` 和 [references/conditions.md](references/conditions.md)。
+4. 动作、Job 与记录断言读取 `knowledge/actions.json` 和 [references/actions.md](references/actions.md)。
+5. 完整执行交给 `../../ad-control-browser-flow/SKILL.md`；数据准备交给 `../../ui-flow-db/SKILL.md`。
 
 ## 硬约束
 
-- `verified` 才能驱动自动化；`unknown` 必须报告缺口并阻断相关关键步骤。
-- 规则明确且非“不限”的维度值必须进入规则骨架和 `ruleFilterPatch`。
-- 维度决定骨架，条件决定指标与 HIT/MISS，动作决定 Job/UI 断言。
-- `knowledge/seed-runtime-v3.json` 是确定性产物，禁止手工编辑。
-- 只有用户显式要求 refresh 时，才运行 `knowledge:snapshot` 生成候选。
-- 候选未经 diff、用户确认和 promote，不得覆盖正式知识。
+- 只有 `verified` 知识可以驱动自动化；`unknown` 必须阻断相关步骤。
+- 明确且非“不限”的维度必须写入规则过滤条件。
+- `knowledge/seed-runtime-v3.json` 是确定性产物，不在执行流程中临时改写。
+- 不搜索旧 Playwright/TypeScript 或业务源码补齐结论。
+- 知识候选必须经过 diff 和用户明确确认后才能 promote。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ad Control Browser Flow"
+  short_description: "Run Browser Use ad-control E2E flows with Python Seed data"
+  default_prompt: "Use $ad-control-browser-flow to compile, approve, run, verify, report, and clean an ad-control browser test."

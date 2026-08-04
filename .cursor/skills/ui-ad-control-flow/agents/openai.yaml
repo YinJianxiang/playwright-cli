@@ -1,4 +1,0 @@
-interface:
-  display_name: "广告管控端到端流程"
-  short_description: "串联规则创建、数据库造数、Job、页面验证与完整证据报告归档"
-  default_prompt: "使用 $ui-ad-control-flow 执行广告管控 HIT/MISS 端到端测试并生成完整证据报告。"

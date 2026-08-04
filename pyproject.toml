@@ -1,0 +1,42 @@
+[project]
+name = "ad-control-browser-use"
+version = "0.1.0"
+description = "Browser Use based ad-control end-to-end automation"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "allure-pytest>=2.13",
+  "aiomysql>=0.2.0",
+  "browser-use[core,video]>=0.13",
+  "filelock>=3.16",
+  "httpx>=0.27",
+  "pydantic>=2.9",
+  "pydantic-settings>=2.5",
+  "python-dotenv>=1.0",
+  "typer>=0.15",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "pytest-asyncio>=0.24", "pytest-cov>=6"]
+
+[project.scripts]
+ad-control = "ad_control.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ad_control"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-q --alluredir=allure-results -p no:cacheprovider"
+markers = [
+  "integration: requires configured test MySQL",
+  "browser: requires local Chrome and an authenticated profile",
+  "e2e: mutates test data and runs the complete browser flow",
+]
+
+[tool.coverage.run]
+source = ["ad_control"]

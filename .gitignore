@@ -3,23 +3,24 @@
 .env.*
 !.env.example
 
-# Dependencies & test artifacts
-node_modules/
+# Python dependencies & test artifacts
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
 test-results/
-playwright-report/
 allure-results/
 allure-report/
-.playwright-cli/
+.artifacts/
 
-# Playwright authentication state (cookies / tokens)
-playwright/.auth/
-tests/e2e/.auth/
+# Browser Use state (profile may contain cookies / tokens)
+.local/browser-profile/
+.local/seed-meta/
 
 # Knowledge refresh candidates (local until explicitly promoted)
 .cursor/skills/domains/*/knowledge/candidate/
 
-# TypeScript / coverage caches
-*.tsbuildinfo
+# Coverage caches
 coverage/
 .nyc_output/
 
@@ -39,7 +40,6 @@ Thumbs.db
 Desktop.ini
 
 # Local seed / debug noise
-scripts/.last-seed-plan.json
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -48,8 +48,5 @@ pnpm-debug.log*
 .cursor/debug-*.log
 debug-*.log
 
-# Generated per-batch cases / configs (keep manual + shared helpers)
-tests/e2e/generated/
-playwright.batch-*.config.ts
-playwright.generated.config.ts
-playwright.ui-*.config.ts
+# Generated case catalogs
+.local/generated-cases/
