@@ -8,6 +8,7 @@ Agent：未指定业务时 **先询问用户**，禁止默认某一业务。
 | biz id | 说明 | 入口 |
 |--------|------|------|
 | `ad-control` | 广告管控（维度 + 条件 + 动作 + Seed V3） | [ad-control/SKILL.md](ad-control/SKILL.md) |
+| `ui-ad-control-rule-create` | 广告管控规则创建计划、页面提交与 Seed V3 交接 | [../ui-ad-control-rule-create/SKILL.md](../ui-ad-control-rule-create/SKILL.md) |
 
 ## 新增业务
 

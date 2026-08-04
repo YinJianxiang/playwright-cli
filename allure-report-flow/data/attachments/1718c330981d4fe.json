@@ -1,0 +1,61 @@
+{
+  "runId": "1a9b82a0-ad78-47f6-bed1-c39470513416",
+  "mode": "miss",
+  "status": "approval-required",
+  "issues": [
+    {
+      "severity": "info",
+      "code": "OPTIONAL_SKELETON_COLUMN_MISSING",
+      "message": "ad_advertiser_online_free_promotion_day 无可选列 book_name",
+      "table": "ad_advertiser_online_free_promotion_day",
+      "column": "book_name",
+      "risk": "none"
+    },
+    {
+      "severity": "info",
+      "code": "OPTIONAL_SKELETON_COLUMN_MISSING",
+      "message": "ad_advertiser_online_free_promotion_day 无可选列 delivery_way",
+      "table": "ad_advertiser_online_free_promotion_day",
+      "column": "delivery_way",
+      "risk": "none"
+    },
+    {
+      "severity": "info",
+      "code": "OPTIONAL_SKELETON_COLUMN_MISSING",
+      "message": "ad_advertiser_online_free_promotion_hour 无可选列 book_name",
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "column": "book_name",
+      "risk": "none"
+    },
+    {
+      "severity": "info",
+      "code": "OPTIONAL_SKELETON_COLUMN_MISSING",
+      "message": "ad_advertiser_online_free_promotion_hour 无可选列 media",
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "column": "media",
+      "risk": "none"
+    },
+    {
+      "severity": "info",
+      "code": "OPTIONAL_SKELETON_COLUMN_MISSING",
+      "message": "ad_advertiser_online_free_promotion_hour 无可选列 project_name",
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "column": "project_name",
+      "risk": "none"
+    },
+    {
+      "severity": "info",
+      "code": "OPTIONAL_SKELETON_COLUMN_MISSING",
+      "message": "ad_advertiser_online_free_promotion_hour 无可选列 delivery_way",
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "column": "delivery_way",
+      "risk": "none"
+    }
+  ],
+  "witnessLeaves": [
+    "legacy-leaf-1ede924ce672debab8b0a99f"
+  ],
+  "flippedLeaves": [
+    "legacy-leaf-b8e03d1fc97a4155d722c02f"
+  ]
+}

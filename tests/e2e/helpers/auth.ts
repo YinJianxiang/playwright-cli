@@ -22,7 +22,12 @@ export async function login(page: Page) {
 
   const loginButton = page.getByRole('button', { name: /\u767b\u5f55/ });
   if (await loginButton.isVisible().catch(() => false)) await loginButton.click();
-  else await page.getByText('\u767b\u5f55', { exact: true }).last().click();
+  else {
+    await page
+      .getByText('\u767b\u5f55', { exact: true })
+      .last()
+      .click({ force: true, noWaitAfter: true });
+  }
   await expect(page).not.toHaveURL(/login/, { timeout: 30_000 });
 }
 

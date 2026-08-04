@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "planExecutionHash": "sha256:33f9cd8af2856d4dbc1a73213d8fd0053527877d234191c668fe2841eb0a7541",
+  "approvalFingerprint": "sha256:aa04999b2aed05bba8cf13c27aeb4bc05e1dd85b8fceb4047dddd4ee0a50c1f0",
+  "ruleId": "16265",
+  "mode": "hit",
+  "committedAt": "2026-08-03T13:33:15.013Z",
+  "targets": [
+    {
+      "table": "ad_advertiser_online_free_promotion_day",
+      "primaryInsertIds": [
+        "4997198806"
+      ],
+      "entityIdColumn": "promotion_id",
+      "entityId": "7600754626544205868",
+      "plineForm": "cpsvideomf",
+      "cdate": "2026-08-03",
+      "hours": [],
+      "channelCode": "122956217"
+    },
+    {
+      "table": "ad_advertiser_online_free_promotion_hour",
+      "primaryInsertIds": [
+        "5056832371"
+      ],
+      "entityIdColumn": "promotion_id",
+      "entityId": "7600754626544205868",
+      "plineForm": "cpsvideomf",
+      "cdate": "2026-08-03",
+      "hours": [
+        "21"
+      ],
+      "channelCode": "122956217"
+    }
+  ],
+  "status": "committed",
+  "manifestPath": "D:\\Project\\playwright-ui\\test-results-flow\\ad-control-seed-v3-flow-Se-0971e---Job---UI-record---cleanup\\seed-16265-hit\\seed-cleanup-16265-hit.json"
+}

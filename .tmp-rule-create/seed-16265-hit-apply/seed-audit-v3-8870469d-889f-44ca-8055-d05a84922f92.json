@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+  "entries": [
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT DATABASE() AS db",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:52.405Z",
+      "finishedAt": "2026-08-03T12:41:52.410Z",
+      "durationMs": 5
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT DATE_FORMAT(CURDATE(), '%Y-%m-%d') AS cdate, HOUR(NOW()) AS hour_num",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:52.410Z",
+      "finishedAt": "2026-08-03T12:41:52.414Z",
+      "durationMs": 4
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SHOW COLUMNS FROM `ad_advertiser_online_free_promotion_day`",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:52.415Z",
+      "finishedAt": "2026-08-03T12:41:52.441Z",
+      "durationMs": 26
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SHOW COLUMNS FROM `ad_advertiser_online_free_promotion_hour`",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:52.441Z",
+      "finishedAt": "2026-08-03T12:41:52.450Z",
+      "durationMs": 9
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT CAST(MAX(CAST(\n          CASE\n            WHEN CHAR_LENGTH(`channel_code`) > 20\n              THEN LEFT(`channel_code`, 20)\n            ELSE `channel_code`\n          END AS DECIMAL(20,0)\n        )) AS CHAR) AS m\n       FROM `ad_advertiser_online_free_promotion_day`\n       WHERE `channel_code` REGEXP '^[0-9]+$'",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:52.451Z",
+      "finishedAt": "2026-08-03T12:41:52.552Z",
+      "durationMs": 101
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT CAST(MAX(CAST(\n          CASE\n            WHEN CHAR_LENGTH(`channel_code`) > 20\n              THEN LEFT(`channel_code`, 20)\n            ELSE `channel_code`\n          END AS DECIMAL(20,0)\n        )) AS CHAR) AS m\n       FROM `ad_advertiser_online_free_promotion_hour`\n       WHERE `channel_code` REGEXP '^[0-9]+$'",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:52.552Z",
+      "finishedAt": "2026-08-03T12:41:53.719Z",
+      "durationMs": 1167
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT CAST(MAX(CAST(\n          CASE\n            WHEN CHAR_LENGTH(`promotion_id`) > 20\n              THEN LEFT(`promotion_id`, 20)\n            ELSE `promotion_id`\n          END AS DECIMAL(20,0)\n        )) AS CHAR) AS m\n       FROM `ad_advertiser_online_free_promotion_day`\n       WHERE `promotion_id` REGEXP '^[0-9]+$'",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:53.720Z",
+      "finishedAt": "2026-08-03T12:41:54.144Z",
+      "durationMs": 424
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT CAST(MAX(CAST(\n          CASE\n            WHEN CHAR_LENGTH(`promotion_id`) > 20\n              THEN LEFT(`promotion_id`, 20)\n            ELSE `promotion_id`\n          END AS DECIMAL(20,0)\n        )) AS CHAR) AS m\n       FROM `ad_advertiser_online_free_promotion_hour`\n       WHERE `promotion_id` REGEXP '^[0-9]+$'",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:54.144Z",
+      "finishedAt": "2026-08-03T12:41:56.756Z",
+      "durationMs": 2612
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT CAST(MAX(CAST(\n          CASE\n            WHEN CHAR_LENGTH(`project_id`) > 20\n              THEN LEFT(`project_id`, 20)\n            ELSE `project_id`\n          END AS DECIMAL(20,0)\n        )) AS CHAR) AS m\n       FROM `ad_advertiser_online_free_promotion_day`\n       WHERE `project_id` REGEXP '^[0-9]+$'",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:56.757Z",
+      "finishedAt": "2026-08-03T12:41:57.288Z",
+      "durationMs": 531
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT CAST(MAX(CAST(\n          CASE\n            WHEN CHAR_LENGTH(`project_id`) > 20\n              THEN LEFT(`project_id`, 20)\n            ELSE `project_id`\n          END AS DECIMAL(20,0)\n        )) AS CHAR) AS m\n       FROM `ad_advertiser_online_free_promotion_hour`\n       WHERE `project_id` REGEXP '^[0-9]+$'",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:57.288Z",
+      "finishedAt": "2026-08-03T12:41:58.433Z",
+      "durationMs": 1145
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT * FROM `ad_advertiser_online_free_promotion_day`\n      WHERE `pline_form` = ? AND `consume` > ? AND `promotion_status` = ?\n      ORDER BY id DESC LIMIT 1",
+      "params": [
+        "cpsvideomf",
+        0,
+        "投放中"
+      ],
+      "startedAt": "2026-08-03T12:41:58.434Z",
+      "finishedAt": "2026-08-03T12:41:58.442Z",
+      "durationMs": 8
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "preflight.query",
+      "sql": "SELECT * FROM `ad_advertiser_online_free_promotion_hour`\n      WHERE `pline_form` = ? AND `consume` > ? AND `promotion_status` = ?\n      ORDER BY id DESC LIMIT 1",
+      "params": [
+        "cpsvideomf",
+        0,
+        "投放中"
+      ],
+      "startedAt": "2026-08-03T12:41:58.443Z",
+      "finishedAt": "2026-08-03T12:41:58.449Z",
+      "durationMs": 6
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.insert",
+      "groupId": "sha256:d2a45a90bc9bae3dadd474e25d93a101e7cbce626309beac1e8ce4cb928043a6",
+      "sql": "INSERT INTO `ad_advertiser_online_free_promotion_day` (`account`, `channel_code`, `book_id`, `video_type`, `media`, `app_name`, `promotion_name`, `promotion_status`, `project_id`, `project_name`, `project_status`, `external_action`, `agent_user_name`, `cdate`, `pline_form`, `promotion_id`, `model_pred_roi`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      "params": [
+        "[REDACTED]",
+        "122956217",
+        "41000121517",
+        "2",
+        "2",
+        "超能短剧",
+        "e2e_dc_16265_hit_1785760912414653",
+        "投放中",
+        "7600754001864933427",
+        "家庭煮夫-104648750-xs1.07-41000121517-20251026-144223-49",
+        "开启",
+        "激活",
+        "[REDACTED]",
+        "2026-08-03",
+        "cpsvideomf",
+        "7600754626544205868",
+        10
+      ],
+      "startedAt": "2026-08-03T12:41:58.449Z"
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.insert",
+      "groupId": "sha256:8d029f376485b41b695f4a0d7c3bf51448c8c305130cabb7a77e5e009ada722c",
+      "sql": "INSERT INTO `ad_advertiser_online_free_promotion_hour` (`account`, `book_id`, `video_type`, `app_name`, `promotion_name`, `promotion_status`, `project_status`, `cdate`, `hour`, `pline_form`, `channel_code`, `promotion_id`, `project_id`, `consume`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      "params": [
+        "[REDACTED]",
+        "41000124167",
+        "2",
+        "乐享小短剧",
+        "e2e_dc_16265_hit_1785760912414653",
+        "投放中",
+        "开启",
+        "2026-08-03",
+        "20",
+        "cpsvideomf",
+        "122956217",
+        "7600754626544205868",
+        "7600754001864933427",
+        100
+      ],
+      "startedAt": "2026-08-03T12:41:58.449Z"
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.verify",
+      "nodeId": "0",
+      "sql": "VERIFY ad_advertiser_online_free_promotion_day sum",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:58.449Z",
+      "result": {
+        "expectedHolds": true
+      }
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.verify",
+      "nodeId": "1",
+      "sql": "VERIFY ad_advertiser_online_free_promotion_hour sum",
+      "params": [],
+      "startedAt": "2026-08-03T12:41:58.449Z",
+      "result": {
+        "expectedHolds": true
+      }
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.query",
+      "sql": "SELECT DATABASE() AS db",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:26.793Z",
+      "finishedAt": "2026-08-03T12:46:26.816Z",
+      "durationMs": 23
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.query",
+      "sql": "SHOW COLUMNS FROM `ad_advertiser_online_free_promotion_day`",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:26.818Z",
+      "finishedAt": "2026-08-03T12:46:26.836Z",
+      "durationMs": 18
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.query",
+      "sql": "SHOW COLUMNS FROM `ad_advertiser_online_free_promotion_hour`",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:26.838Z",
+      "finishedAt": "2026-08-03T12:46:26.845Z",
+      "durationMs": 7
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.begin",
+      "sql": "BEGIN",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:26.850Z",
+      "finishedAt": "2026-08-03T12:46:26.853Z",
+      "durationMs": 3
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.execute",
+      "sql": "INSERT INTO `ad_advertiser_online_free_promotion_day` (`account`, `channel_code`, `book_id`, `video_type`, `media`, `app_name`, `promotion_name`, `promotion_status`, `project_id`, `project_name`, `project_status`, `external_action`, `agent_user_name`, `cdate`, `pline_form`, `promotion_id`, `model_pred_roi`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      "params": [
+        "[REDACTED]",
+        "122956217",
+        "41000121517",
+        "2",
+        "2",
+        "超能短剧",
+        "e2e_dc_16265_hit_1785760912414653",
+        "投放中",
+        "7600754001864933427",
+        "家庭煮夫-104648750-xs1.07-41000121517-20251026-144223-49",
+        "开启",
+        "激活",
+        "[REDACTED]",
+        "2026-08-03",
+        "cpsvideomf",
+        "7600754626544205868",
+        10
+      ],
+      "startedAt": "2026-08-03T12:46:26.866Z",
+      "finishedAt": "2026-08-03T12:46:27.020Z",
+      "durationMs": 154,
+      "affectedRows": 1
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.execute",
+      "sql": "INSERT INTO `ad_advertiser_online_free_promotion_hour` (`account`, `book_id`, `video_type`, `app_name`, `promotion_name`, `promotion_status`, `project_status`, `cdate`, `hour`, `pline_form`, `channel_code`, `promotion_id`, `project_id`, `consume`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      "params": [
+        "[REDACTED]",
+        "41000124167",
+        "2",
+        "乐享小短剧",
+        "e2e_dc_16265_hit_1785760912414653",
+        "投放中",
+        "开启",
+        "2026-08-03",
+        "20",
+        "cpsvideomf",
+        "122956217",
+        "7600754626544205868",
+        "7600754001864933427",
+        100
+      ],
+      "startedAt": "2026-08-03T12:46:27.026Z",
+      "finishedAt": "2026-08-03T12:46:27.078Z",
+      "durationMs": 52,
+      "affectedRows": 1
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.query",
+      "sql": "SELECT SUM(`model_pred_roi`) AS aggregate FROM `ad_advertiser_online_free_promotion_day` WHERE `pline_form` = ? AND `promotion_id` = ? AND `cdate` IN (?)",
+      "params": [
+        "cpsvideomf",
+        "7600754626544205868",
+        "2026-08-03"
+      ],
+      "startedAt": "2026-08-03T12:46:27.084Z",
+      "finishedAt": "2026-08-03T12:46:27.090Z",
+      "durationMs": 6
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.query",
+      "sql": "SELECT SUM(`consume`) AS aggregate FROM `ad_advertiser_online_free_promotion_hour` WHERE `pline_form` = ? AND `promotion_id` = ? AND `cdate` IN (?) AND `hour` IN (?)",
+      "params": [
+        "cpsvideomf",
+        "7600754626544205868",
+        "2026-08-03",
+        "20"
+      ],
+      "startedAt": "2026-08-03T12:46:27.097Z",
+      "finishedAt": "2026-08-03T12:46:27.101Z",
+      "durationMs": 4
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "apply.commit",
+      "sql": "COMMIT",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:27.107Z",
+      "finishedAt": "2026-08-03T12:46:27.112Z",
+      "durationMs": 5
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "cleanup.query",
+      "sql": "SELECT DATABASE() AS db",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:34.755Z",
+      "finishedAt": "2026-08-03T12:46:34.758Z",
+      "durationMs": 3
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "cleanup.begin",
+      "sql": "BEGIN",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:34.885Z",
+      "finishedAt": "2026-08-03T12:46:34.887Z",
+      "durationMs": 2
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "cleanup.execute",
+      "sql": "DELETE FROM `ad_advertiser_online_free_promotion_day`\n            WHERE `pline_form` = ?\n              AND `promotion_id` = ?\n              AND `cdate` = ?",
+      "params": [
+        "cpsvideomf",
+        "7600754626544205868",
+        "2026-08-03"
+      ],
+      "startedAt": "2026-08-03T12:46:34.889Z",
+      "finishedAt": "2026-08-03T12:46:34.911Z",
+      "durationMs": 22,
+      "affectedRows": 1
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "cleanup.execute",
+      "sql": "DELETE FROM `ad_advertiser_online_free_promotion_hour`\n            WHERE `pline_form` = ?\n              AND `promotion_id` = ?\n              AND `cdate` = ?",
+      "params": [
+        "cpsvideomf",
+        "7600754626544205868",
+        "2026-08-03"
+      ],
+      "startedAt": "2026-08-03T12:46:34.912Z",
+      "finishedAt": "2026-08-03T12:46:34.918Z",
+      "durationMs": 6,
+      "affectedRows": 1
+    },
+    {
+      "runId": "8870469d-889f-44ca-8055-d05a84922f92",
+      "phase": "cleanup.commit",
+      "sql": "COMMIT",
+      "params": [],
+      "startedAt": "2026-08-03T12:46:34.926Z",
+      "finishedAt": "2026-08-03T12:46:34.939Z",
+      "durationMs": 13
+    }
+  ]
+}

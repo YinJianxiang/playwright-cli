@@ -354,10 +354,9 @@ export function buildRuleFilters(
       );
     }
   }
-  // 投放版本可以不参与骨架源行选择，但规则明确值必须覆盖最终事实行。
-  if (rule.release_ver != null && rule.release_ver !== -1) {
-    finalFactPatch.release_ver = Number(rule.release_ver);
-  }
+  // 投放版本是 capability/物理表路由输入，不是所有事实表共有的行级过滤列。
+  // 具体表若需要版本列，应由该表 recipe 显式声明，不能把 rule.release_ver
+  // 全局注入每个 InsertGroup，否则无该列的 V1/V2 表会被错误阻断。
   if (rule.effect_scope === 2) {
     issues.push(
       issue(
@@ -368,7 +367,6 @@ export function buildRuleFilters(
     );
   }
   const sourceSelectorPatch = { ...finalFactPatch };
-  delete sourceSelectorPatch.release_ver;
   return { filters, sourceSelectorPatch, finalFactPatch, issues };
 }
 

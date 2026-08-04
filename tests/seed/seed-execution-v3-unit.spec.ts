@@ -197,7 +197,7 @@ test.describe('Seed V3 execution plan pure contracts', () => {
     expect(calculateExecutionHash(changed)).not.toBe(calculateExecutionHash(base));
   });
 
-  test('release version is excluded from source selection and required in final facts', () => {
+  test('release version selects capability routes without becoming a global fact column', () => {
     const alignment = buildRuleFilters({
       id: 16262,
       pline_form: 'cpsvideomf',
@@ -214,7 +214,7 @@ test.describe('Seed V3 execution plan pure contracts', () => {
     } as SeedRuleRow);
 
     expect(alignment.sourceSelectorPatch).not.toHaveProperty('release_ver');
-    expect(alignment.finalFactPatch).toMatchObject({ release_ver: 2 });
+    expect(alignment.finalFactPatch).not.toHaveProperty('release_ver');
   });
 
   test('capability lookup uses explicit or knowledge-default release version', () => {

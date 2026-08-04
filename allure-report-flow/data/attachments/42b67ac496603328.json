@@ -1,0 +1,6 @@
+{
+  "url": "http://192.168.0.215:9099/market-job/api/doJob/DATACONTROL/com.dz.glory.job.schedule.DataControlSchedule%23process0:16265",
+  "status": 200,
+  "durationMs": 57,
+  "body": "\"OK\""
+}

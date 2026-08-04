@@ -5,6 +5,8 @@ description: 广告管控业务知识与 Seed V3 权威来源。用于创建或�
 
 # 广告管控知识
 
+需要通过页面新建规则时，业务知识解析完成后转交 `../../ui-ad-control-rule-create/SKILL.md`；本知识 Skill 不直接操作规则页面。
+
 不要在正常任务中搜索 `market-job` 或根据代码临时补业务结论。正式知识位于
 `knowledge/`，人读说明位于 `references/`。
 
@@ -30,4 +32,3 @@ description: 广告管控业务知识与 Seed V3 权威来源。用于创建或�
 - `knowledge/seed-runtime-v3.json` 是确定性产物，禁止手工编辑。
 - 只有用户显式要求 refresh 时，才运行 `knowledge:snapshot` 生成候选。
 - 候选未经 diff、用户确认和 promote，不得覆盖正式知识。
-

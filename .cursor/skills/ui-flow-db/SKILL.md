@@ -9,6 +9,8 @@ description: >-
 
 # UI Flow DB（Seed V3）
 
+上游规则创建统一由 `../ui-ad-control-rule-create/SKILL.md` 负责。本 Skill 接受其 `RuleCreateResult.handoff`，必须按 handoff 的 `ruleId` 从数据库重新读取并核对规则；不得在本 Skill 内重复创建规则。
+
 仅用于 `suite=flow`。业务差异必须由版本化 Seed Config Bundle 声明，禁止在引擎中增加
 指标名特殊分支。
 
@@ -87,5 +89,5 @@ candidate 命令只能写 `_inbox`；未经显式 promote 不得覆盖正式配�
 4. 证据不足时保持 provisional。
 5. 用户显式 promote 后才能供新 run 使用。
 
-上游：无（用例生成 / generate 编排已移除）
+上游：`../ui-ad-control-rule-create/SKILL.md`（可选；接收创建成功的 ruleId handoff）
 下游：[../ui-flow-validate/SKILL.md](../ui-flow-validate/SKILL.md)
