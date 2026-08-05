@@ -11,9 +11,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore", case_sensitive=False)
 
-    siliconflow_base_url: str = "https://api.siliconflow.cn/v1"
-    siliconflow_api_key: SecretStr
-    siliconflow_model: str = "Qwen/Qwen3-VL-32B-Instruct"
+    llm_base_url: str = "https://api.siliconflow.cn/v1"
+    llm_api_key: SecretStr
+    llm_model: str = "Qwen/Qwen3-VL-32B-Instruct"
 
     e2e_login_url: str | None = None
     e2e_home_url: str | None = None
@@ -39,13 +39,13 @@ class Settings(BaseSettings):
     e2e_meta_dir: Path = Path(".local/seed-meta")
     e2e_seed_cleanup_policy: str = "always"
 
-    @field_validator("siliconflow_base_url")
+    @field_validator("llm_base_url")
     @classmethod
     def normalize_base_url(cls, value: str) -> str:
         value = value.strip().rstrip("/")
         parsed = urlparse(value)
-        if parsed.scheme != "https" or not parsed.netloc:
-            raise ValueError("SILICONFLOW_BASE_URL must be an HTTPS URL")
+        if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+            raise ValueError("LLM_BASE_URL must be an http(s) URL")
         return value
 
     @model_validator(mode="after")

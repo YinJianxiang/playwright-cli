@@ -90,7 +90,7 @@ class SeedService:
     async def recover(self) -> list[str]:
         recovered = []
         for record in self.store.list_recoverable():
-            if record.status in {RunStatus.APPLYING, RunStatus.APPLIED, RunStatus.BROWSER_RUNNING, RunStatus.ASSERTING, RunStatus.CLEANING, RunStatus.RECOVERY_REQUIRED}:
+            if record.status in {RunStatus.RULE_CREATED, RunStatus.APPLYING, RunStatus.APPLIED, RunStatus.ASSERTING, RunStatus.CLEANING, RunStatus.RECOVERY_REQUIRED}:
                 await self.cleanup(record.run_id)
                 recovered.append(record.run_id)
         return recovered

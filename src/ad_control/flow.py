@@ -28,14 +28,16 @@ class FlowRunner:
         result = None
         try:
             await self.seed.preflight(run_id)
+            self.seed.store.set_status(run_id, RunStatus.BROWSER_RUNNING)
+            # 先创建规则，确认 rule_id 后再写入种子数据，最后触发 Job 验证
+            rule = await self.browser.create_rule(record.plan.case, evidence)
+            if not rule.success or not rule.rule_id:
+                raise RuntimeError("Browser flow did not return a persisted rule ID")
+            self.seed.store.set_status(run_id, RunStatus.RULE_CREATED)
             if record.plan.operations:
                 await self.seed.apply(run_id, confirmed=True)
             else:
                 self.seed.store.set_status(run_id, RunStatus.APPLIED)
-            self.seed.store.set_status(run_id, RunStatus.BROWSER_RUNNING)
-            rule = await self.browser.create_rule(record.plan.case, evidence)
-            if not rule.success or not rule.rule_id:
-                raise RuntimeError("Browser flow did not return a persisted rule ID")
             self.seed.store.set_status(run_id, RunStatus.ASSERTING)
             assertion = await self._verify_rule(rule.rule_id)
             assertion["record"] = await self.browser.verify_record(rule.rule_id, record.plan.case, evidence)

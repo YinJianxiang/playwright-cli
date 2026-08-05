@@ -17,7 +17,7 @@ def test_rule_result_requires_numeric_id():
 
 def test_credentials_are_scoped_to_allowed_domain():
     settings = Settings(
-        siliconflow_api_key="dummy",
+        llm_api_key="dummy",
         e2e_user="user",
         e2e_password="password",
         e2e_captcha="123456",
@@ -29,6 +29,6 @@ def test_credentials_are_scoped_to_allowed_domain():
 
 
 def test_browser_credentials_are_unwrapped_only_for_agent():
-    settings = Settings(siliconflow_api_key="dummy", e2e_user="user", e2e_password="pass", e2e_captcha="123456")
+    settings = Settings(llm_api_key="dummy", e2e_user="user", e2e_password="pass", e2e_captcha="123456")
     credentials = settings.browser_credentials()
     assert all(value == {"username": "user", "password": "pass", "captcha": "123456"} for value in credentials.values())

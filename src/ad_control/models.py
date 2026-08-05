@@ -11,9 +11,10 @@ from pydantic import BaseModel, Field, model_validator
 class RunStatus(StrEnum):
     PLANNED = "planned"
     APPROVED = "approved"
+    BROWSER_RUNNING = "browser_running"
+    RULE_CREATED = "rule_created"
     APPLYING = "applying"
     APPLIED = "applied"
-    BROWSER_RUNNING = "browser_running"
     ASSERTING = "asserting"
     SUCCEEDED = "succeeded"
     FAILED = "failed"

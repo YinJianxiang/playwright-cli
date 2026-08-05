@@ -23,7 +23,7 @@ class FakeDatabase:
 
 async def test_seed_planner_creates_parameterized_insert_and_rollback():
     settings = Settings(
-        siliconflow_api_key="dummy",
+        llm_api_key="dummy",
         e2e_db_host="127.0.0.1",
         e2e_db_name="test",
         e2e_db_user="test",
@@ -44,7 +44,7 @@ async def test_seed_planner_creates_parameterized_insert_and_rollback():
 
 async def test_conditions_for_same_table_share_one_entity():
     settings = Settings(
-        siliconflow_api_key="dummy", e2e_db_host="127.0.0.1", e2e_db_name="test",
+        llm_api_key="dummy", e2e_db_host="127.0.0.1", e2e_db_name="test",
         e2e_db_user="test", e2e_db_password="dummy", e2e_db_env="test",
     )
     planner = SeedPlanner(settings)
